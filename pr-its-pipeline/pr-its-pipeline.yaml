@@ -30,20 +30,28 @@ spec:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
     - name: find-component-image
-      image: quay.io/konflux-ci/konflux-test:stable
-      workingDir: /workspace
-      env:
+      description: Placeholder task that prints the Snapshot and outputs standard TEST_OUTPUT
+      params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
-        - name: COMPONENT_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.labels['appstudio.openshift.io/component']
-      script: |
-        #!/bin/sh
-
-        # Extract the component container image from the SNAPSHOT JSON data
-        COMPONENT_CONTAINER_IMAGE=$(jq -r --arg component_name "${COMPONENT_NAME}" '.components[] | select(.name == $component_name) | .containerImage' <<< "${SNAPSHOT}")
-
-        # Log the extracted variable
-        echo "  COMPONENT_CONTAINER_IMAGE: ${COMPONENT_CONTAINER_IMAGE}"
+      taskSpec:
+        params:
+        - name: SNAPSHOT
+        steps:
+        - image: quay.io/konflux-ci/konflux-test:stable
+          workingDir: /workspace
+          env:
+            - name: SNAPSHOT
+              value: $(params.SNAPSHOT)
+            - name: COMPONENT_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['appstudio.openshift.io/component']
+          script: |
+            #!/bin/sh
+    
+            # Extract the component container image from the SNAPSHOT JSON data
+            COMPONENT_CONTAINER_IMAGE=$(jq -r --arg component_name "${COMPONENT_NAME}" '.components[] | select(.name == $component_name) | .containerImage' <<< "${SNAPSHOT}")
+    
+            # Log the extracted variable
+            echo "  COMPONENT_CONTAINER_IMAGE: ${COMPONENT_CONTAINER_IMAGE}"
