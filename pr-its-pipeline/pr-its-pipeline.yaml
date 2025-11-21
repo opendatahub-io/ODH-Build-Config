@@ -30,6 +30,24 @@ spec:
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
+    - name: check-prerequisites
+      description: check prerequisites if the ITS needs to execute
+      taskSpec:
+        results:
+        - name: event-type
+          description: "stores info about event type"
+        steps:
+        - image: quay.io/konflux-ci/konflux-test:stable
+          env:
+            - name: EVENT_TYPE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['pac.test.appstudio.openshift.io/event-type']
+          script: |
+            #!/bin/bash
+            set -e
+            echo "EVENT_TYPE=${EVENT_TYPE}"
+            echo -n "${EVENT_TYPE}" > $(results.event-type.path)
     - name: find-component-image
       description: Placeholder task that prints the Snapshot and outputs standard TEST_OUTPUT
       params:
@@ -56,3 +74,7 @@ spec:
     
             # Log the extracted variable
             echo "  COMPONENT_CONTAINER_IMAGE: ${COMPONENT_CONTAINER_IMAGE}"
+      when:
+        - input: "$(tasks.check-prerequisites.results.event-type)"
+          operator: in
+          values: ["pull-request"]
