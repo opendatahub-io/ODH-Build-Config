@@ -178,9 +178,7 @@ spec:
         value: "$(tasks.parse-metadata.results.source-git-url)"
       - name: git-rev
         value: "$(tasks.parse-metadata.results.target-git-branch)"
-      - name: namespace
-        value: "$(params.NAMESPACE)"
-      - name: operator-image
+      - name: component-image
         value: "$(tasks.parse-metadata.results.component-container-image)"
       taskSpec:
         volumes:
