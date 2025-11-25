@@ -220,3 +220,7 @@ spec:
             script: |
               oc get pods
               oc whoami
+      when:
+        - input: "$(tasks.check-prerequisites.results.event-type)"
+          operator: in
+          values: ["pull_request"]
