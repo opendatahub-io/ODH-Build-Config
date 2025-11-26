@@ -32,6 +32,8 @@ spec:
           value: $(params.SNAPSHOT)
     - name: check-prerequisites
       description: check prerequisites if the ITS needs to execute
+      runAfter:
+        - parse-metadata
       taskSpec:
         results:
         - name: event-type
@@ -50,6 +52,8 @@ spec:
             echo -n "${EVENT_TYPE}" > $(results.event-type.path)
     - name: find-component-image
       description: Placeholder task that prints the Snapshot and outputs standard TEST_OUTPUT
+      runAfter:
+        - check-prerequisites
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -80,7 +84,7 @@ spec:
           values: ["pull_request"]
     - name: provision-eaas-space
       runAfter:
-        - parse-metadata
+        - check-prerequisites
       taskRef:
         resolver: git
         params:
