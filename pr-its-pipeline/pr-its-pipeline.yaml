@@ -81,7 +81,7 @@ spec:
       when:
         - input: "$(tasks.check-prerequisites.results.event-type)"
           operator: in
-          values: ["pull_request"]
+          values: ["pull_request", "retest-all-comment"]
     - name: provision-eaas-space
       runAfter:
         - check-prerequisites
@@ -106,7 +106,7 @@ spec:
       when:
         - input: "$(tasks.check-prerequisites.results.event-type)"
           operator: in
-          values: ["pull_request"]
+          values: ["pull_request", "retest-all-comment"]
     - name: provision-cluster
       runAfter:
         - provision-eaas-space
