@@ -86,7 +86,8 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.get_branch.outputs.branch }}
+          # branch: ${{ steps.get_branch.outputs.branch }}
+          branch: main
           message: "Updating the bundle-csv with latest images"
           repository: ${{ env.GITHUB_ORG }}/ODH-Build-Config
           directory: ${{ steps.get_branch.outputs.branch }}
