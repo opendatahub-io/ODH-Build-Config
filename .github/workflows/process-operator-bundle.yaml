@@ -36,8 +36,7 @@ jobs:
       - name: Git checkout utils
         uses: actions/checkout@v4
         with:
-          # repository: ${{ env.GITHUB_RKA_ORG }}/RHOAI-Konflux-Automation
-          repository: ckhordiasma/RHOAI-Konflux-Automation
+          repository: ${{ env.GITHUB_RKA_ORG }}/RHOAI-Konflux-Automation
           ref: odh-bundle-compat
           path: utils
       - name: Install dependencies
