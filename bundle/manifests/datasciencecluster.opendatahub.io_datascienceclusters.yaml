@@ -221,8 +221,7 @@ spec:
                           - "Managed"   : the operator is actively managing the component and trying to keep it active.
                                           It will only upgrade the component if it is safe to do so
 
-                          - "Unmanaged" : the operator is actively managing the component and trying to keep it active.
-                                          It will only upgrade the component if it is safe to do so
+                          - "Unmanaged" : the operator will not deploy or manage the component's lifecycle, but may create supporting configuration resources.
 
                           - "Removed"   : the operator is actively managing the component and will not install it,
                                           or if it is installed, the operator will try to remove it
@@ -298,8 +297,9 @@ spec:
                     x-kubernetes-validations:
                     - message: RegistriesNamespace is immutable when model registry
                         is Managed
-                      rule: (self.managementState != 'Managed') || (oldSelf.registriesNamespace
-                        == '') || (oldSelf.managementState != 'Managed')|| (self.registriesNamespace
+                      rule: (!has(self.managementState) || self.managementState !=
+                        'Managed') || (oldSelf.registriesNamespace == '') || (!has(oldSelf.managementState)
+                        || oldSelf.managementState != 'Managed') || (self.registriesNamespace
                         == oldSelf.registriesNamespace)
                   ray:
                     description: Ray component configuration.
@@ -589,8 +589,7 @@ spec:
                         description: |-
                           Set to one of the following values:
 
-                          - "Unmanaged" : the operator is actively managing the component and trying to keep it active.
-                                          It will only upgrade the component if it is safe to do so
+                          - "Unmanaged" : the operator will not deploy or manage the component's lifecycle, but may create supporting configuration resources.
 
                           - "Removed"   : the operator is actively managing the component and will not install it,
                                           or if it is installed, the operator will try to remove it
@@ -1178,8 +1177,7 @@ spec:
                         description: |-
                           Set to one of the following values:
 
-                          - "Unmanaged" : the operator is actively managing the component and trying to keep it active.
-                                          It will only upgrade the component if it is safe to do so
+                          - "Unmanaged" : the operator will not deploy or manage the component's lifecycle, but may create supporting configuration resources.
 
                           - "Removed"   : the operator is actively managing the component and will not install it,
                                           or if it is installed, the operator will try to remove it
@@ -1191,6 +1189,24 @@ spec:
                     type: object
                   llamastackoperator:
                     description: LlamaStack Operator component configuration.
+                    properties:
+                      managementState:
+                        description: |-
+                          Set to one of the following values:
+
+                          - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                        It will only upgrade the component if it is safe to do so
+
+                          - "Removed" : the operator is actively managing the component and will not install it,
+                                        or if it is installed, the operator will try to remove it
+                        enum:
+                        - Managed
+                        - Removed
+                        pattern: ^(Managed|Unmanaged|Force|Removed)$
+                        type: string
+                    type: object
+                  mlflowoperator:
+                    description: MLflow Operator component configuration.
                     properties:
                       managementState:
                         description: |-
@@ -1236,11 +1252,30 @@ spec:
                     x-kubernetes-validations:
                     - message: RegistriesNamespace is immutable when model registry
                         is Managed
-                      rule: (self.managementState != 'Managed') || (oldSelf.registriesNamespace
-                        == '') || (oldSelf.managementState != 'Managed')|| (self.registriesNamespace
+                      rule: (!has(self.managementState) || self.managementState !=
+                        'Managed') || (oldSelf.registriesNamespace == '') || (!has(oldSelf.managementState)
+                        || oldSelf.managementState != 'Managed') || (self.registriesNamespace
                         == oldSelf.registriesNamespace)
                   ray:
                     description: Ray component configuration.
+                    properties:
+                      managementState:
+                        description: |-
+                          Set to one of the following values:
+
+                          - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                        It will only upgrade the component if it is safe to do so
+
+                          - "Removed" : the operator is actively managing the component and will not install it,
+                                        or if it is installed, the operator will try to remove it
+                        enum:
+                        - Managed
+                        - Removed
+                        pattern: ^(Managed|Unmanaged|Force|Removed)$
+                        type: string
+                    type: object
+                  trainer:
+                    description: Trainer component configuration.
                     properties:
                       managementState:
                         description: |-
@@ -1491,8 +1526,7 @@ spec:
                         description: |-
                           Set to one of the following values:
 
-                          - "Unmanaged" : the operator is actively managing the component and trying to keep it active.
-                                          It will only upgrade the component if it is safe to do so
+                          - "Unmanaged" : the operator will not deploy or manage the component's lifecycle, but may create supporting configuration resources.
 
                           - "Removed"   : the operator is actively managing the component and will not install it,
                                           or if it is installed, the operator will try to remove it
@@ -1522,6 +1556,42 @@ spec:
                     type: object
                   llamastackoperator:
                     description: LlamaStack Operator component status.
+                    properties:
+                      managementState:
+                        description: |-
+                          Set to one of the following values:
+
+                          - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                        It will only upgrade the component if it is safe to do so
+
+                          - "Removed" : the operator is actively managing the component and will not install it,
+                                        or if it is installed, the operator will try to remove it
+                        enum:
+                        - Managed
+                        - Removed
+                        pattern: ^(Managed|Unmanaged|Force|Removed)$
+                        type: string
+                      releases:
+                        items:
+                          description: ComponentRelease represents the detailed status
+                            of a component release.
+                          properties:
+                            name:
+                              type: string
+                            repoUrl:
+                              type: string
+                            version:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                        x-kubernetes-list-map-keys:
+                        - name
+                        x-kubernetes-list-type: map
+                    type: object
+                  mlflowoperator:
+                    description: MLflow Operator component status.
                     properties:
                       managementState:
                         description: |-
@@ -1596,6 +1666,42 @@ spec:
                     type: object
                   ray:
                     description: Ray component status.
+                    properties:
+                      managementState:
+                        description: |-
+                          Set to one of the following values:
+
+                          - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                        It will only upgrade the component if it is safe to do so
+
+                          - "Removed" : the operator is actively managing the component and will not install it,
+                                        or if it is installed, the operator will try to remove it
+                        enum:
+                        - Managed
+                        - Removed
+                        pattern: ^(Managed|Unmanaged|Force|Removed)$
+                        type: string
+                      releases:
+                        items:
+                          description: ComponentRelease represents the detailed status
+                            of a component release.
+                          properties:
+                            name:
+                              type: string
+                            repoUrl:
+                              type: string
+                            version:
+                              type: string
+                          required:
+                          - name
+                          type: object
+                        type: array
+                        x-kubernetes-list-map-keys:
+                        - name
+                        x-kubernetes-list-type: map
+                    type: object
+                  trainer:
+                    description: Trainer component status.
                     properties:
                       managementState:
                         description: |-

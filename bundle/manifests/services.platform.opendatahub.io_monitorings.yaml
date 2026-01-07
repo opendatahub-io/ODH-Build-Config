@@ -56,8 +56,9 @@ spec:
                 description: Alerting configuration for Prometheus
                 type: object
               collectorReplicas:
-                description: CollectorReplicas specifies the number of replicas in
-                  opentelemetry-collector, default is 2 if not set
+                description: |-
+                  CollectorReplicas specifies the number of replicas in opentelemetry-collector. If not set, it defaults
+                  to 1 on single-node clusters and 2 on multi-node clusters.
                 format: int32
                 type: integer
               metrics:
@@ -65,11 +66,14 @@ spec:
                 properties:
                   exporters:
                     additionalProperties:
-                      type: string
+                      type: object
+                      x-kubernetes-preserve-unknown-fields: true
                     description: |-
                       Exporters defines custom metrics exporters for sending metrics to external observability tools.
-                      Each key-value pair represents an exporter name and its configuration.
+                      Each key represents the exporter name, and the value contains the exporter configuration.
+                      The configuration follows the OpenTelemetry Collector exporter format.
                       Reserved names 'prometheus' and 'otlp/tempo' cannot be used as they conflict with built-in exporters.
+                      Maximum 10 exporters allowed, each config must be less than 10KB (enforced at reconciliation time).
                     type: object
                     x-kubernetes-validations:
                     - message: exporter name 'prometheus' is reserved and cannot be
@@ -78,8 +82,8 @@ spec:
                     - message: exporter name 'otlp/tempo' is reserved and cannot be
                         used
                       rule: '!(''otlp/tempo'' in self)'
-                    - message: exporter configuration values must be non-empty strings
-                      rule: self.all(k, self[k] != '')
+                    - message: maximum 10 exporters allowed
+                      rule: size(self) <= 10
                   replicas:
                     description: |-
                       Replicas specifies the number of replicas in monitoringstack. If not set, it defaults
@@ -87,47 +91,6 @@ spec:
                     format: int32
                     minimum: 0
                     type: integer
-                  resources:
-                    description: MetricsResources defines the resource requests and
-                      limits for the monitoring service
-                    properties:
-                      cpulimit:
-                        anyOf:
-                        - type: integer
-                        - type: string
-                        default: 500m
-                        description: CPULimit specifies the maximum CPU allocation
-                          (e.g., "500m", "2")
-                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                        x-kubernetes-int-or-string: true
-                      cpurequest:
-                        anyOf:
-                        - type: integer
-                        - type: string
-                        default: 100m
-                        description: CPURequest specifies the minimum CPU allocation
-                          (e.g., "100m", "0.5")
-                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                        x-kubernetes-int-or-string: true
-                      memorylimit:
-                        anyOf:
-                        - type: integer
-                        - type: string
-                        default: 512Mi
-                        description: MemoryLimit specifies the maximum memory allocation
-                          (e.g., "1Gi", "512Mi")
-                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                        x-kubernetes-int-or-string: true
-                      memoryrequest:
-                        anyOf:
-                        - type: integer
-                        - type: string
-                        default: 256Mi
-                        description: MemoryRequest specifies the minimum memory allocation
-                          (e.g., "256Mi", "1Gi")
-                        pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                        x-kubernetes-int-or-string: true
-                    type: object
                   storage:
                     description: MetricsStorage defines the storage configuration
                       for the monitoring service
@@ -149,10 +112,9 @@ spec:
                     type: object
                 type: object
                 x-kubernetes-validations:
-                - message: Replicas can only be set to non-zero value when either
-                    Storage or Resources is configured
-                  rule: '!(self.storage == null && self.resources == null) || !has(self.replicas)
-                    || self.replicas == 0'
+                - message: Non-zero replicas require metrics.storage to be configured
+                  rule: has(self.storage) || !has(self.replicas) || self.replicas
+                    == 0
               namespace:
                 default: redhat-ods-monitoring
                 description: |-
@@ -185,7 +147,7 @@ spec:
                     type: string
                   storage:
                     description: TracesStorage defines the storage configuration for
-                      tracing.
+                      tracing
                     properties:
                       backend:
                         default: pv
@@ -218,7 +180,8 @@ spec:
                     x-kubernetes-validations:
                     - message: When backend is s3 or gcs, the 'secret' field must
                         be specified and non-empty
-                      rule: 'self.backend != ''pv'' ? has(self.secret) : true'
+                      rule: 'self.backend != ''pv'' ? (has(self.secret) && self.secret
+                        != '''') : true'
                     - message: Size is supported when backend is pv only
                       rule: 'self.backend != ''pv'' ? !has(self.size) : true'
                   tls:
@@ -235,8 +198,9 @@ spec:
                           If not specified, OpenShift service serving certificates will be used
                         type: string
                       enabled:
-                        default: true
-                        description: Enabled enables TLS for Tempo gRPC connections
+                        description: |-
+                          Enabled enables TLS for Tempo OTLP ingestion (gRPC/HTTP) and query APIs (HTTP)
+                          TLS is disabled by default to maintain backward compatibility
                         type: boolean
                     type: object
                 required:
@@ -244,15 +208,12 @@ spec:
                 type: object
             type: object
             x-kubernetes-validations:
-            - message: Alerting configuration requires metrics.storage or metrics.resources
-                to be configured
-              rule: 'has(self.alerting) ? has(self.metrics.storage) || has(self.metrics.resources)
-                : true'
-            - message: CollectorReplicas can only be set when metrics.resources, metrics.storage
-                or traces are configured, and must be > 0
+            - message: Alerting configuration requires metrics.storage to be configured
+              rule: 'has(self.alerting) ? has(self.metrics.storage) : true'
+            - message: CollectorReplicas can only be set when metrics.storage or traces
+                are configured, and must be > 0
               rule: '!has(self.collectorReplicas) || (self.collectorReplicas > 0 &&
-                ((self.metrics.resources != null || self.metrics.storage != null)
-                || self.traces != null))'
+                (self.metrics.storage != null || self.traces != null))'
           status:
             description: MonitoringStatus defines the observed state of Monitoring
             properties:
