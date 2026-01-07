@@ -29,16 +29,6 @@ jobs:
       - name: Git checkout RBC main
         uses: actions/checkout@v4
         with:
-          ref: main
-          path: main
-          sparse-checkout: |
-            pcc
-            catalog/${{ steps.get_branch.outputs.branch }}
-            config
-          sparse-checkout-cone-mode: false
-      - name: Git checkout RBC release
-        uses: actions/checkout@v4
-        with:
           ref: ${{ steps.get_branch.outputs.branch }}
           path: ${{ steps.get_branch.outputs.branch }}
       - name: Git checkout utils
