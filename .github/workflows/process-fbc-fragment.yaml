@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 env:
-  GITHUB_ORG: red-hat-data-services
+  GITHUB_ORG: opendatahub-io
   GITHUB_RKA_ORG: red-hat-data-services
   PREVIOUS_RELEASE: rhoai-2.25
 jobs:
@@ -129,7 +129,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ steps.get_branch.outputs.branch }}
           message: "Updating the catalog.yaml with latest images and patches"
-          repository: ${{ env.GITHUB_ORG }}/RHOAI-Build-Config
+          repository: ${{ env.GITHUB_ORG }}/ODH-Build-Config
           directory: ${{ steps.get_branch.outputs.branch }}
           author_name: Openshift-AI DevOps
           author_email: openshift-ai-devops@redhat.com
