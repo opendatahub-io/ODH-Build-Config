@@ -87,8 +87,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:ec4eb2cb178232852ca51473db9df9b95d17acb33953da456c734651be8a65de"
-    createdAt: "2026-01-07T04:15:31Z"
+    containerImage: "registry.redhat.io/opendatahub/opendatahub-operator@sha256:9f381cb5817c1daa5f357b21c99368714876466119168f98eb635bd27ad22d3a"
+    createdAt: "2026-01-07T19:47:16Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1776,7 +1776,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_TRAINING_CUDA124_TORCH25_PY311_IMAGE
                   value: "quay.io/opendatahub/odh-training-cuda124-torch25-py311@sha256:dc46f72d9ba5e07bebc1b97aa51d0d4c34272e3116f845699a799a626f4e1a3c"
                 - name: RELATED_IMAGE_ODH_TRAINING_CUDA128_TORCH28_PY312_IMAGE
-                  value: "quay.io/opendatahub/odh-training-cuda128-torch28-py312-rhel9@sha256:e65454e95f7322ca63a4c7a3a7c978e2c210959cb9b774478fa8f5ac5eaf5603"
+                  value: "registry.redhat.io/opendatahub/odh-training-cuda128-torch28-py312-rhel9@sha256:e65454e95f7322ca63a4c7a3a7c978e2c210959cb9b774478fa8f5ac5eaf5603"
                 - name: RELATED_IMAGE_ODH_TRAINING_ROCM62_TORCH24_PY311_IMAGE
                   value: "quay.io/opendatahub/odh-training-rocm62-torch24-py311@sha256:2c68904660307f411ba770e99f6bc47e6eb3559ea4ea342f72abd675d1d21d82"
                 - name: RELATED_IMAGE_ODH_TRAINING_ROCM62_TORCH25_PY311_IMAGE
@@ -1811,7 +1811,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAIIS_VLLM_S390X_SPYRE_IMAGE
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:ec4eb2cb178232852ca51473db9df9b95d17acb33953da456c734651be8a65de"
+                image: "registry.redhat.io/opendatahub/opendatahub-operator@sha256:9f381cb5817c1daa5f357b21c99368714876466119168f98eb635bd27ad22d3a"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2294,6 +2294,8 @@ spec:
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-kueue
   relatedImages:
+  - name: opendatahub-operator-9f381cb5817c1daa5f357b21c99368714876466119168f98eb635bd27ad22d3a-annotation
+    image: "registry.redhat.io/opendatahub/opendatahub-operator@sha256:9f381cb5817c1daa5f357b21c99368714876466119168f98eb635bd27ad22d3a"
   - name: ose-cli-bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5-annotation
     image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
   - name: ose-cli-75bf9b911b6481dcf29f7942240d1555adaa607eec7fc61bedb7f624f87c36d4-annotation
@@ -2447,7 +2449,7 @@ spec:
   - name: odh_training_cuda124_torch25_py311_image
     image: "quay.io/opendatahub/odh-training-cuda124-torch25-py311@sha256:dc46f72d9ba5e07bebc1b97aa51d0d4c34272e3116f845699a799a626f4e1a3c"
   - name: odh_training_cuda128_torch28_py312_image
-    image: "quay.io/opendatahub/odh-training-cuda128-torch28-py312-rhel9@sha256:e65454e95f7322ca63a4c7a3a7c978e2c210959cb9b774478fa8f5ac5eaf5603"
+    image: "registry.redhat.io/opendatahub/odh-training-cuda128-torch28-py312-rhel9@sha256:e65454e95f7322ca63a4c7a3a7c978e2c210959cb9b774478fa8f5ac5eaf5603"
   - name: odh_training_rocm62_torch24_py311_image
     image: "quay.io/opendatahub/odh-training-rocm62-torch24-py311@sha256:2c68904660307f411ba770e99f6bc47e6eb3559ea4ea342f72abd675d1d21d82"
   - name: odh_training_rocm62_torch25_py311_image
