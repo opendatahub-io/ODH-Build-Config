@@ -36,6 +36,10 @@ spec:
     value: catalog/v4.20
   - name: build-args-file
     value: catalog/catalog_build_args.map
+  - name: skip-checks
+    value: true
+  - name: rebuild
+    value: true
   pipelineSpec:
     description: |
       This pipeline is ideal for building and verifying [file-based catalogs](https://konflux-ci.dev/docs/end-to-end/building-olm/#building-the-file-based-catalog).
