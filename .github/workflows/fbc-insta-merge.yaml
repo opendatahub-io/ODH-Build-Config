@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 env:
-  GITHUB_ORG: red-hat-data-services
-  GITHUB_RKA_ORG: red-hat-data-services
+  GITHUB_ORG: opendatahub-io
+  GITHUB_REPO: ODH-Build-Config
   RESOLVE_CONFLICTS_FOR: 'catalog/catalog-patch.yaml,schedule/catalog-github-trigger.txt'
 
 
@@ -91,9 +91,9 @@ jobs:
           attempt_limit: 5
           github_token: ${{ steps.app-token.outputs.token }}
           with: |
-            upstream_repo: "https://github.com/${GITHUB_ORG}/RHOAI-Build-Config.git"
+            upstream_repo: "https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git"
             upstream_branch: "${{ steps.merge-feasibility-check.outputs.BASE_BRANCH }}"
-            downstream_repo: "https://github.com/${GITHUB_ORG}/RHOAI-Build-Config.git"
+            downstream_repo: "https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git"
             downstream_branch: "${{ steps.merge-feasibility-check.outputs.HEAD_BRANCH }}"
             token: ${{ steps.app-token.outputs.token }}
             resolve_conflicts_for: "${RESOLVE_CONFLICTS_FOR}"
