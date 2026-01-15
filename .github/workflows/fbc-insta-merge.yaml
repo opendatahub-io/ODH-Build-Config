@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   insta-merge:
-    if: ${{ github.event.sender.login == 'konflux-internal-p02[bot]'  && contains(github.event.pull_request.title, 'update odh-operator-bundle-')}}
+    if: ${{ github.event.sender.login == 'red-hat-konflux'  && contains(github.event.pull_request.title, 'update odh-operator-bundle-')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -100,21 +100,21 @@ jobs:
             merge_args: "--no-edit"
             pr_url: "${{ github.event.pull_request.html_url }}"
 
-#      - name: instant-merge
-#        env:
-#          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-#        run: |
-#          # Declare variables
-#          BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
-#          VERSION=v${BRANCH/rhoai-/}
-#          SUFFIX=${VERSION/./-}
-#          REGEX="^Update $COMPONENT-$SUFFIX to [0-9a-z]{1,40}$"
-#
-#          #Check if PR title is as per the convention
-#          if [[ "${{ github.event.pull_request.title }}" =~ $REGEX ]]
-#          then
-#            gh pr merge --merge --admin ${{ github.event.pull_request.html_url }}
-#            echo "Merged!!"
-#          else
-#            echo "Insta-merge not configured to merge this PR, skipping."
-#          fi
+      - name: instant-merge
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          # Declare variables
+          BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
+          VERSION=v${BRANCH/rhoai-/}
+          SUFFIX=${VERSION/./-}
+          REGEX="^Update $COMPONENT-$SUFFIX to [0-9a-z]{1,40}$"
+
+          #Check if PR title is as per the convention
+          if [[ "${{ github.event.pull_request.title }}" =~ $REGEX ]]
+          then
+            gh pr merge --merge --admin ${{ github.event.pull_request.html_url }}
+            echo "Merged!!"
+          else
+            echo "Insta-merge not configured to merge this PR, skipping."
+          fi
