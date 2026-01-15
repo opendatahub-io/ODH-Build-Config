@@ -137,4 +137,4 @@ COPY bundle/manifests /manifests/
 COPY bundle/metadata /metadata/
 COPY bundle/tests/scorecard /tests/scorecard/
 
-# edit this comment to trigger new build
+# edit this comment to trigger new build. 
