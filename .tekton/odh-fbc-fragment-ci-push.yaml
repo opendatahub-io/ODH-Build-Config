@@ -7,7 +7,10 @@ metadata:
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/cancel-in-progress: "false"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: '"non-existent-file.non-existent-ext".pathChanged()'
+    pipelinesascode.tekton.dev/on-cel-expression: |
+      event == "push" && target_branch == "rhoai-3.2" 
+      && ( "catalog/**".pathChanged() || ".tekton/odh-fbc-fragment-ci-push.yaml".pathChanged()) 
+      && !files.all.all(x, x.matches('^catalog/catalog-patch\\.yaml$') || x.matches('^\\.github/workflows/'))  
   creationTimestamp:
   labels:
     appstudio.openshift.io/application: poc
