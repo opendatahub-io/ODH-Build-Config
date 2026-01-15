@@ -1,21 +1,21 @@
 name: Insta Merge FBC Nudges
 
 on:
-#  pull_request:
-#    branches:
-#      - 'main'
-#    types:
-#      - opened
-#      - reopened
-#      - edited
-#    paths:
-#      - catalog/catalog-patch.yaml
-#      - schedule/catalog-github-trigger.txt
+  pull_request:
+    branches:
+      - 'main'
+    types:
+      - opened
+      - reopened
+      - edited
+    paths:
+      - catalog/catalog-patch.yaml
+      - schedule/catalog-github-trigger.txt
   workflow_dispatch:
 
 env:
-  GITHUB_ORG: red-hat-data-services
-  GITHUB_RKA_ORG: red-hat-data-services
+  GITHUB_ORG: opendatahub-io
+  GITHUB_REPO: ODH-Build-Config
   RESOLVE_CONFLICTS_FOR: 'catalog/catalog-patch.yaml,schedule/catalog-github-trigger.txt'
 
 
@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   insta-merge:
-    if: ${{ github.event.sender.login == 'konflux-internal-p02[bot]'  && contains(github.event.pull_request.title, 'update odh-operator-bundle-')}}
+    if: ${{ github.event.sender.login == 'red-hat-konflux'  && contains(github.event.pull_request.title, 'update odh-operator-bundle-')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,9 +51,9 @@ jobs:
           # Declare variables
           BASE_BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
           HEAD_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-          VERSION=v${BASE_BRANCH/rhoai-/}
-          SUFFIX=${VERSION/./-}
+          SUFFIX="ci"
           echo "SUFFIX=$SUFFIX"
+          echo "BASE_BRANCH=$BASE_BRANCH"
           echo "HEAD_BRANCH=$HEAD_BRANCH"
           TITLE="${{ github.event.pull_request.title }}"
           
@@ -80,8 +80,8 @@ jobs:
         id: app-token
         uses: getsentry/action-github-app-token@v2
         with:
-          app_id: ${{ secrets.RHOAI_DEVOPS_APP_ID }}
-          private_key: ${{ secrets.RHOAI_DEVOPS_APP_PRIVATE_KEY }}
+          app_id: ${{ secrets.ODH_DEVOPS_APP_ID }}
+          private_key: ${{ secrets.ODH_DEVOPS_APP_PRIVATE_KEY }}
 
       - uses: Wandalen/wretry.action@v3.5.0
         if: ${{ steps.merge-feasibility-check.outputs.FEASIBLE == 'Yes' }}
@@ -91,30 +91,12 @@ jobs:
           attempt_limit: 5
           github_token: ${{ steps.app-token.outputs.token }}
           with: |
-            upstream_repo: "https://github.com/${GITHUB_ORG}/RHOAI-Build-Config.git"
+            upstream_repo: "https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git"
             upstream_branch: "${{ steps.merge-feasibility-check.outputs.BASE_BRANCH }}"
-            downstream_repo: "https://github.com/${GITHUB_ORG}/RHOAI-Build-Config.git"
+            downstream_repo: "https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git"
             downstream_branch: "${{ steps.merge-feasibility-check.outputs.HEAD_BRANCH }}"
             token: ${{ steps.app-token.outputs.token }}
             resolve_conflicts_for: "${RESOLVE_CONFLICTS_FOR}"
             merge_args: "--no-edit"
             pr_url: "${{ github.event.pull_request.html_url }}"
 
-#      - name: instant-merge
-#        env:
-#          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-#        run: |
-#          # Declare variables
-#          BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
-#          VERSION=v${BRANCH/rhoai-/}
-#          SUFFIX=${VERSION/./-}
-#          REGEX="^Update $COMPONENT-$SUFFIX to [0-9a-z]{1,40}$"
-#
-#          #Check if PR title is as per the convention
-#          if [[ "${{ github.event.pull_request.title }}" =~ $REGEX ]]
-#          then
-#            gh pr merge --merge --admin ${{ github.event.pull_request.html_url }}
-#            echo "Merged!!"
-#          else
-#            echo "Insta-merge not configured to merge this PR, skipping."
-#          fi
