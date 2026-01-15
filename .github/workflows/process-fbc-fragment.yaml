@@ -109,7 +109,7 @@ jobs:
           DOCKER_CONFIG=${DOCKER_AUTH_DIR}/.docker/ opm alpha render-template semver -o yaml utils/utils/fbc-processor/fbc-semver-template.yaml > ${BUNDLE_OBJECT_SINGLE_BUNDLE_PATH}
           DOCKER_CONFIG=${DOCKER_AUTH_DIR}/.docker/ opm alpha render-template semver ${CSV_META_OPM_FLAG} -o yaml utils/utils/fbc-processor/fbc-semver-template.yaml > ${CSV_META_SINGLE_BUNDLE_PATH}
 
-          PUSH_PIPELINE_PATH=${BRANCH}/.tekton/odh-ci-fbc-fragment-push.yaml
+          PUSH_PIPELINE_PATH=${BRANCH}/.tekton/odh-fbc-fragment-ci-push.yaml
 
           OPENSHIFT_VERSION="v4.20"
           NUMERIC_OCP_VERSION=${OPENSHIFT_VERSION/v4./4}
