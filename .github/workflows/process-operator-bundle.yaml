@@ -19,7 +19,7 @@ env:
 
 jobs:
   process-bundle:
-#    if: ${{ github.ref_name != 'main' }}
+    if: ${{ github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     container:
       image: quay.io/rhoai/rhoai-task-toolset:latest
@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: get_branch
-      - name: Git checkout RBC release
+      - name: Git checkout RBC main
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.get_branch.outputs.branch }}
@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.GITHUB_RKA_ORG }}/RHOAI-Konflux-Automation
-          ref: odh
+          ref: 'odh'
           path: utils
       - name: Install dependencies
         run: |
