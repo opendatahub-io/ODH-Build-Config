@@ -51,9 +51,9 @@ jobs:
           # Declare variables
           BASE_BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
           HEAD_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-          VERSION=v${BASE_BRANCH/rhoai-/}
-          SUFFIX=${VERSION/./-}
+          SUFFIX="ci"
           echo "SUFFIX=$SUFFIX"
+          echo "BASE_BRANCH=$BASE_BRANCH"
           echo "HEAD_BRANCH=$HEAD_BRANCH"
           TITLE="${{ github.event.pull_request.title }}"
           
