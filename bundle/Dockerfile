@@ -119,7 +119,7 @@ LABEL \
       odh-model-registry.git.commit="${ODH_MODEL_REGISTRY_GIT_COMMIT}" \
       odh-model-registry-operator.git.url="${ODH_MODEL_REGISTRY_OPERATOR_GIT_URL}" \
       odh-model-registry-operator.git.commit="${ODH_MODEL_REGISTRY_OPERATOR_GIT_COMMIT}"
-# Copy files to locations specified by labels
+# Copy files to locations specified by labels.
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
