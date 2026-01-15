@@ -80,8 +80,8 @@ jobs:
         id: app-token
         uses: getsentry/action-github-app-token@v2
         with:
-          app_id: ${{ secrets.RHOAI_DEVOPS_APP_ID }}
-          private_key: ${{ secrets.RHOAI_DEVOPS_APP_PRIVATE_KEY }}
+          app_id: ${{ secrets.ODH_DEVOPS_APP_ID }}
+          private_key: ${{ secrets.ODH_DEVOPS_APP_PRIVATE_KEY }}
 
       - uses: Wandalen/wretry.action@v3.5.0
         if: ${{ steps.merge-feasibility-check.outputs.FEASIBLE == 'Yes' }}
@@ -100,21 +100,3 @@ jobs:
             merge_args: "--no-edit"
             pr_url: "${{ github.event.pull_request.html_url }}"
 
-      - name: instant-merge
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          # Declare variables
-          BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
-          VERSION=v${BRANCH/rhoai-/}
-          SUFFIX=${VERSION/./-}
-          REGEX="^Update $COMPONENT-$SUFFIX to [0-9a-z]{1,40}$"
-
-          #Check if PR title is as per the convention
-          if [[ "${{ github.event.pull_request.title }}" =~ $REGEX ]]
-          then
-            gh pr merge --merge --admin ${{ github.event.pull_request.html_url }}
-            echo "Merged!!"
-          else
-            echo "Insta-merge not configured to merge this PR, skipping."
-          fi
