@@ -13,7 +13,7 @@ permissions:
 env:
   GITHUB_ORG: opendatahub-io
   GITHUB_RKA_ORG: red-hat-data-services
-  PREVIOUS_RELEASE: rhoai-2.25
+
 jobs:
   process-fbc:
     if: ${{ github.ref_name == 'main' }}
@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: get_branch
-      - name: Git checkout RBC main
+      - name: Git checkout build config main
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.get_branch.outputs.branch }}
