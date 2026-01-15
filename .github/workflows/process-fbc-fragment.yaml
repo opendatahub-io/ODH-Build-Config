@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: get_branch
-      - name: Git checkout RBC main
+      - name: Git checkout build config main
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.get_branch.outputs.branch }}
