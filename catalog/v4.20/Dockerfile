@@ -2,8 +2,8 @@
 # /bin/opm (with a serve subcommand) and /bin/grpc_health_probe
 FROM registry.redhat.io/openshift4/ose-operator-registry-rhel9:v4.20
 
-ARG ODH_RHEL9_OPERATOR_GIT_URL=
-ARG ODH_RHEL9_OPERATOR_GIT_COMMIT=
+ARG OPENDATAHUB_OPERATOR_GIT_URL=
+ARG OPENDATAHUB_OPERATOR_GIT_COMMIT=
 ARG ODH_KF_NOTEBOOK_CONTROLLER_GIT_URL=
 ARG ODH_KF_NOTEBOOK_CONTROLLER_GIT_COMMIT=
 ARG ODH_NOTEBOOK_CONTROLLER_GIT_URL=
@@ -54,8 +54,8 @@ ARG ODH_MODEL_REGISTRY_GIT_URL=
 ARG ODH_MODEL_REGISTRY_GIT_COMMIT=
 ARG ODH_MODEL_REGISTRY_OPERATOR_GIT_URL=
 ARG ODH_MODEL_REGISTRY_OPERATOR_GIT_COMMIT=
-ARG ODH_OPERATOR_BUNDLE_GIT_COMMIT
-ARG ODH_OPERATOR_BUNDLE_GIT_URL
+ARG OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT=
+ARG OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL=
 
 
 # Configure the entrypoint and command
@@ -70,8 +70,8 @@ RUN ["/bin/opm", "serve", "/configs", "--cache-dir=/tmp/cache", "--cache-only"]
 LABEL operators.operatorframework.io.index.configs.v1=/configs
 
 LABEL \
-      odh-rhel9-operator.git.url="${ODH_RHEL9_OPERATOR_GIT_URL}" \
-      odh-rhel9-operator.git.commit="${ODH_RHEL9_OPERATOR_GIT_COMMIT}" \
+      opendatahub-operator.git.url="${OPENDATAHUB_OPERATOR_GIT_URL}" \
+      opendatahub-operator.git.commit="${OPENDATAHUB_OPERATOR_GIT_COMMIT}" \
       odh-kf-notebook-controller.git.url="${ODH_KF_NOTEBOOK_CONTROLLER_GIT_URL}" \
       odh-kf-notebook-controller.git.commit="${ODH_KF_NOTEBOOK_CONTROLLER_GIT_COMMIT}" \
       odh-notebook-controller.git.url="${ODH_NOTEBOOK_CONTROLLER_GIT_URL}" \
@@ -122,8 +122,8 @@ LABEL \
       odh-model-registry.git.commit="${ODH_MODEL_REGISTRY_GIT_COMMIT}" \
       odh-model-registry-operator.git.url="${ODH_MODEL_REGISTRY_OPERATOR_GIT_URL}" \
       odh-model-registry-operator.git.commit="${ODH_MODEL_REGISTRY_OPERATOR_GIT_COMMIT}" \
-      odh-operator-bundle.git.url="${ODH_OPERATOR_BUNDLE_GIT_URL}" \
-      odh-operator-bundle.git.commit="${ODH_OPERATOR_BUNDLE_GIT_COMMIT}"
+      opendatahub-operator-bundle.git.url="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL}" \
+      opendatahub-operator-bundle.git.commit="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT}"
 
 LABEL com.redhat.component="rhoai-fbc-fragment" \
       description="rhoai-fbc-fragment" \
