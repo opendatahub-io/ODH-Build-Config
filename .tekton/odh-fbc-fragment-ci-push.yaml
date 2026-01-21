@@ -37,6 +37,8 @@ spec:
     value: catalog/catalog_build_args.map
   - name: skip-checks
     value: true
+  - name: skip-fips
+    value: true
   - name: rebuild
     value: true
   pipelineSpec:
@@ -73,6 +75,10 @@ spec:
     - default: "false"
       description: Skip checks against built image
       name: skip-checks
+      type: string
+    - default: "false"
+      description: Skip fips checks against built image
+      name: skip-fips
       type: string
     - default: "true"
       description: Execute the build with network isolation
@@ -112,6 +118,10 @@ spec:
         set of values is determined by the configuration of the multi-platform-controller.
       name: build-platforms
       type: array
+    - description: Additional labels to add to build image
+      name: additional-labels
+      type: array
+      default: []
     results:
     - description: ""
       name: IMAGE_URL
@@ -263,6 +273,11 @@ spec:
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
       - name: IMAGE_APPEND_PLATFORM
         value: "true"
+      - name: LABELS
+        value:
+        - $(params.additional-labels[*])
+        - git.url=$(params.git-url)
+        - git.commit=$(params.revision)
       runAfter:
       - clone-repository
       taskRef:
@@ -415,10 +430,14 @@ spec:
           value: task
         resolver: bundles
       when:
-      - input: "true"
-        operator: in
+      - input: $(params.skip-checks)
+        operator: notin
         values:
-        - "false"
+        - "true"
+      - input: $(params.skip-fips)
+        operator: notin
+        values:
+        - "true"
     workspaces:
     - name: git-auth
       optional: true
