@@ -27,6 +27,9 @@ spec:
     value: '{{revision}}'
   - name: output-image
     value: quay.io/opendatahub/opendatahub-operator-bundle:odh-stable
+  - name: additional-labels
+    value: 
+    - version=odh-stable
   - name: build-args-file
     value: bundle/bundle_build_args.map
   - name: dockerfile
