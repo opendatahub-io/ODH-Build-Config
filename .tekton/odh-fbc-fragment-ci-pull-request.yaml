@@ -25,6 +25,9 @@ spec:
     value: '{{revision}}'
   - name: output-image
     value: 'quay.io/opendatahub/opendatahub-operator-catalog:pr-{{pull_request_number}}'
+  - name: additional-labels
+    value: 
+    - version=odh-stable
   - name: image-expires-after
     value: 5d
   - name: build-platforms
