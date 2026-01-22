@@ -4,6 +4,8 @@ FROM registry.redhat.io/openshift4/ose-operator-registry-rhel9:v4.20
 
 ARG OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT=
 ARG OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL=
+ARG OPENDATAHUB_OPERATOR_GIT_COMMIT=
+ARG OPENDATAHUB_OPERATOR_GIT_URL=
 ARG OPENDATAHUB_OPERATOR_IMAGE=
 
 # Configure the entrypoint and command
@@ -19,6 +21,8 @@ LABEL operators.operatorframework.io.index.configs.v1=/configs
 
 LABEL \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
+      opendatahub-operator.git.url="${OPENDATAHUB_OPERATOR_GIT_URL}" \
+      opendatahub-operator.git.commit="${OPENDATAHUB_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator-bundle.git.url="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL}" \
       opendatahub-operator-bundle.git.commit="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT}"
 
