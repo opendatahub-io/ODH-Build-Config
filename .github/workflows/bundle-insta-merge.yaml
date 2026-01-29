@@ -28,7 +28,7 @@ permissions:
 
 jobs:
   insta-merge:
-    if: ${{ github.event.sender.login == 'red-hat-konflux[bot]'  && ( contains(github.event.pull_request.title, 'update odh-operator-') || contains(github.event.pull_request.title, 'update odh-ci-operator') ) }}
+    if: ${{ (github.event.sender.login == 'red-hat-konflux[bot]' || github.event.sender.login == 'dchourasia') && ( contains(github.event.pull_request.title, 'update odh-operator-') || contains(github.event.pull_request.title, 'update odh-ci-operator') ) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +61,7 @@ jobs:
           then 
             TITLE=${TITLE/chore\(deps\): u/U}
           fi
-          REGEX="^Update.*-$SUFFIX to [0-9a-z]{1,40}$"
+          REGEX="^Update.*-$SUFFIX.* to [0-9a-z]{1,40}$"
 
           FEASIBLE=No
           #Check if PR title is as per the convention
