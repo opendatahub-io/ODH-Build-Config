@@ -4,14 +4,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.3
   creationTimestamp: null
-  name: modelsasservices.components.platform.opendatahub.io
+  name: sparkoperators.components.platform.opendatahub.io
 spec:
   group: components.platform.opendatahub.io
   names:
-    kind: ModelsAsService
-    listKind: ModelsAsServiceList
-    plural: modelsasservices
-    singular: modelsasservice
+    kind: SparkOperator
+    listKind: SparkOperatorList
+    plural: sparkoperators
+    singular: sparkoperator
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -26,7 +26,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: ModelsAsService is the Schema for the modelsasservice API
+        description: SparkOperator is the Schema for the sparkoperators API
         properties:
           apiVersion:
             description: |-
@@ -46,30 +46,10 @@ spec:
           metadata:
             type: object
           spec:
-            description: ModelsAsServiceSpec defines the desired state of ModelsAsService
-            properties:
-              gatewayRef:
-                description: |-
-                  GatewayRef specifies which Gateway (Gateway API) to use for exposing model endpoints.
-                  If omitted, defaults to openshift-ingress/maas-default-gateway.
-                properties:
-                  name:
-                    default: maas-default-gateway
-                    description: Name is the name of the Gateway resource.
-                    maxLength: 63
-                    pattern: ^([a-z0-9]([-a-z0-9]*[a-z0-9])?)?$
-                    type: string
-                  namespace:
-                    default: openshift-ingress
-                    description: Namespace is the namespace where the Gateway resource
-                      is located.
-                    maxLength: 63
-                    pattern: ^([a-z0-9]([-a-z0-9]*[a-z0-9])?)?$
-                    type: string
-                type: object
+            description: SparkOperatorSpec defines the desired state of SparkOperator
             type: object
           status:
-            description: ModelsAsServiceStatus defines the observed state of ModelsAsService
+            description: SparkOperatorStatus defines the observed state
             properties:
               conditions:
                 items:
@@ -133,11 +113,29 @@ spec:
                 type: integer
               phase:
                 type: string
+              releases:
+                items:
+                  description: ComponentRelease represents the detailed status of
+                    a component release.
+                  properties:
+                    name:
+                      type: string
+                    repoUrl:
+                      type: string
+                    version:
+                      type: string
+                  required:
+                  - name
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - name
+                x-kubernetes-list-type: map
             type: object
         type: object
         x-kubernetes-validations:
-        - message: ModelsAsService name must be default-modelsasservice
-          rule: self.metadata.name == 'default-modelsasservice'
+        - message: SparkOperator name must be default-sparkoperator
+          rule: self.metadata.name == 'default-sparkoperator'
     served: true
     storage: true
     subresources:
