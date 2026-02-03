@@ -11,7 +11,7 @@ name: fast-3.x
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:2eaa30ebd14ceac00d7ad444c9b9e86c53e03d5ea3f02c2c32f4c35808a293c1
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:68a2c26d30f84fbfb8c82289d0d4e66bebf321c2c89cf894ba33d2f7d3a418ae
 name: rhods-operator.3.4.0
 package: rhods-operator
 properties:
@@ -79,6 +79,11 @@ properties:
   value:
     group: components.platform.opendatahub.io
     kind: Ray
+    version: v1alpha1
+- type: olm.gvk
+  value:
+    group: components.platform.opendatahub.io
+    kind: SparkOperator
     version: v1alpha1
 - type: olm.gvk
   value:
@@ -201,11 +206,14 @@ properties:
                 "ray": {
                   "managementState": "Managed"
                 },
-                "trainer": {
+                "sparkoperator": {
                   "managementState": "Removed"
                 },
-                "trainingoperator": {
+                "trainer": {
                   "managementState": "Managed"
+                },
+                "trainingoperator": {
+                  "managementState": "Removed"
                 },
                 "trustyai": {
                   "managementState": "Managed"
@@ -243,8 +251,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:69441778f6055113ee5b2e7c21af380510717002b0250cadf3b57c37d59bdd28
-      createdAt: "2026-02-03T06:18:07Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:f1301efea1f1689f2754be5a3cf403167caaf62167c5b22441d6bf61f651f8d1
+      createdAt: "2026-02-03T06:31:18Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -291,6 +299,9 @@ properties:
               "mlflowoperator": {
                 "managementState": "Removed"
               },
+              "sparkoperator": {
+                "managementState": "Removed"
+              },
               "modelregistry": {
                 "managementState": "Managed",
                 "registriesNamespace": "rhoai-model-registries"
@@ -301,8 +312,11 @@ properties:
               "workbenches": {
                 "managementState": "Managed"
               },
-              "trainingoperator": {
+              "trainer": {
                 "managementState": "Managed"
+              },
+              "trainingoperator": {
+                "managementState": "Removed"
               },
               "trustyai": {
                 "managementState": "Managed"
@@ -314,15 +328,16 @@ properties:
       operators.openshift.io/infrastructure-features: '["disconnected"]'
       operators.openshift.io/valid-subscription: '["OpenShift AI"]'
       operators.operatorframework.io/builder: operator-sdk-v1.39.2
-      operators.operatorframework.io/internal-objects: |-
-        ["featuretrackers.features.opendatahub.io",
+      operators.operatorframework.io/internal-objects: '["featuretrackers.features.opendatahub.io",
         "dashboards.components.platform.opendatahub.io", "datasciencepipelines.components.platform.opendatahub.io",
         "kserves.components.platform.opendatahub.io", "kueues.components.platform.opendatahub.io",
         "modelregistries.components.platform.opendatahub.io", "rays.components.platform.opendatahub.io",
         "trainingoperators.components.platform.opendatahub.io", "trustyais.components.platform.opendatahub.io",
         "workbenches.components.platform.opendatahub.io", "monitorings.services.platform.opendatahub.io",
         "modelcontrollers.components.platform.opendatahub.io", "feastoperators.components.platform.opendatahub.io",
-        "llamastackoperators.components.platform.opendatahub.io", "mlflowoperators.components.platform.opendatahub.io"]
+        "llamastackoperators.components.platform.opendatahub.io", "trainers.components.platform.opendatahub.io",
+        "mlflowoperators.components.platform.opendatahub.io", "modelsasservices.components.platform.opendatahub.io",
+        "sparkoperators.components.platform.opendatahub.io"]'
       operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
       ose-cli-etcd-image: registry.redhat.io/openshift4/ose-cli@sha256:4cfb4219f46c8cc25a5e567fd4cb8babe9a3778b0b86a1e354a3403994ef3677
       ose-cli-image: registry.redhat.io/openshift4/ose-cli@sha256:25fef269ac6e7491cb8340119a9b473acbeb53bc6970ad029fdaae59c3d0ca61
@@ -430,7 +445,9 @@ properties:
         kind: ModelRegistry
         name: modelregistries.components.platform.opendatahub.io
         version: v1alpha1
-      - kind: ModelsAsService
+      - description: ModelsAsService is the Schema for the modelsasservice API
+        displayName: Models As Service
+        kind: ModelsAsService
         name: modelsasservices.components.platform.opendatahub.io
         version: v1alpha1
       - description: Monitoring is the Schema for the monitorings API
@@ -443,7 +460,14 @@ properties:
         kind: Ray
         name: rays.components.platform.opendatahub.io
         version: v1alpha1
-      - kind: Trainer
+      - description: SparkOperator is the Schema for the sparkoperators API
+        displayName: Spark Operator
+        kind: SparkOperator
+        name: sparkoperators.components.platform.opendatahub.io
+        version: v1alpha1
+      - description: Trainer is the Schema for the trainers API
+        displayName: Trainer
+        kind: Trainer
         name: trainers.components.platform.opendatahub.io
         version: v1alpha1
       - description: TrainingOperator is the Schema for the trainingoperators API
@@ -487,6 +511,7 @@ properties:
       * Feast - Feature Store is the fastest path to manage existing infrastructure to productionize analytic data for model training and online inference.
       * Llama Stack - Unified open-source APIs for inference, RAG, agents, safety, evals & telemetry
       * MLflow - MLflow is an open-source platform, purpose-built to assist machine learning practitioners and teams in handling the complexities of the machine learning process. MLflow focuses on the full lifecycle for machine learning projects, ensuring that each phase is manageable, traceable, and reproducible.
+      * Spark Operator - Spark Operator is a Kubernetes operator for managing Apache Spark applications. It provides a way to deploy and manage Spark applications on Kubernetes.
     displayName: Red Hat OpenShift AI
     installModes:
     - supported: false
@@ -527,6 +552,7 @@ properties:
     - featurestore
     - llamastack
     - mlflow
+    - sparkoperator
     labels:
       operatorframework.io/arch.amd64: supported
       operatorframework.io/arch.arm64: supported
@@ -566,13 +592,13 @@ relatedImages:
   name: odh_feature_server_image
 - image: quay.io/opendatahub/guardrails-detector-huggingface-runtime@sha256:7f1583a0dd22056bf9ce207834c82d2b27756837d54a6cf6faea813974aca0aa
   name: odh_guardrails_detector_huggingface_runtime_image
-- image: quay.io/opendatahub/kserve-agent@sha256:7f587f5cbe0f1f8aa90fbb526064fc2d9379c205c8f6fc9f54d33068ffe5a38e
+- image: quay.io/opendatahub/kserve-agent@sha256:80c3d776f643bd23987ce5c8612638207716b3bf56778eb7e2cfe39ef8df5a46
   name: odh_kserve_agent_image
-- image: quay.io/opendatahub/kserve-controller@sha256:c1458734728f0252a6c856568c3c7df3b28ef096266ff7a494a1a997be684615
+- image: quay.io/opendatahub/kserve-controller@sha256:57eaf283dff6ab3d6d49e2d13db25818df13b59ac2b81e67a0311f2f982e0087
   name: odh_kserve_controller_image
-- image: quay.io/opendatahub/kserve-router@sha256:2b3bbfcf8c955df12b1e9aa2af2a52c9f86447ddc13651c8acd41720d9963449
+- image: quay.io/opendatahub/kserve-router@sha256:ae897857cb0ce3160c022f25abca76bb7811dc3e4825376011380b2afb3eedf7
   name: odh_kserve_router_image
-- image: quay.io/opendatahub/kserve-storage-initializer@sha256:d69bb768f49d7b7ecf831431aa97c84c81757545012f54702591ee91db8fb7a4
+- image: quay.io/opendatahub/kserve-storage-initializer@sha256:c41875e04db376b6257f1a1f99cc7ccc290fed8620d6edfff019a617fc05821e
   name: odh_kserve_storage_initializer_image
 - image: quay.io/opendatahub/kubeflow-notebook-controller@sha256:cc6e67c37a4669e29da87ebf76c123de593adbf92eaf387f21d7a20814c817e2
   name: odh_kf_notebook_controller_image
@@ -600,17 +626,17 @@ relatedImages:
   name: odh_mlmd_grpc_server_image
 - image: quay.io/opendatahub/mlserver@sha256:d69dd5cba96f04fb9646ada56666a576fd7daea14de96a04a7d0eb3df6ee9fe4
   name: odh_mlserver_image
-- image: quay.io/opendatahub/mod-arch-maas@sha256:e8c9f540fbc45287092c67e7fd73370621a1057cd426fa0e31bfbc218ca89108
+- image: quay.io/opendatahub/mod-arch-maas@sha256:05b30b3b4429bf8786987aca5b58b4602737ebef9b1fe2531cd2cc23db2bed78
   name: odh_mod_arch_maas_image
-- image: quay.io/opendatahub/model-registry-job-async-upload@sha256:e8f360b3248dd2d6ea57542b098ca589c25fc0fb9b9380fdc88f7546445bfcde
+- image: quay.io/opendatahub/model-registry-job-async-upload@sha256:b2ff0a98e8b33a20ea7ce4ed39594ec0a5de4154d539e5ad0be79e73e13c9b1d
   name: odh_model_registry_job_async_upload_image
-- image: quay.io/opendatahub/model-registry-operator@sha256:4ccd2c616be16dab236be728cdd5b6f3067e550ea52c47318f2f5fa051527d89
+- image: quay.io/opendatahub/model-registry-operator@sha256:bfd1cabb2af9a4a6192967dd044f341da72a8152c08c6f440c461178f384c73d
   name: odh_model_registry_operator_image
-- image: quay.io/opendatahub/model-registry@sha256:6974709b6c8284850a100b8f582bcf9a8651bc282bce8bb3656cfb34135c15e8
+- image: quay.io/opendatahub/model-registry@sha256:80ce11502f6193eddeb0ffe58bc4b1fcf32c4743114a136019d14eeda16a24eb
   name: odh_model_registry_image
 - image: quay.io/opendatahub/odh-built-in-detector@sha256:159f9b8f219f557896b95c48b55b4ad39b09a92f31ac25160b5ffa552afd4a98
   name: odh_built_in_detector_image
-- image: quay.io/opendatahub/odh-dashboard@sha256:5f834d05b1ca8df31fa3887363111111a4e329ae3eacb3d1f5bfc9d3036cb83e
+- image: quay.io/opendatahub/odh-dashboard@sha256:8749128ccecbbf8e25425d543f4e52b6f18c4ff498d0257a92baf3ecbc66ed82
   name: odh_dashboard_image
 - image: quay.io/opendatahub/odh-kube-auth-proxy@sha256:8eb6ad52ce3e0d59d0ce0f18bcf09c250afbcfddddff44b9eacb8d9b2a6d69cb
   name: ose_kube_rbac_proxy_image
@@ -678,12 +704,12 @@ relatedImages:
   name: odh_workbench_jupyter_tensorflow_rocm_py312_image
 - image: quay.io/opendatahub/odh-workbench-jupyter-trustyai-cpu-py312-ubi9@sha256:b2695b36357c9c65b87d67d3f67dcae382339f2f27950377e770c2e4ede2eedc
   name: odh_workbench_jupyter_trustyai_cpu_py312_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:2eaa30ebd14ceac00d7ad444c9b9e86c53e03d5ea3f02c2c32f4c35808a293c1
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:68a2c26d30f84fbfb8c82289d0d4e66bebf321c2c89cf894ba33d2f7d3a418ae
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:69441778f6055113ee5b2e7c21af380510717002b0250cadf3b57c37d59bdd28
-  name: opendatahub-operator-69441778f6055113ee5b2e7c21af380510717002b0250cadf3b57c37d59bdd28-annotation
-- image: quay.io/opendatahub/spark-operator@sha256:0209fde7d75d58ec8aad84b56eb17d1807f7e44a4906fdb61f5822f7ecc5571f
-  name: spark_operator
+- image: quay.io/opendatahub/opendatahub-operator@sha256:f1301efea1f1689f2754be5a3cf403167caaf62167c5b22441d6bf61f651f8d1
+  name: opendatahub-operator-f1301efea1f1689f2754be5a3cf403167caaf62167c5b22441d6bf61f651f8d1-annotation
+- image: quay.io/opendatahub/spark-operator@sha256:bbc497f528ca3f85b3af955f678190cf6b45afc202061dafc552aa1a47d480bf
+  name: spark_operator_image
 - image: quay.io/opendatahub/ta-guardrails-orchestrator@sha256:757f3c3e05fe0c40bcfa8d29d0511ddcaff640a38c4ee507696cf126009381b6
   name: odh_fms_guardrails_orchestrator_image
 - image: quay.io/opendatahub/ta-lmes-driver@sha256:4cf23922a018ebe0eb63d1468825175c74cb44cd3023d50f3e58acacaa11c41f
