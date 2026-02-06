@@ -2,6 +2,9 @@ name: Bundle Sync CI
 
 on:
   workflow_dispatch:
+  schedule:
+    # Run every 2 hours
+    - cron: '0 */2 * * *'
 
 permissions:
   contents: read
