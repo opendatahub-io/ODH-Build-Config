@@ -88,6 +88,10 @@ spec:
     default: "true"
     type: string
     description: Show a slack notification on failure
+  - name: expected-cluster
+    default: ""
+    type: string
+    description: The cluster that this pipeline is expected to be run from
   - name: pipeline-type
     type: string
     default: push
@@ -105,10 +109,6 @@ spec:
   - description: ""
     name: CHAINS-GIT_COMMIT
     value: $(tasks.clone-repository.results.commit)
-  - name: expected-cluster
-    default: ""
-    type: string
-    description: The cluster that this pipeline is expected to be run from
   tasks:
   - name: rhoai-init
     params:
