@@ -126,7 +126,7 @@ spec:
       - name: pathInRepo
         value: konflux-tekton-tasks/rhoai-init/0.3/rhoai-init.yaml
   - name: init
-    runAfter
+    runAfter:
     - rhoai-init
     params:
     - name: image-url
