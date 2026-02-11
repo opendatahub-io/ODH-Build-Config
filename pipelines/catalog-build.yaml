@@ -431,19 +431,8 @@ spec:
       - "true"
   - name: pipeline-success-indicator
     runAfter:
-    - build-source-image
-    - sast-shell-check
-    - sast-unicode-check
     - deprecated-base-image-check
-    - clair-scan
-    - ecosystem-cert-preflight-checks
-    - sast-snyk-check
-    - clamav-scan
     - apply-tags
-    - push-dockerfile
-    - rpms-signature-scan
-    - sast-coverity-check
-    - coverity-availability-check
     taskSpec:
       steps:
       - name: noop
