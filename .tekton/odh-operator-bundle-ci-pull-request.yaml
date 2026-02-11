@@ -10,6 +10,8 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-comment: "^/build-konflux bundle"
     pipelinesascode.tekton.dev/on-cel-expression: '"non-existent-file.non-existent-ext".pathChanged()'
+    pipelinesascode.tekton.dev/on-label: "[build-bundle, build-all]"
+    pipelinesascode.tekton.dev/on-event: "[pull_request]"
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: opendatahub-builds
