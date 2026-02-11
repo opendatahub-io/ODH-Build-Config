@@ -84,6 +84,14 @@ spec:
     name: additional-labels
     type: array
     default: []
+  - name: enable-slack-failure-notification
+    default: "true"
+    type: string
+    description: Show a slack notification on failure
+  - name: pipeline-type
+    type: string
+    default: push
+    description: Type of pipeline execution (push)
   results:
   - description: ""
     name: IMAGE_URL
@@ -101,14 +109,6 @@ spec:
     default: ""
     type: string
     description: The cluster that this pipeline is expected to be run from
-  - name: enable-slack-failure-notification
-    default: "true"
-    type: string
-    description: Show a slack notification on failure
-  - name: pipeline-type
-    type: string
-    default: push
-    description: Type of pipeline execution (push)
   tasks:
   - name: rhoai-init
     params:
