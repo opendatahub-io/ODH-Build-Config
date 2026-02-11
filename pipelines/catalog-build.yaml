@@ -97,8 +97,37 @@ spec:
   - description: ""
     name: CHAINS-GIT_COMMIT
     value: $(tasks.clone-repository.results.commit)
+  - name: expected-cluster
+    default: ""
+    type: string
+    description: The cluster that this pipeline is expected to be run from
+  - name: enable-slack-failure-notification
+    default: "true"
+    type: string
+    description: Show a slack notification on failure
+  - name: pipeline-type
+    type: string
+    default: push
+    description: Type of pipeline execution (push)
   tasks:
+  - name: rhoai-init
+    params:
+    - name: expected-cluster
+      value: $(params.expected-cluster)
+    - name: pipeline-type
+      value: $(params.pipeline-type)
+    taskRef:
+      resolver: git
+      params:
+      - name: url
+        value: https://github.com/red-hat-data-services/rhoai-konflux-tasks.git
+      - name: revision
+        value: odh
+      - name: pathInRepo
+        value: konflux-tekton-tasks/rhoai-init/0.3/rhoai-init.yaml
   - name: init
+    runAfter
+    - rhoai-init
     params:
     - name: image-url
       value: $(params.output-image)
@@ -400,6 +429,41 @@ spec:
       operator: notin
       values:
       - "true"
+  finally:
+  - name: send-slack-notification
+    params:
+    - name: message
+      value: "$(tasks.rhoai-init.results.slack-message-failure-text)"
+    - name: secret-name
+      value: ci-slack-secret
+    - name: key-name
+      value: secret
+    taskRef:
+      params:
+      - name: name
+        value: slack-webhook-notification
+      - name: bundle
+        value: quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification:0.1@sha256:69945a30c11387a766e3d0ae33991b68e865a290c09da1fea44f193d358926ba
+      - name: kind
+        value: task
+      resolver: bundles
+    when:
+    - input: $(tasks.pipeline-success-indicator.status)
+      operator: notin
+      values:
+      - "Succeeded"
+    - input: $(tasks.rhoai-init.results.skip-slack-message)
+      operator: in
+      values:
+      - "false"
+    - input: $(params.enable-slack-failure-notification)
+      operator: in
+      values:
+      - "true"
+    - input: $(params.pipeline-type)
+      operator: in
+      values:
+        - "push"
   workspaces:
   - name: git-auth
     optional: true

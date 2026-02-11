@@ -34,6 +34,10 @@ spec:
     value: bundle/bundle_build_args.map
   - name: dockerfile
     value: bundle/Dockerfile
+  - name: pipeline-type
+    value: push
+  - name: enable-slack-failure-notification
+    value: true
   pipelineRef:
     resolver: git
     params:
