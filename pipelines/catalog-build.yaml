@@ -429,6 +429,62 @@ spec:
       operator: notin
       values:
       - "true"
+  - name: prepare-slack-message
+    params:
+    taskSpec:
+      results:
+      - description: Notification text to be posted to slack
+        name: slack-message-sucess-text
+      steps:
+      - image: quay.io/rhoai-konflux/alpine:latest
+        name: prepare-slack-message
+        env:
+        - name: pipelinerun_name
+          value: "$(context.pipelineRun.name)"
+        - name: image_url
+          value: $(tasks.build-image-index.results.IMAGE_URL)
+        - name: image_digest
+          value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+        - name: target_branch
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.annotations['build.appstudio.redhat.com/target_branch']
+        - name: BUILD_URL
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.annotations['pipelinesascode.tekton.dev/log-url']
+        - name: COMMIT_URL
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.annotations['pipelinesascode.tekton.dev/sha-url']
+        - name: COMMIT
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.annotations['pipelinesascode.tekton.dev/sha']
+        script: |
+          echo "pipelinerun-name = $pipelinerun_name"
+
+          application_name=${target_branch/rhoai-/}
+          application_name=rhoai-v${application_name/./-}
+          echo "application-name = $application_name"
+          echo "image url = $image_url"
+          echo "image digest = $image_digest"
+
+          component_name=${pipelinerun_name/-on-*/}
+          echo "component-name = $component_name"
+
+          build_time="$(date +%Y-%m-%dT%H:%M:%S)"
+          alertEmoji=":solid-success:"
+          slack_message="${alertEmoji} A new CI build is available for ${target_branch}: ${build_time}"
+          COMMIT_SHORT=$(echo "$COMMIT" | head -c 7)
+
+          slack_message=$(echo -e "${slack_message}\nImage: ${image_url}@${image_digest}")
+          slack_message=$(echo -e "${slack_message}\nCommit: <${COMMIT_URL}|${COMMIT_SHORT}>")
+          slack_message=$(echo -e "${slack_message}\nBuild: <${BUILD_URL}|${pipelinerun_name}>")
+
+          echo -n "${slack_message}" > "$(results.slack-message-sucess-text.path)"
+    runAfter:
+    - build-image-index
   - name: pipeline-success-indicator
     runAfter:
     - deprecated-base-image-check
@@ -470,6 +526,33 @@ spec:
       operator: in
       values:
       - "true"
+    - input: $(params.pipeline-type)
+      operator: in
+      values:
+        - "push"
+  - name: share-fbc-details
+    params:
+    - name: message
+      value: "$(tasks.prepare-slack-message.results.slack-message-sucess-text)"
+    - name: secret-name
+      value: ci-slack-secret
+    - name: key-name
+      value: secret
+    taskRef:
+      params:
+      - name: name
+        value: slack-webhook-notification
+      - name: bundle
+        value: quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification:0.1@sha256:69945a30c11387a766e3d0ae33991b68e865a290c09da1fea44f193d358926ba
+      - name: kind
+        value: task
+      resolver: bundles
+    when:
+    - input: $(tasks.status)
+      operator: in
+      values:
+      - "Completed"
+      - "Succeeded"
     - input: $(params.pipeline-type)
       operator: in
       values:
