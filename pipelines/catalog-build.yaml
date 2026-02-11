@@ -553,6 +553,10 @@ spec:
       values:
       - "Completed"
       - "Succeeded"
+    - input: $(params.pipeline-type)
+      operator: in
+      values:
+        - "push"
   workspaces:
   - name: git-auth
     optional: true
