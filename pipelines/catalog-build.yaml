@@ -269,6 +269,7 @@ spec:
       - $(params.additional-labels[*])
       - git.url=$(params.git-url)
       - git.commit=$(params.revision)
+      - build-url=$(tasks.rhoai-init.results.build-url)
     runAfter:
     - clone-repository
     taskRef:
