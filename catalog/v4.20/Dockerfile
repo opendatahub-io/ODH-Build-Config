@@ -7,6 +7,7 @@ ARG OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL=
 ARG OPENDATAHUB_OPERATOR_GIT_COMMIT=
 ARG OPENDATAHUB_OPERATOR_GIT_URL=
 ARG OPENDATAHUB_OPERATOR_IMAGE=
+ARG BUILD_METADATA_URL=
 
 # Configure the entrypoint and command
 ENTRYPOINT ["/bin/opm"]
@@ -24,7 +25,8 @@ LABEL \
       opendatahub-operator.git.url="${OPENDATAHUB_OPERATOR_GIT_URL}" \
       opendatahub-operator.git.commit="${OPENDATAHUB_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator-bundle.git.url="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_URL}" \
-      opendatahub-operator-bundle.git.commit="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT}"
+      opendatahub-operator-bundle.git.commit="${OPENDATAHUB_OPERATOR_BUNDLE_GIT_COMMIT}" \
+      build-metadata-url="${BUILD_METADATA_URL}"
 
 LABEL com.redhat.component="rhoai-fbc-fragment" \
       description="rhoai-fbc-fragment" \
