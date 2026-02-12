@@ -3,6 +3,7 @@ FROM scratch
 ARG OPENDATAHUB_OPERATOR_GIT_URL=
 ARG OPENDATAHUB_OPERATOR_GIT_COMMIT=
 ARG OPENDATAHUB_OPERATOR_IMAGE=
+ARG BUILD_METADATA_URL=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -20,7 +21,8 @@ LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 LABEL \
       opendatahub-operator.git.url="${OPENDATAHUB_OPERATOR_GIT_URL}" \
       opendatahub-operator.git.commit="${OPENDATAHUB_OPERATOR_GIT_COMMIT}" \
-      opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}"
+      opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
+      build-metadata-url="${BUILD_METADATA_URL}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
