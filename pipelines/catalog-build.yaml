@@ -476,7 +476,7 @@ spec:
 
           build_time="$(date +%Y-%m-%dT%H:%M:%S)"
           alertEmoji=":solid-success:"
-          slack_message="${alertEmoji} A new CI build is available for ${target_branch}: ${build_time}"
+          slack_message="${alertEmoji} A new CI build is available for ODH: ${build_time}"
           COMMIT_SHORT=$(echo "$COMMIT" | head -c 7)
 
           slack_message=$(echo -e "${slack_message}\nImage: ${image_url}@${image_digest}")
