@@ -435,17 +435,20 @@ spec:
     taskSpec:
       results:
       - description: Notification text to be posted to slack
-        name: slack-message-sucess-text
+        name: slack-message-success-text
       steps:
       - image: quay.io/rhoai-konflux/alpine:latest
         name: prepare-slack-message
         env:
         - name: pipelinerun_name
           value: "$(context.pipelineRun.name)"
-        - name: image_url
-          value: $(tasks.build-image-index.results.IMAGE_URL)
-        - name: image_digest
-          value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+        - name: IMAGE_REF
+          value: $(tasks.build-image-index.results.IMAGE_REF)
+        - name: MESSAGE_TEMPLATE
+          valueFrom:
+            configMapKeyRef:
+              name: slack-config
+              key: catalog-ci-message-template
         - name: target_branch
           valueFrom:
             fieldRef:
@@ -474,16 +477,10 @@ spec:
           component_name=${pipelinerun_name/-on-*/}
           echo "component-name = $component_name"
 
-          build_time="$(date +%Y-%m-%dT%H:%M:%S)"
-          alertEmoji=":solid-success:"
-          slack_message="${alertEmoji} A new CI build is available for ODH: ${build_time}"
-          COMMIT_SHORT=$(echo "$COMMIT" | head -c 7)
-
-          slack_message=$(echo -e "${slack_message}\nImage: ${image_url}@${image_digest}")
-          slack_message=$(echo -e "${slack_message}\nCommit: <${COMMIT_URL}|${COMMIT_SHORT}>")
-          slack_message=$(echo -e "${slack_message}\nBuild: <${BUILD_URL}|${pipelinerun_name}>")
-
-          echo -n "${slack_message}" > "$(results.slack-message-sucess-text.path)"
+          export build_time="$(date +%Y-%m-%dT%H:%M:%S)"
+          export COMMIT_SHORT=$(echo "$COMMIT" | head -c 7)
+          SUBST_VARS='$build_time $IMAGE_REF $COMMIT_URL $COMMIT_SHORT $BUILD_URL $pipelinerun_name'
+          echo "$MESSAGE_TEMPLATE" | envsubst "$SUBST_VARS" | tee "$(results.slack-message-success-text.path)"
     runAfter:
     - build-image-index
   - name: pipeline-success-indicator
@@ -534,20 +531,46 @@ spec:
   - name: share-fbc-details
     params:
     - name: message
-      value: "$(tasks.prepare-slack-message.results.slack-message-sucess-text)"
+      value: "$(tasks.prepare-slack-message.results.slack-message-success-text)"
     - name: secret-name
       value: ci-slack-secret
     - name: key-name
       value: secret
-    taskRef:
-      params:
-      - name: name
-        value: slack-webhook-notification
-      - name: bundle
-        value: quay.io/konflux-ci/tekton-catalog/task-slack-webhook-notification:0.1@sha256:69945a30c11387a766e3d0ae33991b68e865a290c09da1fea44f193d358926ba
-      - name: kind
-        value: task
-      resolver: bundles
+    taskSpec:
+      steps:
+      - image: quay.io/rhoai/rhoai-task-toolset:odh-nightly-runner
+        env:
+        - name: HOME
+          value: /workspace
+        - name: SLACK_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: rhoai-devops-bot-slack-token
+              key: SLACK_TOKEN
+        - name: MESSAGE
+          value: $(tasks.prepare-slack-message.results.slack-message-success-text)
+        - name: IMAGE_REF
+          value: $(tasks.build-image-index.results.IMAGE_REF)
+        - name: CHANNEL
+          valueFrom:
+            configMapKeyRef:
+              name: slack-config
+              key: odh-notification-channel
+        workingDir: /workspace
+        script: |
+          #!/bin/bash
+          set -e
+          mkdir slack && cd slack
+          git init .
+          git remote add origin git@github.com:red-hat-data-services/rhods-devops-infra.git
+          git fetch origin main
+          git show origin/main:tools/send-slack-message/send-slack-message.sh > ./send-slack-message.sh
+          git show origin/main:tools/tracer/tracer.sh > ./tracer.sh
+          chmod +x ./send-slack-message.sh
+          chmod +x ./tracer.sh
+
+          ./tracer.sh --odh -i "$IMAGE_REF" --show-commits | tee tracer-output.txt
+          ./send-slack-message.sh -c "$CHANNEL" -m "$MESSAGE" -f tracer-output.txt -v
     when:
     - input: $(tasks.status)
       operator: in
