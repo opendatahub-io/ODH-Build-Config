@@ -437,7 +437,7 @@ spec:
       - description: Notification text to be posted to slack
         name: slack-message-success-text
       steps:
-      - image: quay.io/rhoai-konflux/alpine:latest
+      - image: quay.io/rhoai/rhoai-task-toolset:odh-nightly-runner
         name: prepare-slack-message
         env:
         - name: pipelinerun_name
