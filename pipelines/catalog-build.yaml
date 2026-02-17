@@ -529,13 +529,9 @@ spec:
       values:
         - "push"
   - name: share-fbc-details
-    params:
-    - name: message
-      value: "$(tasks.prepare-slack-message.results.slack-message-success-text)"
-    - name: secret-name
-      value: ci-slack-secret
-    - name: key-name
-      value: secret
+    workspaces:
+    - name: basic-auth
+      workspace: git-auth
     taskSpec:
       steps:
       - image: quay.io/rhoai/rhoai-task-toolset:odh-nightly-runner
