@@ -90,8 +90,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:ee918abb084bec0eab5fe82bc982306189b60a15d01baba7e7140e390c7a94cc"
-    createdAt: "2026-02-17T06:33:17Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:5adc2c964b42c6674e63efed82691fe044554a9cce833eaaae8ab73bde7b9a84"
+    createdAt: "2026-02-17T06:51:57Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1815,7 +1815,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_MINIMAL_CPU_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-pipeline-runtime-minimal-cpu-py312-ubi9@sha256:b8de109572dd438d9c6638daf84c899791eceb2f2d94906877dde53634704f94"
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_PYTORCH_CUDA_PY312_IMAGE
-                  value: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-cuda-py312-ubi9@sha256:e7d49ae2e15a585bb28371e23676f31eeedca2e1e947ead6dd2d655fc1b1deb8"
+                  value: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-cuda-py312-ubi9@sha256:38a3d651d46ecf6108cf0e70a8a40d83a2e2bf6c97fdfad7f2a49e729d7ad675"
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_PYTORCH_ROCM_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-rocm-py312-ubi9@sha256:3f30be5be3491ed7295dd725bfa45148bcb951d84dde7acd5df33774a066c80b"
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_TENSORFLOW_CUDA_PY312_IMAGE
@@ -1920,7 +1920,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAIIS_VLLM_S390X_SPYRE_IMAGE
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:ee918abb084bec0eab5fe82bc982306189b60a15d01baba7e7140e390c7a94cc"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:5adc2c964b42c6674e63efed82691fe044554a9cce833eaaae8ab73bde7b9a84"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2405,8 +2405,8 @@ spec:
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-kueue
   relatedImages:
-  - name: opendatahub-operator-ee918abb084bec0eab5fe82bc982306189b60a15d01baba7e7140e390c7a94cc-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:ee918abb084bec0eab5fe82bc982306189b60a15d01baba7e7140e390c7a94cc"
+  - name: opendatahub-operator-5adc2c964b42c6674e63efed82691fe044554a9cce833eaaae8ab73bde7b9a84-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:5adc2c964b42c6674e63efed82691fe044554a9cce833eaaae8ab73bde7b9a84"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:71111d817dd1526af68ab7bcfa4f71f6f6b2e691db4649ac26124d07e1b58f33"
   - name: odh_dashboard_image
@@ -2478,7 +2478,7 @@ spec:
   - name: odh_pipeline_runtime_minimal_cpu_py312_image
     image: "quay.io/opendatahub/odh-pipeline-runtime-minimal-cpu-py312-ubi9@sha256:b8de109572dd438d9c6638daf84c899791eceb2f2d94906877dde53634704f94"
   - name: odh_pipeline_runtime_pytorch_cuda_py312_image
-    image: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-cuda-py312-ubi9@sha256:e7d49ae2e15a585bb28371e23676f31eeedca2e1e947ead6dd2d655fc1b1deb8"
+    image: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-cuda-py312-ubi9@sha256:38a3d651d46ecf6108cf0e70a8a40d83a2e2bf6c97fdfad7f2a49e729d7ad675"
   - name: odh_pipeline_runtime_pytorch_rocm_py312_image
     image: "quay.io/opendatahub/odh-pipeline-runtime-pytorch-rocm-py312-ubi9@sha256:3f30be5be3491ed7295dd725bfa45148bcb951d84dde7acd5df33774a066c80b"
   - name: odh_pipeline_runtime_tensorflow_cuda_py312_image
