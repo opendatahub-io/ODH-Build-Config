@@ -556,6 +556,7 @@ spec:
         script: |
           #!/bin/bash
           set -e
+          export GIT_SSH_COMMAND="ssh -F $HOME/.ssh/config -o UserKnownHostsFile=$HOME/.ssh/known_hosts"
           mkdir slack && cd slack
           git init .
           git remote add origin git@github.com:red-hat-data-services/rhods-devops-infra.git
