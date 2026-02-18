@@ -1,5 +1,5 @@
 patch:
-  version: 3.4.0
+  version: 3.5.2
   relatedImages:
     - name: RELATED_IMAGE_ODH_KF_NOTEBOOK_CONTROLLER_IMAGE
       value: quay.io/opendatahub/kubeflow-notebook-controller@sha256:ac246c26bfc2383a9ae6e09f80a1c6531873390e2215746ea04859f91ff48993
@@ -73,9 +73,9 @@ patch:
     - name: RELATED_IMAGE_ODH_LLM_D_ROUTING_SIDECAR_IMAGE
       value: quay.io/opendatahub/llm-d-routing-sidecar@sha256:bf7b1289302e99b42912723e3fd54b0bb73e53440fce95f4987225af8361eaed
       component: odh-llm-d-routing-sidecar
-#    - name: RELATED_IMAGE_ODH_MUST_GATHER_IMAGE
-#      value: quay.io/opendatahub/must-gather@sha256:eef585de67dabcbee2aed62e38769cfc91351b1d307b36e2f3f86c841de5cd8a
-#      component: odh-must-gather
+      #    - name: RELATED_IMAGE_ODH_MUST_GATHER_IMAGE
+      #      value: quay.io/opendatahub/must-gather@sha256:eef585de67dabcbee2aed62e38769cfc91351b1d307b36e2f3f86c841de5cd8a
+      #      component: odh-must-gather
     - name: RELATED_IMAGE_ODH_KSERVE_AGENT_IMAGE
       value: quay.io/opendatahub/kserve-agent@sha256:f43c9bf3d072ee75a5f29f181747a8f80874902eb6c2fb35bcaf3ac5e2a05263
       component: odh-kserve-agent
@@ -154,9 +154,9 @@ patch:
     - name: RELATED_IMAGE_ODH_GUARDRAILS_DETECTOR_HUGGINGFACE_RUNTIME_IMAGE
       value: quay.io/opendatahub/guardrails-detector-huggingface-runtime@sha256:f6545954208485ce06c9a17cec13c982ac5c01e065606cd34b2adfb63445703f
       component: odh-guardrails-detector-huggingface-runtime
-#    - name: RELATED_IMAGE_ODH_OPENVINO_MODEL_SERVER_IMAGE
-#      value: quay.io/opendatahub/openvino_model_server@sha256:07190f97db631e5f42a6bb6137a91856f5417304ae3fa1a26ccef89941f65cf0
-#      component: odh-openvino-model-server
+      #    - name: RELATED_IMAGE_ODH_OPENVINO_MODEL_SERVER_IMAGE
+      #      value: quay.io/opendatahub/openvino_model_server@sha256:07190f97db631e5f42a6bb6137a91856f5417304ae3fa1a26ccef89941f65cf0
+      #      component: odh-openvino-model-server
     - name: RELATED_IMAGE_ODH_MODEL_REGISTRY_JOB_ASYNC_UPLOAD_IMAGE
       value: quay.io/opendatahub/model-registry-job-async-upload@sha256:a2aee4fd7dc1bbe57f1b9c67642735cbeaa67c77088c497a5279c4a18d8735c1
       component: odh-model-registry-job-async-upload
@@ -242,5 +242,4 @@ patch:
     file: additional-images-patch.yaml
   additional-fields:
     file: csv-patch.yaml
-
 # edit this comment to simulate bundle-patch update.
