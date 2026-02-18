@@ -11,14 +11,10 @@ on:
     paths:
       - bundle/bundle-patch.yaml
       - catalog/catalog-patch.yaml
-  workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
-  checks: write
-  security-events: write
-  statuses: write
 
 jobs:
   version-sync-merge:
