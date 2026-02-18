@@ -1,0 +1,40 @@
+name: Insta Merge Version Sync
+
+on:
+  pull_request_target:
+    branches:
+      - 'main'
+    types:
+      - opened
+      - reopened
+      - edited
+    paths:
+      - bundle/bundle-patch.yaml
+      - catalog/catalog-patch.yaml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+  security-events: write
+  statuses: write
+
+jobs:
+  version-sync-merge:
+    if: ${{ github.event.pull_request.user.login == 'odh-devops-app[bot]' && contains(github.event.pull_request.title, 'sync rhoai version to') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate github-app token
+        id: app-token
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.ODH_DEVOPS_APP_ID }}
+          private_key: ${{ secrets.ODH_DEVOPS_APP_PRIVATE_KEY }}
+
+      - name: Approve and merge version sync PR
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh pr review "${{ github.event.pull_request.html_url }}" --approve
+          gh pr merge "${{ github.event.pull_request.html_url }}" --auto --squash
