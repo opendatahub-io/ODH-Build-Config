@@ -90,8 +90,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:c3f84e92accf299ec2d4979410358b8bd166abbbdf6732dca7ab535021edf8db"
-    createdAt: "2026-02-18T04:34:33Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:ebe1a4882e01bc5c21c4dd1413973fc6468470ab2bf2a417ba4a49313377b76f"
+    createdAt: "2026-02-18T11:16:03Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1849,7 +1849,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_MODEL_REGISTRY_JOB_ASYNC_UPLOAD_IMAGE
                   value: "quay.io/opendatahub/model-registry-job-async-upload@sha256:e5048543c2ffcd8a24e9a587034aba9e5ca817249b9ea1cd40441a339ecc6c46"
                 - name: RELATED_IMAGE_ODH_LLAMA_STACK_CORE_IMAGE
-                  value: "quay.io/opendatahub/llama-stack@sha256:f1d6fc6c3278ebf55519ee8e2cd1b8f00c700cffa9fdeeb93844e9fc1ce3b5ae"
+                  value: "quay.io/opendatahub/llama-stack@sha256:8fbb199cedfba9961f89a0f5aca372d1478c69074cda4910de5378b572ced180"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_PYTORCH_LLMCOMPRESSOR_CUDA_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-llmcompressor-cuda-py312-ubi9@sha256:99f491c5cda778530f357ea2535599988ddb97c14635ac5ebf1dc7b931b7e419"
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_PYTORCH_LLMCOMPRESSOR_CUDA_PY312_IMAGE
@@ -1920,7 +1920,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAIIS_VLLM_S390X_SPYRE_IMAGE
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:c3f84e92accf299ec2d4979410358b8bd166abbbdf6732dca7ab535021edf8db"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:ebe1a4882e01bc5c21c4dd1413973fc6468470ab2bf2a417ba4a49313377b76f"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2405,8 +2405,8 @@ spec:
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-kueue
   relatedImages:
-  - name: opendatahub-operator-c3f84e92accf299ec2d4979410358b8bd166abbbdf6732dca7ab535021edf8db-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:c3f84e92accf299ec2d4979410358b8bd166abbbdf6732dca7ab535021edf8db"
+  - name: opendatahub-operator-ebe1a4882e01bc5c21c4dd1413973fc6468470ab2bf2a417ba4a49313377b76f-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:ebe1a4882e01bc5c21c4dd1413973fc6468470ab2bf2a417ba4a49313377b76f"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:71111d817dd1526af68ab7bcfa4f71f6f6b2e691db4649ac26124d07e1b58f33"
   - name: odh_dashboard_image
@@ -2512,7 +2512,7 @@ spec:
   - name: odh_model_registry_job_async_upload_image
     image: "quay.io/opendatahub/model-registry-job-async-upload@sha256:e5048543c2ffcd8a24e9a587034aba9e5ca817249b9ea1cd40441a339ecc6c46"
   - name: odh_llama_stack_core_image
-    image: "quay.io/opendatahub/llama-stack@sha256:f1d6fc6c3278ebf55519ee8e2cd1b8f00c700cffa9fdeeb93844e9fc1ce3b5ae"
+    image: "quay.io/opendatahub/llama-stack@sha256:8fbb199cedfba9961f89a0f5aca372d1478c69074cda4910de5378b572ced180"
   - name: odh_workbench_jupyter_pytorch_llmcompressor_cuda_py312_image
     image: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-llmcompressor-cuda-py312-ubi9@sha256:99f491c5cda778530f357ea2535599988ddb97c14635ac5ebf1dc7b931b7e419"
   - name: odh_pipeline_runtime_pytorch_llmcompressor_cuda_py312_image
