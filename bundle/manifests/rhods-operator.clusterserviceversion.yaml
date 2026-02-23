@@ -90,8 +90,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:52f32165c5f623ea336debca65e2a6a58b2c57b5e2139197c596144eaf5b2e0e"
-    createdAt: "2026-02-23T11:52:47Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:20186a0d19e634e3ede81551070f985e79f4a6cd11ac8d8264f8dc566751cb12"
+    createdAt: "2026-02-23T12:01:49Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1747,7 +1747,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_KF_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:526d31a8557b4c0f0f49623ff228c079273c201140f20db57777e10925dd34db"
                 - name: RELATED_IMAGE_ODH_DASHBOARD_IMAGE
-                  value: "quay.io/opendatahub/odh-dashboard@sha256:f63a19aa386f1d7e9f1d880e0db6235f4619432aa09f772a93d38819dccb3aa5"
+                  value: "quay.io/opendatahub/odh-dashboard@sha256:3e7e2c306ecb7eb6645d6c0b437806bff4adf753d5f470938fdedb2e7914038d"
                 - name: RELATED_IMAGE_ODH_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/odh-notebook-controller@sha256:2c1d1b544057a43803da653de1e8014c259773548a25ae10a0e9efb347576eba"
                 - name: RELATED_IMAGE_ODH_DATA_SCIENCE_PIPELINES_OPERATOR_CONTROLLER_IMAGE
@@ -1920,7 +1920,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAIIS_VLLM_S390X_SPYRE_IMAGE
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:52f32165c5f623ea336debca65e2a6a58b2c57b5e2139197c596144eaf5b2e0e"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:20186a0d19e634e3ede81551070f985e79f4a6cd11ac8d8264f8dc566751cb12"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2405,12 +2405,12 @@ spec:
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-kueue
   relatedImages:
-  - name: opendatahub-operator-52f32165c5f623ea336debca65e2a6a58b2c57b5e2139197c596144eaf5b2e0e-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:52f32165c5f623ea336debca65e2a6a58b2c57b5e2139197c596144eaf5b2e0e"
+  - name: opendatahub-operator-20186a0d19e634e3ede81551070f985e79f4a6cd11ac8d8264f8dc566751cb12-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:20186a0d19e634e3ede81551070f985e79f4a6cd11ac8d8264f8dc566751cb12"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:526d31a8557b4c0f0f49623ff228c079273c201140f20db57777e10925dd34db"
   - name: odh_dashboard_image
-    image: "quay.io/opendatahub/odh-dashboard@sha256:f63a19aa386f1d7e9f1d880e0db6235f4619432aa09f772a93d38819dccb3aa5"
+    image: "quay.io/opendatahub/odh-dashboard@sha256:3e7e2c306ecb7eb6645d6c0b437806bff4adf753d5f470938fdedb2e7914038d"
   - name: odh_notebook_controller_image
     image: "quay.io/opendatahub/odh-notebook-controller@sha256:2c1d1b544057a43803da653de1e8014c259773548a25ae10a0e9efb347576eba"
   - name: odh_data_science_pipelines_operator_controller_image
