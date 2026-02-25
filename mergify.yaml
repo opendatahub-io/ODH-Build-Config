@@ -1,0 +1,43 @@
+pull_request_rules:
+  - name: Add to queue when ready
+    conditions:
+      - -author~=^(rhods-ci-bot|red-hat-konflux\[bot\]|odh-devops-app\[bot\])$
+      - check-success=^ci\/prow.*
+      - check-success~=^"Red Hat Konflux".*
+      - "#approved-reviews-by>=1"
+      - comment~="^/lgtm$"
+      - -draft
+      - base~=(main|stable)
+    actions:
+      queue:
+        name: default
+        delay: 60 seconds
+  - name: Auto rebase
+    conditions:
+      - base=(main|stable)
+      - -conflict
+    actions:
+      rebase: {}
+  - name: Close stale PR
+    conditions:
+      - status-success=build
+      - -updated-at<30d
+    actions:
+      close:
+        message: "Closing stale PR"
+  - name: Bypass
+    conditions:
+      - author~=^(rhods-ci-bot|red-hat-konflux\[bot\]|odh-devops-app\[bot\])$
+    actions:
+      merge:
+        method: squash
+queue_rules:
+  - name: default
+    conditions:
+      - -author~=^(rhods-ci-bot|red-hat-konflux\[bot\]|odh-devops-app\[bot\])$
+      - check-success=^ci\/prow.*
+      - check-success~=^"Red Hat Konflux".*
+      - "#approved-reviews-by>=1"
+      - comment~="^/lgtm$"
+      - -draft
+      - base~=(main|stable)
