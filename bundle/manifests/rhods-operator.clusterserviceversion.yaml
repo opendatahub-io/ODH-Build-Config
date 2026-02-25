@@ -90,8 +90,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:276f11ec8a827987989a62a5aa50c76a0eb4f6a9e515e723e2013b7f2e104a5a"
-    createdAt: "2026-02-25T17:05:10Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:0633f179f80ccff71ff2dac8861e5ca011d366036f6405a06367bd2286c7c3b4"
+    createdAt: "2026-02-25T17:10:36Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1747,7 +1747,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_KF_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0942f8484b700d995571cf58d3332d602f1bdfeeb5c10abfc3e3ecb7283ea1a2"
                 - name: RELATED_IMAGE_ODH_DASHBOARD_IMAGE
-                  value: "quay.io/opendatahub/odh-dashboard@sha256:c457e657c89d657b212b13201fe52415401f2bf5223af259bafbce071ea58a82"
+                  value: "quay.io/opendatahub/odh-dashboard@sha256:553b54834386192f48aaf366395a5bdfe24f5c803c8ba7bd64caad37652c8147"
                 - name: RELATED_IMAGE_ODH_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/odh-notebook-controller@sha256:cfa27aab48d309a6d514e88d80552f88a3e09c311332b577e2e37443d3bff382"
                 - name: RELATED_IMAGE_ODH_DATA_SCIENCE_PIPELINES_OPERATOR_CONTROLLER_IMAGE
@@ -1887,13 +1887,13 @@ spec:
                 - name: RELATED_IMAGE_ODH_MLFLOW_IMAGE
                   value: "quay.io/opendatahub/mlflow@sha256:415fabbc5affb88e4bdb3ce40ce6c9489a8b3c08f9abf405c379ee6806055eeb"
                 - name: RELATED_IMAGE_ODH_MLFLOW_OPERATOR_IMAGE
-                  value: "quay.io/opendatahub/mlflow-operator@sha256:65da6b2bf87e978e545ffcc0a117fed2c62afa24159fd2773e00029221035776"
+                  value: "quay.io/opendatahub/mlflow-operator@sha256:192d8e46f493b9aec2becbb5e9b7412d79a5a0985b24d4c281adfc4d56e9c93a"
                 - name: RELATED_IMAGE_ODH_TRAINING_ROCM64_TORCH29_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-training-rocm64-torch29-py312@sha256:8a053c8ee3a4c326b745b2516a291c6b8a6e92defc5406ac2e9590bb742153f6"
                 - name: RELATED_IMAGE_ODH_TRAINING_CUDA128_TORCH29_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-training-cuda128-torch29-py312@sha256:ae81f18a4d0b4dd82575eb51e2d95f6bac16a44e9ba0d36f55614427a563d0b5"
                 - name: RELATED_IMAGE_ODH_MOD_ARCH_MAAS_IMAGE
-                  value: "quay.io/opendatahub/mod-arch-maas@sha256:f01bc947387074382a279bcd39eff38964f27f85046880ef3a16558b658a0de4"
+                  value: "quay.io/opendatahub/mod-arch-maas@sha256:c180c770229016495f682d03f79a984b5a3c20d1e7031f2387f86261d144003e"
                 - name: RELATED_IMAGE_SPARK_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/spark-operator@sha256:8515275d9b1058d347688a047ea0f64a8ea40d885c45dc1dedaac749cbec594d"
                 - name: RELATED_IMAGE_ODH_MAAS-API_IMAGE
@@ -1920,7 +1920,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAIIS_VLLM_S390X_SPYRE_IMAGE
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:276f11ec8a827987989a62a5aa50c76a0eb4f6a9e515e723e2013b7f2e104a5a"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:0633f179f80ccff71ff2dac8861e5ca011d366036f6405a06367bd2286c7c3b4"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2405,12 +2405,12 @@ spec:
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-kueue
   relatedImages:
-  - name: opendatahub-operator-276f11ec8a827987989a62a5aa50c76a0eb4f6a9e515e723e2013b7f2e104a5a-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:276f11ec8a827987989a62a5aa50c76a0eb4f6a9e515e723e2013b7f2e104a5a"
+  - name: opendatahub-operator-0633f179f80ccff71ff2dac8861e5ca011d366036f6405a06367bd2286c7c3b4-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:0633f179f80ccff71ff2dac8861e5ca011d366036f6405a06367bd2286c7c3b4"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0942f8484b700d995571cf58d3332d602f1bdfeeb5c10abfc3e3ecb7283ea1a2"
   - name: odh_dashboard_image
-    image: "quay.io/opendatahub/odh-dashboard@sha256:c457e657c89d657b212b13201fe52415401f2bf5223af259bafbce071ea58a82"
+    image: "quay.io/opendatahub/odh-dashboard@sha256:553b54834386192f48aaf366395a5bdfe24f5c803c8ba7bd64caad37652c8147"
   - name: odh_notebook_controller_image
     image: "quay.io/opendatahub/odh-notebook-controller@sha256:cfa27aab48d309a6d514e88d80552f88a3e09c311332b577e2e37443d3bff382"
   - name: odh_data_science_pipelines_operator_controller_image
@@ -2550,13 +2550,13 @@ spec:
   - name: odh_mlflow_image
     image: "quay.io/opendatahub/mlflow@sha256:415fabbc5affb88e4bdb3ce40ce6c9489a8b3c08f9abf405c379ee6806055eeb"
   - name: odh_mlflow_operator_image
-    image: "quay.io/opendatahub/mlflow-operator@sha256:65da6b2bf87e978e545ffcc0a117fed2c62afa24159fd2773e00029221035776"
+    image: "quay.io/opendatahub/mlflow-operator@sha256:192d8e46f493b9aec2becbb5e9b7412d79a5a0985b24d4c281adfc4d56e9c93a"
   - name: odh_training_rocm64_torch29_py312_image
     image: "quay.io/opendatahub/odh-training-rocm64-torch29-py312@sha256:8a053c8ee3a4c326b745b2516a291c6b8a6e92defc5406ac2e9590bb742153f6"
   - name: odh_training_cuda128_torch29_py312_image
     image: "quay.io/opendatahub/odh-training-cuda128-torch29-py312@sha256:ae81f18a4d0b4dd82575eb51e2d95f6bac16a44e9ba0d36f55614427a563d0b5"
   - name: odh_mod_arch_maas_image
-    image: "quay.io/opendatahub/mod-arch-maas@sha256:f01bc947387074382a279bcd39eff38964f27f85046880ef3a16558b658a0de4"
+    image: "quay.io/opendatahub/mod-arch-maas@sha256:c180c770229016495f682d03f79a984b5a3c20d1e7031f2387f86261d144003e"
   - name: spark_operator_image
     image: "quay.io/opendatahub/spark-operator@sha256:8515275d9b1058d347688a047ea0f64a8ea40d885c45dc1dedaac749cbec594d"
   - name: odh_maas-api_image
