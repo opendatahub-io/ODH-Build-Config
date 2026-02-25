@@ -6,13 +6,13 @@ pull_request_rules:
       - check-success~=^"Red Hat Konflux".*
       - "#approved-reviews-by>=1"
       - -draft
-      - base=stable
+      - base~=(stable|main)
     actions:
       queue:
         name: default
   - name: Auto rebase
     conditions:
-      - base=stable
+      - base~=(stable|main)
       - -conflict
     actions:
       rebase: {}
@@ -38,4 +38,4 @@ queue_rules:
       - check-success~=^"Red Hat Konflux".*
       - "#approved-reviews-by>=1"
       - -draft
-      - base=stable
+      - base~=(stable|main)
