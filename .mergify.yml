@@ -5,13 +5,11 @@ pull_request_rules:
       - check-success=^ci\/prow.*
       - check-success~=^"Red Hat Konflux".*
       - "#approved-reviews-by>=1"
-      - comment~="^/lgtm$"
       - -draft
       - base=stable
     actions:
       queue:
         name: default
-        delay: 60 seconds
   - name: Auto rebase
     conditions:
       - base=stable
@@ -21,7 +19,8 @@ pull_request_rules:
   - name: Close stale PR
     conditions:
       - status-success=build
-      - -updated-at<30d
+      - -closed
+      - updated-at < 30 days 0 hours 0 minutes ago
     actions:
       close:
         message: "Closing stale PR"
@@ -38,6 +37,5 @@ queue_rules:
       - check-success=^ci\/prow.*
       - check-success~=^"Red Hat Konflux".*
       - "#approved-reviews-by>=1"
-      - comment~="^/lgtm$"
       - -draft
       - base=stable
