@@ -10,6 +10,12 @@ pull_request_rules:
     actions:
       queue:
         name: default
+  - name: Automatically merge version sync PRs
+    conditions:
+      - author = odh-devops-app[bot]
+      - title ~= ^sync rhoai version to \d+
+    actions:
+      merge:
   - name: Auto rebase
     conditions:
       - base~=(stable|main)
