@@ -25,7 +25,7 @@ jobs:
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: get_branch
-      - name: Git checkout build config main
+      - name: Git checkout build config 
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.get_branch.outputs.branch }}
@@ -115,7 +115,7 @@ jobs:
           echo "OPENSHIFT_VERSION=$OPENSHIFT_VERSION"
           OUTPUT_CATALOG_PATH=${BRANCH}/catalog/${OPENSHIFT_VERSION}/rhods-operator/catalog.yaml
 
-          PCC_CATALOG_YAML_PATH=main/pcc/catalog-${OPENSHIFT_VERSION}.yaml
+          PCC_CATALOG_YAML_PATH=${BRANCH}/pcc/catalog-${OPENSHIFT_VERSION}.yaml
           SINGLE_BUNDLE_PATH=${BUNDLE_OBJECT_SINGLE_BUNDLE_PATH}
           if [[ $NUMERIC_OCP_VERSION -ge $CSV_META_MIN_OCP_VERSION ]]; then SINGLE_BUNDLE_PATH=${CSV_META_SINGLE_BUNDLE_PATH}; fi
           python3 utils/utils/fbc-processor/fbc-processor.py -op catalog-patch -b ${BUILD_CONFIG_PATH} -c ${PCC_CATALOG_YAML_PATH} -p ${PATCH_YAML_PATH} -s ${SINGLE_BUNDLE_PATH} -o ${OUTPUT_CATALOG_PATH} --push-pipeline-yaml-path ${PUSH_PIPELINE_PATH} --push-pipeline-operation enable
