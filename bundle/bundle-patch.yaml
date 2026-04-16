@@ -300,6 +300,12 @@ patch:
     - name: RELATED_IMAGE_ODH_TRAINING_CUDA130_TORCH29_PY312_OPENMPI41_IMAGE
       value: quay.io/opendatahub/odh-training-cuda130-torch29-py312-openmpi41@sha256:e8d2951891efedf28052dc88208f28efc97a44b4aaf159295ca52bd3453a26d3
       component: odh-training-cuda130-torch29-py312-openmpi41
+    - name: RELATED_IMAGE_ODH_KSERVE_LOCALMODELNODE_AGENT_IMAGE
+      value: quay.io/opendatahub/odh-kserve-localmodelnode-agent@sha256:6c482209edb733a38d8c110362e18194fbdddc65eda99734657ee80a62005827
+      component: odh-kserve-kserve-localmodelnode-agent
+    - name: RELATED_IMAGE_ODH_KSERVE_LOCALMODEL_CONTROLLER_IMAGE
+      value: quay.io/opendatahub/odh-kserve-localmodel-controller@sha256:3a739e4e091e51808e51d716da4e7ea1c4ff8713a22f3b4691594feff9917939
+      component: odh-kserve-localmodel-controller
   additional-related-images:
     file: additional-images-patch.yaml
   additional-fields:
