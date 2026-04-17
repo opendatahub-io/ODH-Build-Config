@@ -6,13 +6,13 @@ name: rhods-operator
 schema: olm.package
 ---
 entries:
-- name: rhods-operator.3.4.0
+- name: rhods-operator.3.5.0-ea.1
 name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:587e74ce461c05354eee659cd1022a989b784e3c0641e638f041497b86383a8c
-name: rhods-operator.3.4.0
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:2476053a1b557e2ab9fcb4d148247423233d47aea9cba7e74f0fe04f259c62d5
+name: rhods-operator.3.5.0-ea.1
 package: rhods-operator
 properties:
 - type: olm.gvk
@@ -168,7 +168,7 @@ properties:
 - type: olm.package
   value:
     packageName: rhods-operator
-    version: 3.4.0
+    version: 3.5.0-ea.1
 - type: olm.csv.metadata
   value:
     annotations:
@@ -265,7 +265,7 @@ properties:
       categories: AI/Machine Learning, Big Data
       certified: "False"
       containerImage: quay.io/opendatahub/opendatahub-operator@sha256:59de7ae143ef0c53965af3eefce7068d21d1617172424ffc810835ab13783bbf
-      createdAt: "2026-04-15T22:14:24Z"
+      createdAt: "2026-04-17T08:24:37Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -583,8 +583,6 @@ properties:
     provider:
       name: Red Hat, Inc.
 relatedImages:
-- image: REPLACE_IMAGE:latest
-  name: ""
 - image: quay.io/opendatahub/data-science-pipelines-operator@sha256:47b2f838b1f608b604006ba8408514c1abc13c24897b6f956ec13054ca8022a0
   name: odh_data_science_pipelines_operator_controller_image
 - image: quay.io/opendatahub/ds-pipelines-api-server@sha256:da86d73407965ac944ad6b89def357ba8d7eee5b93db047c9b712474e6902657
@@ -751,7 +749,7 @@ relatedImages:
   name: odh_workbench_jupyter_tensorflow_rocm_py312_image
 - image: quay.io/opendatahub/odh-workbench-jupyter-trustyai-cpu-py312-ubi9@sha256:b48291b835d9521e6c9617f06e302497580794ce0dc8624bd9c97d169138e152
   name: odh_workbench_jupyter_trustyai_cpu_py312_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:587e74ce461c05354eee659cd1022a989b784e3c0641e638f041497b86383a8c
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:2476053a1b557e2ab9fcb4d148247423233d47aea9cba7e74f0fe04f259c62d5
   name: ""
 - image: quay.io/opendatahub/opendatahub-operator@sha256:59de7ae143ef0c53965af3eefce7068d21d1617172424ffc810835ab13783bbf
   name: opendatahub-operator-59de7ae143ef0c53965af3eefce7068d21d1617172424ffc810835ab13783bbf-annotation
@@ -796,9 +794,9 @@ relatedImages:
 - image: registry.redhat.io/rhaiis/vllm-rocm-rhel9@sha256:8624e2a5086cf1303b59154a817f60a3476d6ca48899261a2e477eb9e99ae781
   name: rhaii_vllm_rocm_image
 - image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
-  name: rhaiis_vllm_s390x_spyre_image
-- image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
   name: rhaiis_vllm_amd64_spyre_image
+- image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
+  name: rhaiis_vllm_s390x_spyre_image
 - image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
   name: rhaii_vllm_amd64_spyre_image
 - image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29

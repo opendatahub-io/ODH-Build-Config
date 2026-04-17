@@ -94,7 +94,7 @@ metadata:
     categories: AI/Machine Learning, Big Data
     certified: "False"
     containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:59de7ae143ef0c53965af3eefce7068d21d1617172424ffc810835ab13783bbf"
-    createdAt: "2026-04-15T22:14:24Z"
+    createdAt: "2026-04-17T08:24:37Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -196,7 +196,7 @@ metadata:
     ose-cli-etcd-image: registry.redhat.io/openshift4/ose-cli@sha256:4cfb4219f46c8cc25a5e567fd4cb8babe9a3778b0b86a1e354a3403994ef3677
     ose-etcd-image: registry.redhat.io/openshift4/ose-etcd@sha256:d3275cd886d13865937d225d8138db7f6b7bf59ac1a94d9fbe61e35286bee6ff
     operators.openshift.io/valid-subscription: '["OpenShift AI"]'
-  name: rhods-operator.3.4.0
+  name: rhods-operator.3.5.0-ea.1
   namespace: placeholder
   labels:
     operatorframework.io/arch.amd64: supported
@@ -2057,7 +2057,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: REPLACE_IMAGE:latest
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:59de7ae143ef0c53965af3eefce7068d21d1617172424ffc810835ab13783bbf"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2145,7 +2145,7 @@ spec:
   minKubeVersion: 1.25.0
   provider:
     name: Red Hat, Inc.
-  version: "3.4.0"
+  version: "3.5.0-ea.1"
   webhookdefinitions:
   - admissionReviewVersions:
     - v1
