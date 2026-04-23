@@ -94,7 +94,7 @@ metadata:
     categories: AI/Machine Learning, Big Data
     certified: "False"
     containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:901af2f9eef36d695f24c89b2186eaa40d4c0633910bfe4a1c96fb4ac69fd714"
-    createdAt: "2026-04-22T16:53:30Z"
+    createdAt: "2026-04-23T03:01:57Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1130,6 +1130,21 @@ spec:
           - get
           - patch
           - update
+        - apiGroups:
+          - maas.opendatahub.io
+          resources:
+          - tenants
+          verbs:
+          - delete
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - maas.opendatahub.io
+          resources:
+          - tenants/status
+          verbs:
+          - get
         - apiGroups:
           - machinelearning.seldon.io
           resources:
