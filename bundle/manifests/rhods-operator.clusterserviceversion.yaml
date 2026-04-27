@@ -93,8 +93,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:56d5a5c45a81b54588b3e2e706a2f26f1a07201baf40a05543de4a4438f231c0"
-    createdAt: "2026-04-27T08:43:06Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:eee45fab1fcde49113feacf9fac2f031867afa7f7552558721dce8dce840bc9e"
+    createdAt: "2026-04-27T09:10:36Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1943,7 +1943,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_TRAINER_IMAGE
                   value: "quay.io/opendatahub/trainer@sha256:6cb47089b075202aa00182a4a7e351be99f3cb70c5fb79d15d92618193c99bb5"
                 - name: RELATED_IMAGE_ODH_MLSERVER_IMAGE
-                  value: "quay.io/opendatahub/mlserver@sha256:cda679a81d602a067dfd6050d9ab8f760608333099752796c5c9aa3ea07f1859"
+                  value: "quay.io/opendatahub/mlserver@sha256:d0b869bea40bc5103eb739d281d6fd49877a7591923f452c8c3094ebab80f375"
                 - name: RELATED_IMAGE_ODH_MLFLOW_IMAGE
                   value: "quay.io/opendatahub/mlflow@sha256:41dfc505590d101fc16309f962624c42a2b68bc53700847372e1eca924d1fcfb"
                 - name: RELATED_IMAGE_ODH_MLFLOW_OPERATOR_IMAGE
@@ -2036,7 +2036,7 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAII_VLLM_GAUDI_IMAGE
                   value: registry.redhat.io/rhaii-early-access/vllm-gaudi-rhel9@sha256:9743aa8b794b3fb89357aa91848ace931cecdc4cff09345d485333819b924817
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:56d5a5c45a81b54588b3e2e706a2f26f1a07201baf40a05543de4a4438f231c0"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:eee45fab1fcde49113feacf9fac2f031867afa7f7552558721dce8dce840bc9e"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2085,7 +2085,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:56d5a5c45a81b54588b3e2e706a2f26f1a07201baf40a05543de4a4438f231c0"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:eee45fab1fcde49113feacf9fac2f031867afa7f7552558721dce8dce840bc9e"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2517,8 +2517,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-56d5a5c45a81b54588b3e2e706a2f26f1a07201baf40a05543de4a4438f231c0-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:56d5a5c45a81b54588b3e2e706a2f26f1a07201baf40a05543de4a4438f231c0"
+  - name: opendatahub-operator-eee45fab1fcde49113feacf9fac2f031867afa7f7552558721dce8dce840bc9e-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:eee45fab1fcde49113feacf9fac2f031867afa7f7552558721dce8dce840bc9e"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:2a134e321f2967ffa6c3ab20223d0d4b3d10667f4e1a00bb83bc27c843de20ee"
   - name: odh_dashboard_image
@@ -2658,7 +2658,7 @@ spec:
   - name: odh_trainer_image
     image: "quay.io/opendatahub/trainer@sha256:6cb47089b075202aa00182a4a7e351be99f3cb70c5fb79d15d92618193c99bb5"
   - name: odh_mlserver_image
-    image: "quay.io/opendatahub/mlserver@sha256:cda679a81d602a067dfd6050d9ab8f760608333099752796c5c9aa3ea07f1859"
+    image: "quay.io/opendatahub/mlserver@sha256:d0b869bea40bc5103eb739d281d6fd49877a7591923f452c8c3094ebab80f375"
   - name: odh_mlflow_image
     image: "quay.io/opendatahub/mlflow@sha256:41dfc505590d101fc16309f962624c42a2b68bc53700847372e1eca924d1fcfb"
   - name: odh_mlflow_operator_image
