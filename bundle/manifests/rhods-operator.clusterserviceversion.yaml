@@ -94,7 +94,7 @@ metadata:
     categories: AI/Machine Learning, Big Data
     certified: "False"
     containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:58e851f502d545e67bb67f70fcae6949dd5b1f45eb66d86cb68f56e6eb57aaed"
-    createdAt: "2026-04-28T07:08:52Z"
+    createdAt: "2026-04-28T07:09:54Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2036,6 +2036,18 @@ spec:
                   value: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
                 - name: RELATED_IMAGE_RHAII_VLLM_GAUDI_IMAGE
                   value: registry.redhat.io/rhaii-early-access/vllm-gaudi-rhel9@sha256:9743aa8b794b3fb89357aa91848ace931cecdc4cff09345d485333819b924817
+                - name: RELATED_IMAGE_NGINX_126_IMAGE
+                  value: registry.redhat.io/ubi9/nginx-126@sha256:caf863c73852077d0e0f4c666ed0831b1893bb7ab333015fd35b87a98de43519
+                - name: RELATED_IMAGE_UBI_MINIMAL_IMAGE
+                  value: registry.redhat.io/ubi9/ubi-minimal@sha256:7d4e47500f28ac3a2bff06c25eff9127ff21048538ae03ce240d57cf756acd00
+                - name: RELATED_IMAGE_POSTGRESQL_16_IMAGE
+                  value: registry.redhat.io/rhel9/postgresql-16@sha256:f7bf8c0071560f5f75ef96a20a3cdb04ef020eea92cb60d77a09871c58daa6d0
+                - name: RELATED_IMAGE_PERSES_IMAGE
+                  value: registry.redhat.io/cluster-observability-operator/perses-rhel9@sha256:e797cdb47beef40b04da7b6d645bca3dc32e6247003c45b56b38efd9e13bf01c
+                - name: RELATED_IMAGE_OSE_PROM_LABEL_PROXY_IMAGE
+                  value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
+                - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
+                  value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
                 image: "quay.io/opendatahub/opendatahub-operator@sha256:58e851f502d545e67bb67f70fcae6949dd5b1f45eb66d86cb68f56e6eb57aaed"
                 imagePullPolicy: Always
                 livenessProbe:
@@ -2751,3 +2763,15 @@ spec:
     image: registry.redhat.io/rhaiis/vllm-spyre-rhel9@sha256:4a035bb354c4a0e4040c277b2f1a1ffdc7e61f6f505c5fa5d032d22f50c4fa29
   - name: rhaii_vllm_gaudi_image
     image: registry.redhat.io/rhaii-early-access/vllm-gaudi-rhel9@sha256:9743aa8b794b3fb89357aa91848ace931cecdc4cff09345d485333819b924817
+  - name: nginx_126_image
+    image: registry.redhat.io/ubi9/nginx-126@sha256:caf863c73852077d0e0f4c666ed0831b1893bb7ab333015fd35b87a98de43519
+  - name: ubi_minimal_image
+    image: registry.redhat.io/ubi9/ubi-minimal@sha256:7d4e47500f28ac3a2bff06c25eff9127ff21048538ae03ce240d57cf756acd00
+  - name: postgresql_16_image
+    image: registry.redhat.io/rhel9/postgresql-16@sha256:f7bf8c0071560f5f75ef96a20a3cdb04ef020eea92cb60d77a09871c58daa6d0
+  - name: perses_image
+    image: registry.redhat.io/cluster-observability-operator/perses-rhel9@sha256:e797cdb47beef40b04da7b6d645bca3dc32e6247003c45b56b38efd9e13bf01c
+  - name: ose_prom_label_proxy_image
+    image: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
+  - name: odh_python_312_image
+    image: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
