@@ -93,8 +93,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:c067c5b1cf985d7cd47a5567873cbf97954b69da4c6f955303bfb20391acf3fb"
-    createdAt: "2026-04-29T21:59:14Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:c95211394b90ec2bb9a12715d1a1dc20068f66b6b428563b9a7f25d51cee82e0"
+    createdAt: "2026-04-29T22:10:26Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2050,7 +2050,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:c067c5b1cf985d7cd47a5567873cbf97954b69da4c6f955303bfb20391acf3fb"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:c95211394b90ec2bb9a12715d1a1dc20068f66b6b428563b9a7f25d51cee82e0"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2099,7 +2099,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:c067c5b1cf985d7cd47a5567873cbf97954b69da4c6f955303bfb20391acf3fb"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:c95211394b90ec2bb9a12715d1a1dc20068f66b6b428563b9a7f25d51cee82e0"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2531,8 +2531,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-c067c5b1cf985d7cd47a5567873cbf97954b69da4c6f955303bfb20391acf3fb-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:c067c5b1cf985d7cd47a5567873cbf97954b69da4c6f955303bfb20391acf3fb"
+  - name: opendatahub-operator-c95211394b90ec2bb9a12715d1a1dc20068f66b6b428563b9a7f25d51cee82e0-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:c95211394b90ec2bb9a12715d1a1dc20068f66b6b428563b9a7f25d51cee82e0"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:2a134e321f2967ffa6c3ab20223d0d4b3d10667f4e1a00bb83bc27c843de20ee"
   - name: odh_dashboard_image
