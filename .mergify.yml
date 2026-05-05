@@ -38,7 +38,7 @@ pull_request_rules:
         method: squash
 queue_rules:
   - name: default
-    conditions:
+    merge_conditions:
       - -author~=^(release-bot|ops-user)$
       - check-success=^ci\/prow.*
       - check-success~=^"Red Hat Konflux".*
