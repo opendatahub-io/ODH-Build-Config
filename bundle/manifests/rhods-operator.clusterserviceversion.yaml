@@ -93,8 +93,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:3cdac2f0f69f508bc4dbf6ef316fad393d71171aa8b1ba5468aa8f6b6edb3f7d"
-    createdAt: "2026-05-13T10:52:11Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:36a911a3490cfdb705c507320f44c878aa0f75948c3ce566f3b010cc7c1ae13f"
+    createdAt: "2026-05-13T12:20:35Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2011,7 +2011,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_OGX_K8S_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-ogx-k8s-operator@sha256:955d09ebe0de3f52cfc450e6f9d64c5013d7360cf89e466a8f68ea14712e571b"
                 - name: RELATED_IMAGE_ODH_OGX_CORE_IMAGE
-                  value: "quay.io/opendatahub/odh-ogx-core@sha256:eded255b4b022b535a4a31b6c85a02e932677d28ae7d2147411c5ea89e67415f"
+                  value: "quay.io/opendatahub/odh-ogx-core@sha256:d6d9046656c4447ffe9c4421100f67a1521f87544ea7c074fc847ee6b2879b16"
                 - name: RELATED_IMAGE_DSP_TOOLBOX_IMAGE
                   value: registry.redhat.io/ubi9/toolbox@sha256:3128d73153fa3e1875e29cd1468d2dda7876bebe4590260813f7ffaad4acbf28
                 - name: RELATED_IMAGE_DSP_INSTRUCTLAB_NVIDIA_IMAGE
@@ -2048,7 +2048,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3cdac2f0f69f508bc4dbf6ef316fad393d71171aa8b1ba5468aa8f6b6edb3f7d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:36a911a3490cfdb705c507320f44c878aa0f75948c3ce566f3b010cc7c1ae13f"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2097,7 +2097,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3cdac2f0f69f508bc4dbf6ef316fad393d71171aa8b1ba5468aa8f6b6edb3f7d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:36a911a3490cfdb705c507320f44c878aa0f75948c3ce566f3b010cc7c1ae13f"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2529,8 +2529,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-3cdac2f0f69f508bc4dbf6ef316fad393d71171aa8b1ba5468aa8f6b6edb3f7d-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:3cdac2f0f69f508bc4dbf6ef316fad393d71171aa8b1ba5468aa8f6b6edb3f7d"
+  - name: opendatahub-operator-36a911a3490cfdb705c507320f44c878aa0f75948c3ce566f3b010cc7c1ae13f-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:36a911a3490cfdb705c507320f44c878aa0f75948c3ce566f3b010cc7c1ae13f"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:3b57f17ce1363d995d175820946ea7ac8a22f61bfa9055bb374542e97d664a13"
   - name: odh_dashboard_image
@@ -2738,7 +2738,7 @@ spec:
   - name: odh_ogx_k8s_operator_image
     image: "quay.io/opendatahub/odh-ogx-k8s-operator@sha256:955d09ebe0de3f52cfc450e6f9d64c5013d7360cf89e466a8f68ea14712e571b"
   - name: odh_ogx_core_image
-    image: "quay.io/opendatahub/odh-ogx-core@sha256:eded255b4b022b535a4a31b6c85a02e932677d28ae7d2147411c5ea89e67415f"
+    image: "quay.io/opendatahub/odh-ogx-core@sha256:d6d9046656c4447ffe9c4421100f67a1521f87544ea7c074fc847ee6b2879b16"
   - name: dsp_toolbox_image
     image: registry.redhat.io/ubi9/toolbox@sha256:3128d73153fa3e1875e29cd1468d2dda7876bebe4590260813f7ffaad4acbf28
   - name: dsp_instructlab_nvidia_image
