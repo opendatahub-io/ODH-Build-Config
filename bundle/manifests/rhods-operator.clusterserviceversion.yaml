@@ -96,8 +96,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:d9c3da4ae546d8c97b9048a8c6c5d34f7840ecfac0bf23aa67c8657d4d3f7f1d"
-    createdAt: "2026-06-16T11:46:45Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:9ddfe1f11656446f5e55605e262ebbbf9ff0a80901f3412dd4025d41d7c41f3f"
+    createdAt: "2026-06-16T11:55:45Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1853,7 +1853,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_KF_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:f0180b09e712b72c7d8dbb4f18e8a88b221538bd859388c6a4a8caaf0e0fb17b"
                 - name: RELATED_IMAGE_ODH_DASHBOARD_IMAGE
-                  value: "quay.io/opendatahub/odh-dashboard@sha256:f8a14d46caad8d322140a226ad1f9b98d36e79c5ed19274a79978f359ab69c7f"
+                  value: "quay.io/opendatahub/odh-dashboard@sha256:7c9e7b51a00fa5278d452b4436f44fa0632a8a86c007c0f5ada2a1d41c475daf"
                 - name: RELATED_IMAGE_ODH_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/odh-notebook-controller@sha256:36a0f5892a1932b3c01cdbfd2c4f9f7cd3387f0fe8b530b1bc1908fe250fa4db"
                 - name: RELATED_IMAGE_ODH_DATA_SCIENCE_PIPELINES_OPERATOR_CONTROLLER_IMAGE
@@ -2108,7 +2108,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:d9c3da4ae546d8c97b9048a8c6c5d34f7840ecfac0bf23aa67c8657d4d3f7f1d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:9ddfe1f11656446f5e55605e262ebbbf9ff0a80901f3412dd4025d41d7c41f3f"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2157,7 +2157,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:d9c3da4ae546d8c97b9048a8c6c5d34f7840ecfac0bf23aa67c8657d4d3f7f1d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:9ddfe1f11656446f5e55605e262ebbbf9ff0a80901f3412dd4025d41d7c41f3f"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2589,12 +2589,12 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-d9c3da4ae546d8c97b9048a8c6c5d34f7840ecfac0bf23aa67c8657d4d3f7f1d-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:d9c3da4ae546d8c97b9048a8c6c5d34f7840ecfac0bf23aa67c8657d4d3f7f1d"
+  - name: opendatahub-operator-9ddfe1f11656446f5e55605e262ebbbf9ff0a80901f3412dd4025d41d7c41f3f-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:9ddfe1f11656446f5e55605e262ebbbf9ff0a80901f3412dd4025d41d7c41f3f"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:f0180b09e712b72c7d8dbb4f18e8a88b221538bd859388c6a4a8caaf0e0fb17b"
   - name: odh_dashboard_image
-    image: "quay.io/opendatahub/odh-dashboard@sha256:f8a14d46caad8d322140a226ad1f9b98d36e79c5ed19274a79978f359ab69c7f"
+    image: "quay.io/opendatahub/odh-dashboard@sha256:7c9e7b51a00fa5278d452b4436f44fa0632a8a86c007c0f5ada2a1d41c475daf"
   - name: odh_notebook_controller_image
     image: "quay.io/opendatahub/odh-notebook-controller@sha256:36a0f5892a1932b3c01cdbfd2c4f9f7cd3387f0fe8b530b1bc1908fe250fa4db"
   - name: odh_data_science_pipelines_operator_controller_image
