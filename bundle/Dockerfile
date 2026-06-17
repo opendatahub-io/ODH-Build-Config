@@ -6,6 +6,8 @@ ARG OPENDATAHUB_OPERATOR_IMAGE=
 ARG BUILD_METADATA_URL=
 ARG ODH_LATENCY_PREDICTOR_PREDICTION_GIT_URL=
 ARG ODH_LATENCY_PREDICTOR_PREDICTION_GIT_COMMIT=
+ARG ODH_LATENCY_PREDICTOR_TEST_GIT_URL=
+ARG ODH_LATENCY_PREDICTOR_TEST_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -25,6 +27,8 @@ LABEL \
       opendatahub-operator.git.commit="${OPENDATAHUB_OPERATOR_GIT_COMMIT}" \
       odh-latency-predictor-prediction.git.url="${ODH_LATENCY_PREDICTOR_PREDICTION_GIT_URL}" \
       odh-latency-predictor-prediction.git.commit="${ODH_LATENCY_PREDICTOR_PREDICTION_GIT_COMMIT}"
+      odh-latency-predictor-test.git.url="${ODH_LATENCY_PREDICTOR_TEST_GIT_URL}" \
+      odh-latency-predictor-test.git.commit="${ODH_LATENCY_PREDICTOR_TEST_GIT_COMMIT}"
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
