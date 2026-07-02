@@ -18,6 +18,8 @@ ARG ODH_MCP_LIFECYCLE_OPERATOR_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_GIT_COMMIT=
 ARG ODH_TRAINER_OPERATOR_GIT_URL=
 ARG ODH_TRAINER_OPERATOR_GIT_COMMIT=
+ARG ODH_CORE_BFF_GIT_URL=
+ARG ODH_CORE_BFF_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -49,6 +51,8 @@ LABEL \
       odh-mcp-lifecycle-operator.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_GIT_COMMIT}" \
       odh-trainer-operator.git.url="${ODH_TRAINER_OPERATOR_GIT_URL}" \
       odh-trainer-operator.git.commit="${ODH_TRAINER_OPERATOR_GIT_COMMIT}" \
+      odh-core-bff.git.url="${ODH_CORE_BFF_GIT_URL}" \
+      odh-core-bff.git.commit="${ODH_CORE_BFF_GIT_COMMIT}"
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
