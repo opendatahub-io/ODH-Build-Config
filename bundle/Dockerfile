@@ -52,7 +52,7 @@ LABEL \
       odh-trainer-operator.git.url="${ODH_TRAINER_OPERATOR_GIT_URL}" \
       odh-trainer-operator.git.commit="${ODH_TRAINER_OPERATOR_GIT_COMMIT}" \
       odh-core-bff.git.url="${ODH_CORE_BFF_GIT_URL}" \
-      odh-core-bff.git.commit="${ODH_CORE_BFF_GIT_COMMIT}"
+      odh-core-bff.git.commit="${ODH_CORE_BFF_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
