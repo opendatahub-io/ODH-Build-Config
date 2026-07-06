@@ -56,7 +56,7 @@ LABEL \
       odh-rhoai-mcp.git.url="${ODH_RHOAI_MCP_GIT_URL}" \
       odh-rhoai-mcp.git.commit="${ODH_RHOAI_MCP_GIT_COMMIT}" \
       odh-feast-module-operator.git.url="${ODH_FEAST_MODULE_OPERATOR_GIT_URL}" \
-      odh-feast-module-operator.git.commit="${ODH_FEAST_MODULE_OPERATOR_GIT_COMMIT}"
+      odh-feast-module-operator.git.commit="${ODH_FEAST_MODULE_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
