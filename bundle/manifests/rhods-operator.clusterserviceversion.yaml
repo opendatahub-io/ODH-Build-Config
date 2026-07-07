@@ -105,8 +105,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:add2a85a2bab8aade4dbbd61075f47f2917af1bb577d872594ba1f2dec1ea2db"
-    createdAt: "2026-07-07T16:48:18Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:ffe8e22d1fc94b569ec4b03377feee6a6155fa7b15c79f99727052dc0e2400bb"
+    createdAt: "2026-07-07T16:53:17Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2057,7 +2057,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_AI_GATEWAY_PAYLOAD_PROCESSING_E2E_IMAGE
                   value: "quay.io/opendatahub/ai-gateway-payload-processing-e2e@sha256:87276173d5b4b8f788807c087c527de945f6f18ed231b0483f7a7ac806c7aa57"
                 - name: RELATED_IMAGE_ODH_EVAL_HUB_IMAGE
-                  value: "quay.io/opendatahub/odh-eval-hub@sha256:164bc6a97cfee69bf7d305953ca774f887422fb8899205bf893fd80f444febc6"
+                  value: "quay.io/opendatahub/odh-eval-hub@sha256:c31f3e715c1abe372d9f2face0f03b2faa313f9bb72318c8fa6e28863146558e"
                 - name: RELATED_IMAGE_ODH_TRUSTYAI_NEMO_GUARDRAILS_SERVER_IMAGE
                   value: "quay.io/opendatahub/odh-trustyai-nemo-guardrails-server@sha256:2e6b7204bc62ccedf501cacd3ec8dacdfa6f593dd5af1d94b07972389dd3943e"
                 - name: RELATED_IMAGE_ODH_TRUSTYAI_GARAK_LLS_PROVIDER_DSP_IMAGE
@@ -2168,7 +2168,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:add2a85a2bab8aade4dbbd61075f47f2917af1bb577d872594ba1f2dec1ea2db"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:ffe8e22d1fc94b569ec4b03377feee6a6155fa7b15c79f99727052dc0e2400bb"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2217,7 +2217,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:add2a85a2bab8aade4dbbd61075f47f2917af1bb577d872594ba1f2dec1ea2db"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:ffe8e22d1fc94b569ec4b03377feee6a6155fa7b15c79f99727052dc0e2400bb"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2651,8 +2651,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-add2a85a2bab8aade4dbbd61075f47f2917af1bb577d872594ba1f2dec1ea2db-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:add2a85a2bab8aade4dbbd61075f47f2917af1bb577d872594ba1f2dec1ea2db"
+  - name: opendatahub-operator-ffe8e22d1fc94b569ec4b03377feee6a6155fa7b15c79f99727052dc0e2400bb-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:ffe8e22d1fc94b569ec4b03377feee6a6155fa7b15c79f99727052dc0e2400bb"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0602823712b2ee767cc7486071e1b107bca6e3ed2ba018910224803cfaf4d03c"
   - name: odh_dashboard_image
@@ -2846,7 +2846,7 @@ spec:
   - name: odh_ai_gateway_payload_processing_e2e_image
     image: "quay.io/opendatahub/ai-gateway-payload-processing-e2e@sha256:87276173d5b4b8f788807c087c527de945f6f18ed231b0483f7a7ac806c7aa57"
   - name: odh_eval_hub_image
-    image: "quay.io/opendatahub/odh-eval-hub@sha256:164bc6a97cfee69bf7d305953ca774f887422fb8899205bf893fd80f444febc6"
+    image: "quay.io/opendatahub/odh-eval-hub@sha256:c31f3e715c1abe372d9f2face0f03b2faa313f9bb72318c8fa6e28863146558e"
   - name: odh_trustyai_nemo_guardrails_server_image
     image: "quay.io/opendatahub/odh-trustyai-nemo-guardrails-server@sha256:2e6b7204bc62ccedf501cacd3ec8dacdfa6f593dd5af1d94b07972389dd3943e"
   - name: odh_trustyai_garak_lls_provider_dsp_image
