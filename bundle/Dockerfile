@@ -64,7 +64,7 @@ LABEL \
       odh-feast-module-operator.git.url="${ODH_FEAST_MODULE_OPERATOR_GIT_URL}" \
       odh-feast-module-operator.git.commit="${ODH_FEAST_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-mlserver-cuda.git.url="${ODH_MLSERVER_CUDA_GIT_URL}" \
-      odh-mlserver-cuda.git.commit="${ODH_MLSERVER_CUDA_GIT_COMMIT}"
+      odh-mlserver-cuda.git.commit="${ODH_MLSERVER_CUDA_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
