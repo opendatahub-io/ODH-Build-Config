@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:c7750cb5547a8cbc5de9a907a4347ebe380c2e3678d55717a270beb6a5f220c2"
-    createdAt: "2026-07-15T14:58:06Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:9977ec735e6917a69b6219d25de0beb92759fc971a36e7057c576f0652830bad"
+    createdAt: "2026-07-15T15:09:01Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2094,7 +2094,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_LLM_D_ROUTER_ENDPOINT_PICKER_IMAGE
                   value: "quay.io/opendatahub/odh-llm-d-router-endpoint-picker@sha256:9adc62a219a7eaae4c32e9670e67d52ad5c214fa55beb749cd3d545b787e24e9"
                 - name: RELATED_IMAGE_ODH_AI_GATEWAY_OPERATOR_IMAGE
-                  value: "quay.io/opendatahub/odh-ai-gateway-operator@sha256:48a6fe560d19aef98b3b18027d5e3caae44891a49bb0a09ee0436064d2d52be7"
+                  value: "quay.io/opendatahub/odh-ai-gateway-operator@sha256:d385ba1674a4992001c3208fb215ae4091662c26c6fb7ddca8a71af404c97043"
                 - name: RELATED_IMAGE_ODH_LATENCY_PREDICTOR_TRAINING_IMAGE
                   value: "quay.io/opendatahub/odh-latency-predictor-training@sha256:2aa710a5c976d17db26a28c877013de6fa635be03ff6ec833670a806ff425872"
                 - name: RELATED_IMAGE_ODH_LATENCY_PREDICTOR_PREDICTION_IMAGE
@@ -2177,7 +2177,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:c7750cb5547a8cbc5de9a907a4347ebe380c2e3678d55717a270beb6a5f220c2"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:9977ec735e6917a69b6219d25de0beb92759fc971a36e7057c576f0652830bad"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2226,7 +2226,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:c7750cb5547a8cbc5de9a907a4347ebe380c2e3678d55717a270beb6a5f220c2"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:9977ec735e6917a69b6219d25de0beb92759fc971a36e7057c576f0652830bad"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2578,8 +2578,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-c7750cb5547a8cbc5de9a907a4347ebe380c2e3678d55717a270beb6a5f220c2-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:c7750cb5547a8cbc5de9a907a4347ebe380c2e3678d55717a270beb6a5f220c2"
+  - name: opendatahub-operator-9977ec735e6917a69b6219d25de0beb92759fc971a36e7057c576f0652830bad-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:9977ec735e6917a69b6219d25de0beb92759fc971a36e7057c576f0652830bad"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0602823712b2ee767cc7486071e1b107bca6e3ed2ba018910224803cfaf4d03c"
   - name: odh_dashboard_image
@@ -2803,7 +2803,7 @@ spec:
   - name: odh_llm_d_router_endpoint_picker_image
     image: "quay.io/opendatahub/odh-llm-d-router-endpoint-picker@sha256:9adc62a219a7eaae4c32e9670e67d52ad5c214fa55beb749cd3d545b787e24e9"
   - name: odh_ai_gateway_operator_image
-    image: "quay.io/opendatahub/odh-ai-gateway-operator@sha256:48a6fe560d19aef98b3b18027d5e3caae44891a49bb0a09ee0436064d2d52be7"
+    image: "quay.io/opendatahub/odh-ai-gateway-operator@sha256:d385ba1674a4992001c3208fb215ae4091662c26c6fb7ddca8a71af404c97043"
   - name: odh_latency_predictor_training_image
     image: "quay.io/opendatahub/odh-latency-predictor-training@sha256:2aa710a5c976d17db26a28c877013de6fa635be03ff6ec833670a806ff425872"
   - name: odh_latency_predictor_prediction_image
