@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:4b0b35273e60230b094e8bf94f0f5797fa1bdba91e033aebe8fafc834beefde7
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:683e042ebf1efc98de85b17165c917917775f84c4ea1a401ff9060e4ea20c10a
 name: rhods-operator.3.5.0
 package: rhods-operator
 properties:
@@ -289,8 +289,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:03f1eac287205136ddb2d4713144120543d479c5cf5f27730aeb45bcd2bf0e30
-      createdAt: "2026-07-15T10:26:22Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:7a70c61a3f5fd2d76ad1a61e08a8038bb4fff0da6bc6e18319554a7a3c181f7c
+      createdAt: "2026-07-15T11:03:25Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -701,7 +701,7 @@ relatedImages:
   name: odh_dashboard_image
 - image: quay.io/opendatahub/odh-eval-hub@sha256:c31f3e715c1abe372d9f2face0f03b2faa313f9bb72318c8fa6e28863146558e
   name: odh_eval_hub_image
-- image: quay.io/opendatahub/odh-feast-module-operator@sha256:77107fc9f60bde07c89dbad3c77d8407241120c2224fef822399e20743efa964
+- image: quay.io/opendatahub/odh-feast-module-operator@sha256:4f7c02a8d892993fedda6b6c5b8a42640da476a51285f97ad0ed8a4ec438b653
   name: odh_feast_module_operator_image
 - image: quay.io/opendatahub/odh-kserve-autogluon-server@sha256:96a874b4d24e8c2078855dd81da24c007a440ebf75dcc1c1af6c55ee7c9bbef3
   name: odh_kserve_autogluon_server_image
@@ -843,10 +843,10 @@ relatedImages:
   name: odh_workbench_jupyter_trustyai_cpu_py312_image
 - image: quay.io/opendatahub/odh-workbenches-controller@sha256:54a54f129bdfbce8a0c46ee7baf190e2a48027b6097bc9bd3a5c8dee75924ea6
   name: odh_workbenches_controller_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:4b0b35273e60230b094e8bf94f0f5797fa1bdba91e033aebe8fafc834beefde7
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:683e042ebf1efc98de85b17165c917917775f84c4ea1a401ff9060e4ea20c10a
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:03f1eac287205136ddb2d4713144120543d479c5cf5f27730aeb45bcd2bf0e30
-  name: opendatahub-operator-03f1eac287205136ddb2d4713144120543d479c5cf5f27730aeb45bcd2bf0e30-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:7a70c61a3f5fd2d76ad1a61e08a8038bb4fff0da6bc6e18319554a7a3c181f7c
+  name: opendatahub-operator-7a70c61a3f5fd2d76ad1a61e08a8038bb4fff0da6bc6e18319554a7a3c181f7c-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
 - image: quay.io/opendatahub/spark-operator@sha256:d7e647b9e18ca06c238444bfd90fd56b54ec6932b286bf2c8ec7357cc95618b9
@@ -855,7 +855,7 @@ relatedImages:
   name: odh_fms_guardrails_orchestrator_image
 - image: quay.io/opendatahub/ta-lmes-driver@sha256:4a36f6211cef1a1ade914f6a2fc26878c978c8cbda0e5a4eb520672c2b4f6d11
   name: odh_ta_lmes_driver_image
-- image: quay.io/opendatahub/ta-lmes-job@sha256:384b0d2ae56f4734089b789305cca569aa843b11c9b86962535626435d7bda0b
+- image: quay.io/opendatahub/ta-lmes-job@sha256:be5d9756f205ce9aa23406dd30337bebedd0d75b41ca989721fa7559fe7d9981
   name: odh_ta_lmes_job_image
 - image: quay.io/opendatahub/trainer@sha256:d127f46e35ed57e7e96196dea50c3dcb752b329e941f47a9ad92fa8fc58d98c6
   name: odh_trainer_image
@@ -865,7 +865,7 @@ relatedImages:
   name: odh_trustyai_service_operator_image
 - image: quay.io/opendatahub/vllm-orchestrator-gateway@sha256:10789a3f024d520078e4d813d06fa1d0297d4cd4af87a2d271c44c132d8e39f2
   name: odh_trustyai_vllm_orchestrator_gateway_image
-- image: quay.io/opendatahub/workload-variant-autoscaler@sha256:b55dcdfbdbd55e4dde4fe5d0d44eee4b0bba59d241978fae613a6c1e82d00254
+- image: quay.io/opendatahub/workload-variant-autoscaler@sha256:baad9e3a4cd273428438f023ed1c9461fd405eef95b13abbbf5b6d1ef1c683c6
   name: odh_workload_variant_autoscaler_controller_image
 - image: registry.redhat.io/cluster-observability-operator/perses-rhel9@sha256:e797cdb47beef40b04da7b6d645bca3dc32e6247003c45b56b38efd9e13bf01c
   name: perses_image
