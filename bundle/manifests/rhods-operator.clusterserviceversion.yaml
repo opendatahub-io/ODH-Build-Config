@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:219305aedaa2781b2420a5214664d867891b133407e6c1619a9acb05c4083664"
-    createdAt: "2026-07-16T18:44:44Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:61dc885c759164d5c3c9ca34e376404d14f7c1ee7827bb9f649604565bdc59a6"
+    createdAt: "2026-07-16T18:48:48Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1956,9 +1956,9 @@ spec:
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_MINIMAL_ROCM_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-jupyter-minimal-rocm-py312-ubi9@sha256:9a0623bbd1c3f6a2d4efb744e1a2e58f97b1cb2db9d14daafb9f0adf6f9343be"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_PYTORCH_CUDA_PY312_IMAGE
-                  value: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-cuda-py312-ubi9@sha256:ac59c544c9cb9aaa3ee2ec6e8589a129b0c1fe8486b1eef0ca31a2a783f9f0c8"
+                  value: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-cuda-py312-ubi9@sha256:0bffb3ff7e3154a7f18121840efe2dddc13b6297f4ef7589f8372a3bf867749c"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_PYTORCH_ROCM_PY312_IMAGE
-                  value: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-rocm-py312-ubi9@sha256:a53096e411793971d3e20fae2781fc66273c6277270265c221c0eb6c5df0027b"
+                  value: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-rocm-py312-ubi9@sha256:76913e689e8776bd38861fab160c972c83efb478c4eb0d1e530605d0f58ebc39"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_TENSORFLOW_CUDA_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-jupyter-tensorflow-cuda-py312-ubi9@sha256:b001bd09f6f5fe76cbe0eb962f46eae00f2b5356a0a641164fc350f31a2927bf"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_TENSORFLOW_ROCM_PY312_IMAGE
@@ -2175,7 +2175,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:219305aedaa2781b2420a5214664d867891b133407e6c1619a9acb05c4083664"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:61dc885c759164d5c3c9ca34e376404d14f7c1ee7827bb9f649604565bdc59a6"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2224,7 +2224,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:219305aedaa2781b2420a5214664d867891b133407e6c1619a9acb05c4083664"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:61dc885c759164d5c3c9ca34e376404d14f7c1ee7827bb9f649604565bdc59a6"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2576,8 +2576,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-219305aedaa2781b2420a5214664d867891b133407e6c1619a9acb05c4083664-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:219305aedaa2781b2420a5214664d867891b133407e6c1619a9acb05c4083664"
+  - name: opendatahub-operator-61dc885c759164d5c3c9ca34e376404d14f7c1ee7827bb9f649604565bdc59a6-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:61dc885c759164d5c3c9ca34e376404d14f7c1ee7827bb9f649604565bdc59a6"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0602823712b2ee767cc7486071e1b107bca6e3ed2ba018910224803cfaf4d03c"
   - name: odh_dashboard_image
@@ -2663,9 +2663,9 @@ spec:
   - name: odh_workbench_jupyter_minimal_rocm_py312_image
     image: "quay.io/opendatahub/odh-workbench-jupyter-minimal-rocm-py312-ubi9@sha256:9a0623bbd1c3f6a2d4efb744e1a2e58f97b1cb2db9d14daafb9f0adf6f9343be"
   - name: odh_workbench_jupyter_pytorch_cuda_py312_image
-    image: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-cuda-py312-ubi9@sha256:ac59c544c9cb9aaa3ee2ec6e8589a129b0c1fe8486b1eef0ca31a2a783f9f0c8"
+    image: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-cuda-py312-ubi9@sha256:0bffb3ff7e3154a7f18121840efe2dddc13b6297f4ef7589f8372a3bf867749c"
   - name: odh_workbench_jupyter_pytorch_rocm_py312_image
-    image: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-rocm-py312-ubi9@sha256:a53096e411793971d3e20fae2781fc66273c6277270265c221c0eb6c5df0027b"
+    image: "quay.io/opendatahub/odh-workbench-jupyter-pytorch-rocm-py312-ubi9@sha256:76913e689e8776bd38861fab160c972c83efb478c4eb0d1e530605d0f58ebc39"
   - name: odh_workbench_jupyter_tensorflow_cuda_py312_image
     image: "quay.io/opendatahub/odh-workbench-jupyter-tensorflow-cuda-py312-ubi9@sha256:b001bd09f6f5fe76cbe0eb962f46eae00f2b5356a0a641164fc350f31a2927bf"
   - name: odh_workbench_jupyter_tensorflow_rocm_py312_image
