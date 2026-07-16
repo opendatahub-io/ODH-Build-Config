@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:3a7986e033322cf4faad41fb92cc576fd18c8a5650c9b52160db77106fbfc832"
-    createdAt: "2026-07-16T08:25:26Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:cffb8de90b6bde81d40e9dd14c041ae4a8fa583c957df6ebcd16cec1bba4cfc5"
+    createdAt: "2026-07-16T08:46:18Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1222,7 +1222,7 @@ spec:
         - apiGroups:
           - maas.opendatahub.io
           resources:
-          - tenants
+          - maastenantconfigs
           verbs:
           - delete
           - get
@@ -1231,7 +1231,7 @@ spec:
         - apiGroups:
           - maas.opendatahub.io
           resources:
-          - tenants/status
+          - maastenantconfigs/status
           verbs:
           - get
         - apiGroups:
@@ -2104,13 +2104,13 @@ spec:
                 - name: RELATED_IMAGE_ODH_DASHBOARD_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-dashboard-operator@sha256:7852b18520140b65c117457061d211d283c7cfb662b3adefc0b35cd187a0a6b3"
                 - name: RELATED_IMAGE_ODH_MCP_LIFECYCLE_MODULE_OPERATOR_IMAGE
-                  value: "quay.io/opendatahub/odh-mcp-lifecycle-module-operator@sha256:c3bcade43e836a606619be58dfeb4356555ab35ea0754efc5a3b652e7d5b3ec9"
+                  value: "quay.io/opendatahub/odh-mcp-lifecycle-module-operator@sha256:f5b9b945d60c6673df040242185e5a722eb1178ff8c296c63595c6671cb2ddd4"
                 - name: RELATED_IMAGE_ODH_MCP_LIFECYCLE_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-mcp-lifecycle-operator@sha256:5714d3f0930f25157a5a31e365e99888909bd4e1d3e1196767c6f9decbadfcdd"
                 - name: RELATED_IMAGE_ODH_TRAINER_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-trainer-operator@sha256:60eb6ae5aa78b7d6d5bdab34e77ec05053b6b6d2d93575c98904f6390965d001"
                 - name: RELATED_IMAGE_ODH_RHOAI_MCP_IMAGE
-                  value: "quay.io/opendatahub/odh-rhoai-mcp@sha256:045b9abcf94c61dc1d195f367b0aab7e858c14a694aaaf3bfb5c45a0afd9610a"
+                  value: "quay.io/opendatahub/odh-rhoai-mcp@sha256:845f5bc5516c5681ecb886db6f154ee3c2eec995f40cada75f0c8a24a6b1c858"
                 - name: RELATED_IMAGE_ODH_CORE_BFF_IMAGE
                   value: "quay.io/opendatahub/odh-core-bff@sha256:1cb1410a44052c0e7e47f9dd457df2606deb72febfbb4937ba4f831960fd1770"
                 - name: RELATED_IMAGE_ODH_FEAST_MODULE_OPERATOR_IMAGE
@@ -2177,7 +2177,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3a7986e033322cf4faad41fb92cc576fd18c8a5650c9b52160db77106fbfc832"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:cffb8de90b6bde81d40e9dd14c041ae4a8fa583c957df6ebcd16cec1bba4cfc5"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2226,7 +2226,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3a7986e033322cf4faad41fb92cc576fd18c8a5650c9b52160db77106fbfc832"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:cffb8de90b6bde81d40e9dd14c041ae4a8fa583c957df6ebcd16cec1bba4cfc5"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2578,8 +2578,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-3a7986e033322cf4faad41fb92cc576fd18c8a5650c9b52160db77106fbfc832-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:3a7986e033322cf4faad41fb92cc576fd18c8a5650c9b52160db77106fbfc832"
+  - name: opendatahub-operator-cffb8de90b6bde81d40e9dd14c041ae4a8fa583c957df6ebcd16cec1bba4cfc5-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:cffb8de90b6bde81d40e9dd14c041ae4a8fa583c957df6ebcd16cec1bba4cfc5"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:0602823712b2ee767cc7486071e1b107bca6e3ed2ba018910224803cfaf4d03c"
   - name: odh_dashboard_image
@@ -2813,13 +2813,13 @@ spec:
   - name: odh_dashboard_operator_image
     image: "quay.io/opendatahub/odh-dashboard-operator@sha256:7852b18520140b65c117457061d211d283c7cfb662b3adefc0b35cd187a0a6b3"
   - name: odh_mcp_lifecycle_module_operator_image
-    image: "quay.io/opendatahub/odh-mcp-lifecycle-module-operator@sha256:c3bcade43e836a606619be58dfeb4356555ab35ea0754efc5a3b652e7d5b3ec9"
+    image: "quay.io/opendatahub/odh-mcp-lifecycle-module-operator@sha256:f5b9b945d60c6673df040242185e5a722eb1178ff8c296c63595c6671cb2ddd4"
   - name: odh_mcp_lifecycle_operator_image
     image: "quay.io/opendatahub/odh-mcp-lifecycle-operator@sha256:5714d3f0930f25157a5a31e365e99888909bd4e1d3e1196767c6f9decbadfcdd"
   - name: odh_trainer_operator_image
     image: "quay.io/opendatahub/odh-trainer-operator@sha256:60eb6ae5aa78b7d6d5bdab34e77ec05053b6b6d2d93575c98904f6390965d001"
   - name: odh_rhoai_mcp_image
-    image: "quay.io/opendatahub/odh-rhoai-mcp@sha256:045b9abcf94c61dc1d195f367b0aab7e858c14a694aaaf3bfb5c45a0afd9610a"
+    image: "quay.io/opendatahub/odh-rhoai-mcp@sha256:845f5bc5516c5681ecb886db6f154ee3c2eec995f40cada75f0c8a24a6b1c858"
   - name: odh_core_bff_image
     image: "quay.io/opendatahub/odh-core-bff@sha256:1cb1410a44052c0e7e47f9dd457df2606deb72febfbb4937ba4f831960fd1770"
   - name: odh_feast_module_operator_image
