@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:f924b497e40a7296f728fa500422503004e4d806abf67910a5f8c2893739347e
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:cd5e36f67d9849d3e81608e72fe5a894976120bc3c11825fff6536012334b7df
 name: rhods-operator.3.5.0
 package: rhods-operator
 properties:
@@ -289,8 +289,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:bbff8eb8bd3abb9474566b668f60a44bfcb56fda2c303c3789ba532628b2446b
-      createdAt: "2026-07-17T14:58:26Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:8517a966738833fd081f26a00bda2d08ed97c8ae688ae5b5affdd1847f686164
+      createdAt: "2026-07-17T15:34:21Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -725,11 +725,11 @@ relatedImages:
   name: odh_latency_predictor_training_image
 - image: quay.io/opendatahub/odh-llm-d-async@sha256:66c6515a5e8bb46c31965c3774581d477edabe301d167a2aa15113b037a244c3
   name: odh_llm_d_async_image
-- image: quay.io/opendatahub/odh-llm-d-batch-gateway-apiserver@sha256:5881217e082480688f0ad3a201834ac4e404c8c0e3bc91ba57f937f40b448b7a
+- image: quay.io/opendatahub/odh-llm-d-batch-gateway-apiserver@sha256:bbc93661ca9ec736446668cab341642247654c0cedba736dfbd7de59947e9997
   name: odh_llm_d_batch_gateway_apiserver_image
-- image: quay.io/opendatahub/odh-llm-d-batch-gateway-gc@sha256:591c10693381245b2c1a618925a32d7840e58aeff07ae9ce9f20a0746f35fd2e
+- image: quay.io/opendatahub/odh-llm-d-batch-gateway-gc@sha256:977ab2f36e7b9f9974a2d73b68592f91c382862d90547bbd2d3c7ec799316367
   name: odh_llm_d_batch_gateway_gc_image
-- image: quay.io/opendatahub/odh-llm-d-batch-gateway-processor@sha256:44f458e9d4017ca329ba265d86145358274545813f2e4ffacede6313a8a25157
+- image: quay.io/opendatahub/odh-llm-d-batch-gateway-processor@sha256:1dbbdafcd886507f3170b0c211df09a48eaffb752c9d659d9231017370a00368
   name: odh_llm_d_batch_gateway_processor_image
 - image: quay.io/opendatahub/odh-llm-d-router-disagg-sidecar@sha256:4301b6d2309eaedfa96c97cfba323c26a3e493142577128fce7c10ac073e5745
   name: odh_llm_d_router_disagg_sidecar_image
@@ -843,13 +843,13 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:5948fd30ad8096da04516887a515896eb13d1baf10db0264b2c76a0e11d9d4f4
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:f924b497e40a7296f728fa500422503004e4d806abf67910a5f8c2893739347e
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:cd5e36f67d9849d3e81608e72fe5a894976120bc3c11825fff6536012334b7df
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:bbff8eb8bd3abb9474566b668f60a44bfcb56fda2c303c3789ba532628b2446b
-  name: opendatahub-operator-bbff8eb8bd3abb9474566b668f60a44bfcb56fda2c303c3789ba532628b2446b-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:8517a966738833fd081f26a00bda2d08ed97c8ae688ae5b5affdd1847f686164
+  name: opendatahub-operator-8517a966738833fd081f26a00bda2d08ed97c8ae688ae5b5affdd1847f686164-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
-- image: quay.io/opendatahub/spark-operator@sha256:b24ab5a17d10ae343addadb81a819b111aaa67292cb931edacdf3e630a6cd969
+- image: quay.io/opendatahub/spark-operator@sha256:dc027acbbaa393fff7b7f88604bb9b005eeecc85070393f3b4a7394953c9e29e
   name: odh_spark_operator_image
 - image: quay.io/opendatahub/ta-guardrails-orchestrator@sha256:757f3c3e05fe0c40bcfa8d29d0511ddcaff640a38c4ee507696cf126009381b6
   name: odh_fms_guardrails_orchestrator_image
