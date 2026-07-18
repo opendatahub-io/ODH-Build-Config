@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:71a350d7239fd9d7687eb86c342afdf09fba4aa276f7bf261029fffd7754e524
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:81b253e686b9b263cdc2c277c917996d08a555a4ec1445c48c0e4dd2a10d0b57
 name: rhods-operator.3.5.0
 package: rhods-operator
 properties:
@@ -239,7 +239,7 @@ properties:
                   "registriesNamespace": "rhoai-model-registries"
                 },
                 "ogx": {
-                  "managementState": "Removed"
+                  "managementState": "Managed"
                 },
                 "ray": {
                   "managementState": "Managed"
@@ -290,7 +290,7 @@ properties:
       categories: AI/Machine Learning, Big Data
       certified: "False"
       containerImage: quay.io/opendatahub/opendatahub-operator@sha256:992d2c95ea450398a83688642835a4cd8e52df652a38f35c57bbbbac4ba32ce9
-      createdAt: "2026-07-18T01:55:36Z"
+      createdAt: "2026-07-18T03:01:16Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -332,7 +332,7 @@ properties:
                 "managementState": "Removed"
               },
               "ogx": {
-                "managementState": "Removed"
+                "managementState": "Managed"
               },
               "kueue": {
                 "managementState": "Removed"
@@ -843,7 +843,7 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:9df6a01d621780f2fdd2878b58de59adc6ffb2cc4338b66d4dc0c1ff025c0245
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:71a350d7239fd9d7687eb86c342afdf09fba4aa276f7bf261029fffd7754e524
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:81b253e686b9b263cdc2c277c917996d08a555a4ec1445c48c0e4dd2a10d0b57
   name: ""
 - image: quay.io/opendatahub/opendatahub-operator@sha256:992d2c95ea450398a83688642835a4cd8e52df652a38f35c57bbbbac4ba32ce9
   name: opendatahub-operator-992d2c95ea450398a83688642835a4cd8e52df652a38f35c57bbbbac4ba32ce9-annotation
