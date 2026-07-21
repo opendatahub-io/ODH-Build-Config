@@ -26,6 +26,8 @@ ARG ODH_FEAST_MODULE_OPERATOR_GIT_URL=
 ARG ODH_FEAST_MODULE_OPERATOR_GIT_COMMIT=
 ARG ODH_MLSERVER_CUDA_GIT_URL=
 ARG ODH_MLSERVER_CUDA_GIT_COMMIT=
+ARG ODH_SPARK_OPERATOR_MODULE_GIT_URL=
+ARG ODH_SPARK_OPERATOR_MODULE_GIT_COMMIT=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT=
 
@@ -67,6 +69,8 @@ LABEL \
       odh-feast-module-operator.git.commit="${ODH_FEAST_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-mlserver-cuda.git.url="${ODH_MLSERVER_CUDA_GIT_URL}" \
       odh-mlserver-cuda.git.commit="${ODH_MLSERVER_CUDA_GIT_COMMIT}" \
+      odh-spark-operator-module.git.url="${ODH_SPARK_OPERATOR_MODULE_GIT_URL}" \
+      odh-spark-operator-module.git.commit="${ODH_SPARK_OPERATOR_MODULE_GIT_COMMIT}" \
       odh-mcp-lifecycle-operator-e2e.git.url="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_URL}" \
       odh-mcp-lifecycle-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
