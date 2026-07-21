@@ -68,7 +68,7 @@ LABEL \
       odh-mlserver-cuda.git.url="${ODH_MLSERVER_CUDA_GIT_URL}" \
       odh-mlserver-cuda.git.commit="${ODH_MLSERVER_CUDA_GIT_COMMIT}" \
       odh-mcp-lifecycle-operator-e2e.git.url="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_URL}" \
-      odh-mcp-lifecycle-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT}"
+      odh-mcp-lifecycle-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
