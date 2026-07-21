@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:2cf5f2926a6ae81ab3cf49c3ebe55f7b4c31872a47e97ba0ad4930faef8721d0"
-    createdAt: "2026-07-21T07:57:52Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:3d33212c74a62cf3926e98346eabc12a842e751a54e390676da21ea25157cd2f"
+    createdAt: "2026-07-21T08:49:44Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1886,7 +1886,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_TRUSTYAI_SERVICE_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/trustyai-service-operator@sha256:40b804783646c20c8c577e37fe080a7af1da339d672f86c1736cfa40c8afa5d1"
                 - name: RELATED_IMAGE_ODH_KUBERAY_OPERATOR_CONTROLLER_IMAGE
-                  value: "quay.io/opendatahub/kuberay-operator@sha256:e4bafc50704c665ad9726d30dc48171c76f87e134f2ab08f01deb4e47713cb38"
+                  value: "quay.io/opendatahub/kuberay-operator@sha256:eea1afd50232194b675c67987cd6918b0dfa4de95c5c2ad70db560a117722433"
                 - name: RELATED_IMAGE_ODH_MLMD_GRPC_SERVER_IMAGE
                   value: "quay.io/opendatahub/mlmd-grpc-server@sha256:9aea59acdd7b914b8e8e902f4b388ddf2871b1047e644dbd3c69cb2d4ef8de95"
                 - name: RELATED_IMAGE_ODH_ML_PIPELINES_API_SERVER_V2_IMAGE
@@ -2177,7 +2177,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:2cf5f2926a6ae81ab3cf49c3ebe55f7b4c31872a47e97ba0ad4930faef8721d0"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:3d33212c74a62cf3926e98346eabc12a842e751a54e390676da21ea25157cd2f"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2226,7 +2226,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:2cf5f2926a6ae81ab3cf49c3ebe55f7b4c31872a47e97ba0ad4930faef8721d0"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:3d33212c74a62cf3926e98346eabc12a842e751a54e390676da21ea25157cd2f"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2578,8 +2578,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-2cf5f2926a6ae81ab3cf49c3ebe55f7b4c31872a47e97ba0ad4930faef8721d0-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:2cf5f2926a6ae81ab3cf49c3ebe55f7b4c31872a47e97ba0ad4930faef8721d0"
+  - name: opendatahub-operator-3d33212c74a62cf3926e98346eabc12a842e751a54e390676da21ea25157cd2f-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:3d33212c74a62cf3926e98346eabc12a842e751a54e390676da21ea25157cd2f"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:eae1eebff25b7f3db62f6ec10f257dfd6c94f2c906091e52025c0d8dca02f354"
   - name: odh_dashboard_image
@@ -2595,7 +2595,7 @@ spec:
   - name: odh_trustyai_service_operator_image
     image: "quay.io/opendatahub/trustyai-service-operator@sha256:40b804783646c20c8c577e37fe080a7af1da339d672f86c1736cfa40c8afa5d1"
   - name: odh_kuberay_operator_controller_image
-    image: "quay.io/opendatahub/kuberay-operator@sha256:e4bafc50704c665ad9726d30dc48171c76f87e134f2ab08f01deb4e47713cb38"
+    image: "quay.io/opendatahub/kuberay-operator@sha256:eea1afd50232194b675c67987cd6918b0dfa4de95c5c2ad70db560a117722433"
   - name: odh_mlmd_grpc_server_image
     image: "quay.io/opendatahub/mlmd-grpc-server@sha256:9aea59acdd7b914b8e8e902f4b388ddf2871b1047e644dbd3c69cb2d4ef8de95"
   - name: odh_ml_pipelines_api_server_v2_image
