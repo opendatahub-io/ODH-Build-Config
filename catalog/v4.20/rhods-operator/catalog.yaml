@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:574faebcc45c61eb6bdbe78e1b8a736e075935fb0831ea37d1b0a64299f71d79
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8dab768ed7c5265ce29da0e4a0bc9699c72fc72b41f40038b7f0d7c8bdc116d1
 name: rhods-operator.3.5.0
 package: rhods-operator
 properties:
@@ -289,8 +289,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:5d9c06c240940bf86cad761a59322c5b03958ee9fc5dff51e74e3f8de6cc6e8c
-      createdAt: "2026-07-21T18:07:22Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:71557ffa1c80c9f4825acb6cd68c14480a026b5a56f2e91d2e3260e6a899dbb3
+      createdAt: "2026-07-21T18:31:04Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -667,7 +667,7 @@ relatedImages:
   name: odh_mlmd_grpc_server_image
 - image: quay.io/opendatahub/mlserver@sha256:23dff81febf52c885920473c5a8ce283686962ec8fc01ef71156b118b71a979f
   name: odh_mlserver_image
-- image: quay.io/opendatahub/mod-arch-maas@sha256:b85f3e554514a72d53f0a66e9b23c6ee40700bd87e5849196f7bffce99d44673
+- image: quay.io/opendatahub/mod-arch-maas@sha256:2ae92cd2d326719026896df20810dbaf8f6565f9e11f2bb95b6646859e1f36f3
   name: odh_mod_arch_maas_image
 - image: quay.io/opendatahub/model-registry-job-async-upload@sha256:3cbd4ffe21f268b1a68b5dabebab94a330555bb897c9944a039514e342e7582a
   name: odh_model_registry_job_async_upload_image
@@ -691,11 +691,11 @@ relatedImages:
   name: odh_llm_d_batch_gateway_operator_image
 - image: quay.io/opendatahub/odh-built-in-detector@sha256:8541cf4c8c2568c25810913e5c8613845dbd3473b3c253c1b117797575a5db81
   name: odh_built_in_detector_image
-- image: quay.io/opendatahub/odh-core-bff@sha256:81c92d59f3745198ec5e2838db35cdd643f83c0feb7d09b5b336a0e9058cdb7a
+- image: quay.io/opendatahub/odh-core-bff@sha256:bf3e572baed41a9faa41dcafa0b8840d4749011e0922796f44df6aaba955c8e1
   name: odh_core_bff_image
 - image: quay.io/opendatahub/odh-dashboard-operator@sha256:bdb2df2f1b29a71f01226b2263e030b1836321ec35ed624d2521a404c354e5ff
   name: odh_dashboard_operator_image
-- image: quay.io/opendatahub/odh-dashboard@sha256:46ff98080561b3bbc5b15678357b15f21c581365e1513bf9742ef2be0034ec87
+- image: quay.io/opendatahub/odh-dashboard@sha256:89dc7bafa6c00291ddc9515f4ef0ae742539d2373ecd69626279c0f008461c72
   name: odh_dashboard_image
 - image: quay.io/opendatahub/odh-eval-hub@sha256:c31f3e715c1abe372d9f2face0f03b2faa313f9bb72318c8fa6e28863146558e
   name: odh_eval_hub_image
@@ -847,10 +847,10 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:a43e525ea386699a255473fef7139eb9c7bdaaa47a11176bb63bce893a7a818e
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:574faebcc45c61eb6bdbe78e1b8a736e075935fb0831ea37d1b0a64299f71d79
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8dab768ed7c5265ce29da0e4a0bc9699c72fc72b41f40038b7f0d7c8bdc116d1
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:5d9c06c240940bf86cad761a59322c5b03958ee9fc5dff51e74e3f8de6cc6e8c
-  name: opendatahub-operator-5d9c06c240940bf86cad761a59322c5b03958ee9fc5dff51e74e3f8de6cc6e8c-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:71557ffa1c80c9f4825acb6cd68c14480a026b5a56f2e91d2e3260e6a899dbb3
+  name: opendatahub-operator-71557ffa1c80c9f4825acb6cd68c14480a026b5a56f2e91d2e3260e6a899dbb3-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
 - image: quay.io/opendatahub/spark-operator@sha256:02a23d9ae2f8ced784ae72d67f0dc6da5ce7e4b7870d11501a9be83e4c971636
