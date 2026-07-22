@@ -80,7 +80,7 @@ LABEL \
       odh-ray-module-operator.git.url="${ODH_RAY_MODULE_OPERATOR_GIT_URL=}" \
       odh-ray-module-operator.git.commit="${ODH_RAY_MODULE_OPERATOR_GIT_COMMIT=}" \
       odh-ogx-module-operator.git.url="${ODH_OGX_MODULE_OPERATOR_GIT_URL}" \
-      odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}"
+      odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
