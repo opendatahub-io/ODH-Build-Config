@@ -77,8 +77,8 @@ LABEL \
       odh-spark-operator-module.git.commit="${ODH_SPARK_OPERATOR_MODULE_GIT_COMMIT}" \
       odh-mcp-lifecycle-operator-e2e.git.url="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_URL}" \
       odh-mcp-lifecycle-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT}" \
-      odh-ray-module-operator.git.url="${ODH_RAY_MODULE_OPERATOR_GIT_URL=}" \
-      odh-ray-module-operator.git.commit="${ODH_RAY_MODULE_OPERATOR_GIT_COMMIT=}" \
+      odh-ray-module-operator.git.url="${ODH_RAY_MODULE_OPERATOR_GIT_URL}" \
+      odh-ray-module-operator.git.commit="${ODH_RAY_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-ogx-module-operator.git.url="${ODH_OGX_MODULE_OPERATOR_GIT_URL}" \
       odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
