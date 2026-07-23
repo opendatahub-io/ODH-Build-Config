@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:3861066515578f6564e9b58417c2ad102b6c1b79d5e6aeeb88eaf8a9cf509f7e"
-    createdAt: "2026-07-23T16:30:06Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:3f84e2f4a94737e1feb9784034079fbd79ccdeb652c5b9c4551bb260e8114431"
+    createdAt: "2026-07-23T16:38:23Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1874,7 +1874,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_KF_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:eae1eebff25b7f3db62f6ec10f257dfd6c94f2c906091e52025c0d8dca02f354"
                 - name: RELATED_IMAGE_ODH_DASHBOARD_IMAGE
-                  value: "quay.io/opendatahub/odh-dashboard@sha256:7ba081370b64764ddb038648709ecb82ec1025b004cd08c8aca639a95c093625"
+                  value: "quay.io/opendatahub/odh-dashboard@sha256:41886c3894b4896292aa725d480b8712cda8b19bdc49d367965e575fd3adb552"
                 - name: RELATED_IMAGE_ODH_NOTEBOOK_CONTROLLER_IMAGE
                   value: "quay.io/opendatahub/odh-notebook-controller@sha256:5f7437445980f90fc7e0ca05fafb188cded1149f5121c1dc7c80853818d55a46"
                 - name: RELATED_IMAGE_ODH_DATA_SCIENCE_PIPELINES_OPERATOR_CONTROLLER_IMAGE
@@ -2185,7 +2185,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3861066515578f6564e9b58417c2ad102b6c1b79d5e6aeeb88eaf8a9cf509f7e"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:3f84e2f4a94737e1feb9784034079fbd79ccdeb652c5b9c4551bb260e8114431"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2234,7 +2234,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:3861066515578f6564e9b58417c2ad102b6c1b79d5e6aeeb88eaf8a9cf509f7e"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:3f84e2f4a94737e1feb9784034079fbd79ccdeb652c5b9c4551bb260e8114431"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2586,12 +2586,12 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-3861066515578f6564e9b58417c2ad102b6c1b79d5e6aeeb88eaf8a9cf509f7e-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:3861066515578f6564e9b58417c2ad102b6c1b79d5e6aeeb88eaf8a9cf509f7e"
+  - name: opendatahub-operator-3f84e2f4a94737e1feb9784034079fbd79ccdeb652c5b9c4551bb260e8114431-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:3f84e2f4a94737e1feb9784034079fbd79ccdeb652c5b9c4551bb260e8114431"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:eae1eebff25b7f3db62f6ec10f257dfd6c94f2c906091e52025c0d8dca02f354"
   - name: odh_dashboard_image
-    image: "quay.io/opendatahub/odh-dashboard@sha256:7ba081370b64764ddb038648709ecb82ec1025b004cd08c8aca639a95c093625"
+    image: "quay.io/opendatahub/odh-dashboard@sha256:41886c3894b4896292aa725d480b8712cda8b19bdc49d367965e575fd3adb552"
   - name: odh_notebook_controller_image
     image: "quay.io/opendatahub/odh-notebook-controller@sha256:5f7437445980f90fc7e0ca05fafb188cded1149f5121c1dc7c80853818d55a46"
   - name: odh_data_science_pipelines_operator_controller_image
