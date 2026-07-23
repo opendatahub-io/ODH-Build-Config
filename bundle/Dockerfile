@@ -32,6 +32,8 @@ ARG ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT=
 ARG ODH_RAY_MODULE_OPERATOR_GIT_URL=
 ARG ODH_RAY_MODULE_OPERATOR_GIT_COMMIT=
+ARG ODH_OGX_MODULE_OPERATOR_GIT_URL=
+ARG ODH_OGX_MODULE_OPERATOR_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -77,6 +79,8 @@ LABEL \
       odh-mcp-lifecycle-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_E2E_GIT_COMMIT}" \
       odh-ray-module-operator.git.url="${ODH_RAY_MODULE_OPERATOR_GIT_URL=}" \
       odh-ray-module-operator.git.commit="${ODH_RAY_MODULE_OPERATOR_GIT_COMMIT=}" \
+      odh-ogx-module-operator.git.url="${ODH_OGX_MODULE_OPERATOR_GIT_URL}" \
+      odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
