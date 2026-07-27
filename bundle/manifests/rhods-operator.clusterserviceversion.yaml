@@ -108,8 +108,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:1ed57f68c9125e741cb65d8116392c2fa8d69b89ce3d5b0ed5ade3bf1e2baeed"
-    createdAt: "2026-07-27T15:46:21Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:a346fb0b710a8e0e9ec4fd98eb90cd341e9d26bb7690be220447a1e2100e5548"
+    createdAt: "2026-07-27T16:01:52Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -2106,7 +2106,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_RHOAI_MCP_IMAGE
                   value: "quay.io/opendatahub/odh-rhoai-mcp@sha256:ba2e45f32af6d32788012ec08e559cb23718ff60b2eae635a409c3ded6509f5a"
                 - name: RELATED_IMAGE_ODH_CORE_BFF_IMAGE
-                  value: "quay.io/opendatahub/odh-core-bff@sha256:bbc0ae72ef6b00fce678e8d07743f91b444aaa499214d0b622b6dedccb833928"
+                  value: "quay.io/opendatahub/odh-core-bff@sha256:1a22540cc539041d7e112264c93fe2eba87db81b25c7cfa8fcafbd08d0083277"
                 - name: RELATED_IMAGE_ODH_FEAST_MODULE_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-feast-module-operator@sha256:f13a8bc820875ba59ec444d2cbbe8d2ef0ca676de4046b4892799b2d6740ac22"
                 - name: RELATED_IMAGE_ODH_MLSERVER_CUDA_IMAGE
@@ -2179,7 +2179,7 @@ spec:
                   value: registry.redhat.io/openshift4/ose-prom-label-proxy-rhel9@sha256:5522f37104f3fac57567fa2e9ec65601f60b8cea3603b12dcda26db8c481f404
                 - name: RELATED_IMAGE_ODH_PYTHON_312_IMAGE
                   value: registry.redhat.io/ubi9/python-312@sha256:0abad955c2c2e4575dc8987d76b8c49a7dd8e0679063e3118dab03c54528232f
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:1ed57f68c9125e741cb65d8116392c2fa8d69b89ce3d5b0ed5ade3bf1e2baeed"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:a346fb0b710a8e0e9ec4fd98eb90cd341e9d26bb7690be220447a1e2100e5548"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2228,7 +2228,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:1ed57f68c9125e741cb65d8116392c2fa8d69b89ce3d5b0ed5ade3bf1e2baeed"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:a346fb0b710a8e0e9ec4fd98eb90cd341e9d26bb7690be220447a1e2100e5548"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2580,8 +2580,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-1ed57f68c9125e741cb65d8116392c2fa8d69b89ce3d5b0ed5ade3bf1e2baeed-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:1ed57f68c9125e741cb65d8116392c2fa8d69b89ce3d5b0ed5ade3bf1e2baeed"
+  - name: opendatahub-operator-a346fb0b710a8e0e9ec4fd98eb90cd341e9d26bb7690be220447a1e2100e5548-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:a346fb0b710a8e0e9ec4fd98eb90cd341e9d26bb7690be220447a1e2100e5548"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:eae1eebff25b7f3db62f6ec10f257dfd6c94f2c906091e52025c0d8dca02f354"
   - name: odh_dashboard_image
@@ -2823,7 +2823,7 @@ spec:
   - name: odh_rhoai_mcp_image
     image: "quay.io/opendatahub/odh-rhoai-mcp@sha256:ba2e45f32af6d32788012ec08e559cb23718ff60b2eae635a409c3ded6509f5a"
   - name: odh_core_bff_image
-    image: "quay.io/opendatahub/odh-core-bff@sha256:bbc0ae72ef6b00fce678e8d07743f91b444aaa499214d0b622b6dedccb833928"
+    image: "quay.io/opendatahub/odh-core-bff@sha256:1a22540cc539041d7e112264c93fe2eba87db81b25c7cfa8fcafbd08d0083277"
   - name: odh_feast_module_operator_image
     image: "quay.io/opendatahub/odh-feast-module-operator@sha256:f13a8bc820875ba59ec444d2cbbe8d2ef0ca676de4046b4892799b2d6740ac22"
   - name: odh_mlserver_cuda_image
