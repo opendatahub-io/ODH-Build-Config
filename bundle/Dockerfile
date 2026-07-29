@@ -84,7 +84,7 @@ LABEL \
       odh-ogx-module-operator.git.url="${ODH_OGX_MODULE_OPERATOR_GIT_URL}" \
       odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-openshell-supervisor.git.url="${ODH_OPENSHELL_SUPERVISOR_GIT_URL}" \
-      odh-openshell-supervisor.git.commit="${ODH_OPENSHELL_SUPERVISOR_GIT_COMMIT}"
+      odh-openshell-supervisor.git.commit="${ODH_OPENSHELL_SUPERVISOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
