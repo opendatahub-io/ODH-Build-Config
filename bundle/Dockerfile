@@ -36,6 +36,8 @@ ARG ODH_OGX_MODULE_OPERATOR_GIT_URL=
 ARG ODH_OGX_MODULE_OPERATOR_GIT_COMMIT=
 ARG ODH_TRUSTYAI_SERVICE_PY_GIT_URL=
 ARG ODH_TRUSTYAI_SERVICE_PY_GIT_COMMIT=
+ARG ODH_DATA_CONNECT_HUB_FLIGHT_GIT_URL=
+ARG ODH_DATA_CONNECT_HUB_FLIGHT_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -85,6 +87,8 @@ LABEL \
       odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-trustyai-service-py.git.url="${ODH_TRUSTYAI_SERVICE_PY_GIT_URL}" \
       odh-trustyai-service-py.git.commit="${ODH_TRUSTYAI_SERVICE_PY_GIT_COMMIT}" \
+      odh-data-connect-hub-flight.git.url="${ODH_DATA_CONNECT_HUB_FLIGHT_GIT_URL}" \
+      odh-data-connect-hub-flight.git.commit="${ODH_DATA_CONNECT_HUB_FLIGHT_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
