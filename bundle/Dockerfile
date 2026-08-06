@@ -84,7 +84,7 @@ LABEL \
       odh-ogx-module-operator.git.url="${ODH_OGX_MODULE_OPERATOR_GIT_URL}" \
       odh-ogx-module-operator.git.commit="${ODH_OGX_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-trustyai-service-py.git.url="${ODH_TRUSTYAI_SERVICE_PY_GIT_URL}" \
-      odh-trustyai-service-py.git.commit="${ODH_TRUSTYAI_SERVICE_PY_GIT_COMMIT}"
+      odh-trustyai-service-py.git.commit="${ODH_TRUSTYAI_SERVICE_PY_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
