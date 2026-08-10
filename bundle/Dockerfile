@@ -96,7 +96,7 @@ LABEL \
       odh-data-connect-hub-rest.git.url="${ODH_DATA_CONNECT_HUB_REST_GIT_URL}" \
       odh-data-connect-hub-rest.git.commit="${ODH_DATA_CONNECT_HUB_REST_GIT_COMMIT}" \
       odh-trustyai-module-operator.git.url="${ODH_TRUSTYAI_MODULE_OPERATOR_GIT_URL}" \
-      odh-trustyai-module-operator.git.commit="${ODH_TRUSTYAI_MODULE_OPERATOR_GIT_COMMIT}"
+      odh-trustyai-module-operator.git.commit="${ODH_TRUSTYAI_MODULE_OPERATOR_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
       build-metadata-url="${BUILD_METADATA_URL}"
 
