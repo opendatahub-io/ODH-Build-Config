@@ -40,6 +40,8 @@ ARG ODH_DATA_CONNECT_HUB_FLIGHT_GIT_URL=
 ARG ODH_DATA_CONNECT_HUB_FLIGHT_GIT_COMMIT=
 ARG ODH_DATA_CONNECT_HUB_REST_GIT_URL=
 ARG ODH_DATA_CONNECT_HUB_REST_GIT_COMMIT=
+ARG ODH_OPENSHELL_CLI_GIT_URL=
+ARG ODH_OPENSHELL_CLI_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -94,7 +96,9 @@ LABEL \
       odh-data-connect-hub-rest.git.url="${ODH_DATA_CONNECT_HUB_REST_GIT_URL}" \
       odh-data-connect-hub-rest.git.commit="${ODH_DATA_CONNECT_HUB_REST_GIT_COMMIT}" \
       opendatahub-operator.image="${OPENDATAHUB_OPERATOR_IMAGE}" \
-      build-metadata-url="${BUILD_METADATA_URL}"
+      build-metadata-url="${BUILD_METADATA_URL}" \
+      odh-openshell-cli.git.url="${ODH_OPENSHELL_CLI_GIT_URL}" \
+      odh-openshell-cli.git.commit="${ODH_OPENSHELL_CLI_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
