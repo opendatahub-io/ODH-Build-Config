@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:224587904f0341ece281cdf96d3662f8a0321e5e45ce90829b8acc931e04d5fc
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:bed6ad58d266f182e2afaa5c4fc67b331f78f28e2048d9ee0f310dfe397343eb
 name: rhods-operator.3.6.0-ea.1
 package: rhods-operator
 properties:
@@ -289,8 +289,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:76a55f30f2c15514c8a17ec7569c97a5663f1c8b31abd4a9d148a170e1d98b1e
-      createdAt: "2026-08-13T13:53:51Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:cd51e60ab67c817ca9498d2f6fae396f94353746f3dd6a26ab7e425c64eb64b0
+      createdAt: "2026-08-13T14:23:38Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -695,9 +695,9 @@ relatedImages:
   name: odh_llm_d_batch_gateway_gc_image
 - image: quay.io/opendatahub/odh-llm-d-batch-gateway-processor@sha256:365f05507f1548d54ca7514fba9aa15a8823d7c074e116d613e23143e14208ee
   name: odh_llm_d_batch_gateway_processor_image
-- image: quay.io/opendatahub/odh-llm-d-router-disagg-sidecar@sha256:7a71fbf06f5e365e9e56eaf8de072b0cee25b32a3a13e7796f8b1787f3c8ba08
+- image: quay.io/opendatahub/odh-llm-d-router-disagg-sidecar@sha256:115ea93f8ef1c4b80e741920b5bf18021369731d5d91cd99fc5f1e6f96cb7724
   name: odh_llm_d_router_disagg_sidecar_image
-- image: quay.io/opendatahub/odh-llm-d-router-endpoint-picker@sha256:c98676e7415c2a15f45ce8cb0907308e6372d64dd664a3be18b1a84fa09679cf
+- image: quay.io/opendatahub/odh-llm-d-router-endpoint-picker@sha256:c57ebde6cbf5a990ded26236035afaeaaddc93ae85ebfae26545114bde6c0855
   name: odh_llm_d_router_endpoint_picker_image
 - image: quay.io/opendatahub/odh-mcp-lifecycle-module-operator@sha256:916455aa4af34c07b977a9c0e0d6cbdaee07f800672d84d068decb699535d823
   name: odh_mcp_lifecycle_module_operator_image
@@ -825,10 +825,10 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:b708b4462ab57d0cd412007b2422b2625b51d4d8bc0c92b5646e78603ea762cd
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:224587904f0341ece281cdf96d3662f8a0321e5e45ce90829b8acc931e04d5fc
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:bed6ad58d266f182e2afaa5c4fc67b331f78f28e2048d9ee0f310dfe397343eb
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:76a55f30f2c15514c8a17ec7569c97a5663f1c8b31abd4a9d148a170e1d98b1e
-  name: opendatahub-operator-76a55f30f2c15514c8a17ec7569c97a5663f1c8b31abd4a9d148a170e1d98b1e-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:cd51e60ab67c817ca9498d2f6fae396f94353746f3dd6a26ab7e425c64eb64b0
+  name: opendatahub-operator-cd51e60ab67c817ca9498d2f6fae396f94353746f3dd6a26ab7e425c64eb64b0-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
 - image: quay.io/opendatahub/spark-operator@sha256:fbec86d1ebd0d7be3ff699d42f7cb98578d301609b9708f38138304d02485872
@@ -847,7 +847,7 @@ relatedImages:
   name: odh_trustyai_service_operator_image
 - image: quay.io/opendatahub/vllm-orchestrator-gateway@sha256:10789a3f024d520078e4d813d06fa1d0297d4cd4af87a2d271c44c132d8e39f2
   name: odh_trustyai_vllm_orchestrator_gateway_image
-- image: quay.io/opendatahub/workload-variant-autoscaler@sha256:c1ba25ffc582b26828da8ecc91036638dc5398358be69336f9f610760b105901
+- image: quay.io/opendatahub/workload-variant-autoscaler@sha256:025a766b20c5dde66fcdb0628a5a8aa6950e04e924303802728ba7355a716bb8
   name: odh_workload_variant_autoscaler_controller_image
 - image: registry.redhat.io/cluster-observability-operator/perses-rhel9@sha256:e797cdb47beef40b04da7b6d645bca3dc32e6247003c45b56b38efd9e13bf01c
   name: perses_image
