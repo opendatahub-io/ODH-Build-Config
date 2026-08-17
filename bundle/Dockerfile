@@ -48,6 +48,8 @@ ARG ODH_PRAXIS_EXTPROC_GIT_URL=
 ARG ODH_PRAXIS_EXTPROC_GIT_COMMIT=
 ARG ODH_TRUSTYAI_MODULE_OPERATOR_GIT_URL=
 ARG ODH_TRUSTYAI_MODULE_OPERATOR_GIT_COMMIT=
+ARG ODH_MOD_ARCH_NOTEBOOKS_GIT_URL=
+ARG ODH_MOD_ARCH_NOTEBOOKS_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -110,7 +112,9 @@ LABEL \
       odh-data-connect-hub-controller.git.url="${ODH_DATA_CONNECT_HUB_CONTROLLER_GIT_URL}" \
       odh-data-connect-hub-controller.git.commit="${ODH_DATA_CONNECT_HUB_CONTROLLER_GIT_COMMIT}" \
       odh-praxis-extproc.git.url="${ODH_PRAXIS_EXTPROC_GIT_URL}" \
-      odh-praxis-extproc.git.commit="${ODH_PRAXIS_EXTPROC_GIT_COMMIT}"
+      odh-praxis-extproc.git.commit="${ODH_PRAXIS_EXTPROC_GIT_COMMIT}" \
+      odh-mod-arch-notebooks.git.url="${ODH_MOD_ARCH_NOTEBOOKS_GIT_URL}" \
+      odh-mod-arch-notebooks.git.commit="${ODH_MOD_ARCH_NOTEBOOKS_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
