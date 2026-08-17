@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:051cb3d634163d345398c3f65272d0d948712c8dc8e48b0ff1d182f82c7f1552
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8e0e619680beafe0ec013d848d8c3dadeb688e4ccef3f0f5fea6d41169f59f4e
 name: rhods-operator.3.6.0-ea.1
 package: rhods-operator
 properties:
@@ -250,9 +250,6 @@ properties:
                 "trainer": {
                   "managementState": "Managed"
                 },
-                "trainingoperator": {
-                  "managementState": "Removed"
-                },
                 "trustyai": {
                   "managementState": "Managed"
                 },
@@ -290,7 +287,7 @@ properties:
       categories: AI/Machine Learning, Big Data
       certified: "False"
       containerImage: quay.io/opendatahub/opendatahub-operator@sha256:c4be5958fd7bbc31a981f4a288ac73a444e85c842bcaec40ab1d391610e8793a
-      createdAt: "2026-08-17T21:53:30Z"
+      createdAt: "2026-08-17T22:05:03Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -356,9 +353,6 @@ properties:
               "trainer": {
                 "managementState": "Managed"
               },
-              "trainingoperator": {
-                "managementState": "Removed"
-              },
               "trustyai": {
                 "managementState": "Managed"
               }
@@ -372,9 +366,8 @@ properties:
       operators.operatorframework.io/internal-objects: '["featuretrackers.features.opendatahub.io",
         "datasciencepipelines.components.platform.opendatahub.io", "kueues.components.platform.opendatahub.io",
         "modelregistries.components.platform.opendatahub.io", "rays.components.platform.opendatahub.io",
-        "trainingoperators.components.platform.opendatahub.io", "trustyais.components.platform.opendatahub.io",
-        "monitorings.services.platform.opendatahub.io", "trainers.components.platform.opendatahub.io",
-        "sparkoperators.components.platform.opendatahub.io"]'
+        "trustyais.components.platform.opendatahub.io", "monitorings.services.platform.opendatahub.io",
+        "trainers.components.platform.opendatahub.io", "sparkoperators.components.platform.opendatahub.io"]'
       operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
       ose-cli-etcd-image: registry.redhat.io/openshift4/ose-cli@sha256:4cfb4219f46c8cc25a5e567fd4cb8babe9a3778b0b86a1e354a3403994ef3677
       ose-cli-image: registry.redhat.io/openshift4/ose-cli@sha256:25fef269ac6e7491cb8340119a9b473acbeb53bc6970ad029fdaae59c3d0ca61
@@ -477,9 +470,7 @@ properties:
         kind: Trainer
         name: trainers.components.platform.opendatahub.io
         version: v1alpha1
-      - description: TrainingOperator is the Schema for the trainingoperators API
-        displayName: Training Operator
-        kind: TrainingOperator
+      - kind: TrainingOperator
         name: trainingoperators.components.platform.opendatahub.io
         version: v1alpha1
       - description: TrustyAI is the Schema for the trustyais API
@@ -831,7 +822,7 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:5e55b1789f2d30395db8d5703760be059b1fa9580605b8dc18e34b66eed8d331
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:051cb3d634163d345398c3f65272d0d948712c8dc8e48b0ff1d182f82c7f1552
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8e0e619680beafe0ec013d848d8c3dadeb688e4ccef3f0f5fea6d41169f59f4e
   name: ""
 - image: quay.io/opendatahub/opendatahub-operator@sha256:c4be5958fd7bbc31a981f4a288ac73a444e85c842bcaec40ab1d391610e8793a
   name: opendatahub-operator-c4be5958fd7bbc31a981f4a288ac73a444e85c842bcaec40ab1d391610e8793a-annotation
