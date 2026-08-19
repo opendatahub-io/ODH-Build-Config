@@ -50,6 +50,8 @@ ARG ODH_TRUSTYAI_MODULE_OPERATOR_GIT_URL=
 ARG ODH_TRUSTYAI_MODULE_OPERATOR_GIT_COMMIT=
 ARG ODH_MOD_ARCH_NOTEBOOKS_GIT_URL=
 ARG ODH_MOD_ARCH_NOTEBOOKS_GIT_COMMIT=
+ARG ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_URL=
+ARG ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -114,7 +116,9 @@ LABEL \
       odh-praxis-extproc.git.url="${ODH_PRAXIS_EXTPROC_GIT_URL}" \
       odh-praxis-extproc.git.commit="${ODH_PRAXIS_EXTPROC_GIT_COMMIT}" \
       odh-mod-arch-notebooks.git.url="${ODH_MOD_ARCH_NOTEBOOKS_GIT_URL}" \
-      odh-mod-arch-notebooks.git.commit="${ODH_MOD_ARCH_NOTEBOOKS_GIT_COMMIT}"
+      odh-mod-arch-notebooks.git.commit="${ODH_MOD_ARCH_NOTEBOOKS_GIT_COMMIT}" \
+      odh-pipeline-runtime-baseline-cpu-py312-c9s.git.url="${ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_URL}" \
+      odh-pipeline-runtime-baseline-cpu-py312-c9s.git.commit="${ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
