@@ -54,6 +54,8 @@ ARG ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_URL=
 ARG ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_COMMIT=
 ARG ODH_MODELEXPRESS_OPERATOR_GIT_URL=
 ARG ODH_MODELEXPRESS_OPERATOR_GIT_COMMIT=
+ARG ODH_MODELEXPRESS_GIT_URL=
+ARG ODH_MODELEXPRESS_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -122,7 +124,9 @@ LABEL \
       odh-pipeline-runtime-baseline-cpu-py312-c9s.git.url="${ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_URL}" \
       odh-pipeline-runtime-baseline-cpu-py312-c9s.git.commit="${ODH_PIPELINE_RUNTIME_BASELINE_CPU_PY312_C9S_GIT_COMMIT}" \
       odh-modelexpress-operator.git.url="${ODH_MODELEXPRESS_OPERATOR_GIT_URL}" \
-      odh-modelexpress-operator.git.commit="${ODH_MODELEXPRESS_OPERATOR_GIT_COMMIT}"
+      odh-modelexpress-operator.git.commit="${ODH_MODELEXPRESS_OPERATOR_GIT_COMMIT}" \
+      odh-modelexpress.git.url="${ODH_MODELEXPRESS_GIT_URL}" \
+      odh-modelexpress.git.commit="${ODH_MODELEXPRESS_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
