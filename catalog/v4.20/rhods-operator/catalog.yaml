@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:89f2150426836ab430d4f5c0861a67ac5027b46edd7e35c42554f0f31c873c02
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:6c3cf7bd4c4ab3d08555d600936a9a8885b75d822fae063d8a4f9f155aa63638
 name: rhods-operator.3.6.0-ea.2
 package: rhods-operator
 properties:
@@ -212,9 +212,6 @@ properties:
                 },
                 "kserve": {
                   "managementState": "Managed",
-                  "modelsAsService": {
-                    "managementState": "Removed"
-                  },
                   "nim": {
                     "managementState": "Managed"
                   },
@@ -223,9 +220,6 @@ properties:
                   }
                 },
                 "kueue": {
-                  "managementState": "Removed"
-                },
-                "llamastackoperator": {
                   "managementState": "Removed"
                 },
                 "mcplifecycleoperator": {
@@ -289,8 +283,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:a08e48c9346b9f93988da135a0c62c72807fc4c786422dc1707be04860f2e57a
-      createdAt: "2026-09-03T17:58:29Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:f974914abb7e6e5020984de553f87eab8d6111e20384f37e4b36597d3a94ec74
+      createdAt: "2026-09-03T19:44:09Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -316,26 +310,54 @@ properties:
           },
           "spec": {
             "components": {
+              "aigateway": {
+                "managementState": "Removed",
+                "batchGateway": {
+                  "managementState": "Removed"
+                }
+              },
               "dashboard": {
                 "managementState": "Managed"
               },
               "aipipelines": {
                 "managementState": "Managed"
               },
-              "feastoperator": {
-                "managementState": "Managed"
-              },
               "kserve": {
-                "managementState": "Managed"
-              },
-              "llamastackoperator": {
-                "managementState": "Removed"
-              },
-              "ogx": {
-                "managementState": "Managed"
+                "managementState": "Managed",
+                "nim": {
+                  "managementState": "Managed"
+                },
+                "wva": {
+                  "managementState": "Removed"
+                }
               },
               "kueue": {
                 "managementState": "Removed"
+              },
+              "trainer": {
+                "managementState": "Managed"
+              },
+              "ray": {
+                "managementState": "Managed"
+              },
+              "workbenches": {
+                "managementState": "Managed",
+                "workbenchesV2": {
+                  "managementState": "Removed"
+                }
+              },
+              "trustyai": {
+                "managementState": "Managed"
+              },
+              "modelregistry": {
+                "managementState": "Managed",
+                "registriesNamespace": "rhoai-model-registries"
+              },
+              "feastoperator": {
+                "managementState": "Managed"
+              },
+              "ogx": {
+                "managementState": "Managed"
               },
               "mlflowoperator": {
                 "managementState": "Managed"
@@ -343,21 +365,8 @@ properties:
               "sparkoperator": {
                 "managementState": "Removed"
               },
-              "modelregistry": {
-                "managementState": "Managed",
-                "registriesNamespace": "rhoai-model-registries"
-              },
-              "ray": {
-                "managementState": "Managed"
-              },
-              "workbenches": {
-                "managementState": "Managed"
-              },
-              "trainer": {
-                "managementState": "Managed"
-              },
-              "trustyai": {
-                "managementState": "Managed"
+              "mcplifecycleoperator": {
+                "managementState": "Removed"
               }
             }
           }
@@ -594,7 +603,7 @@ relatedImages:
   name: odh_mlmd_grpc_server_image
 - image: quay.io/opendatahub/mlserver@sha256:462356756e87bef1a107c631576a64b8fd4b500eaf2e74d9a8e8923207877544
   name: odh_mlserver_image
-- image: quay.io/opendatahub/mod-arch-maas@sha256:464587f235e6c63695e1b21c5c0c98e635b045942c81f7751677c213f2a67fdf
+- image: quay.io/opendatahub/mod-arch-maas@sha256:2d0264c4dede2eeb539b4bc244d6dd0aa88ff1ab0b2b3dda6fa19bf7381bfa87
   name: odh_mod_arch_maas_image
 - image: quay.io/opendatahub/model-registry-job-async-upload@sha256:658e0996e73d9897439c4948f96ebbee3e1a14510390c35f3a3c1d33ff753264
   name: odh_model_registry_job_async_upload_image
@@ -620,17 +629,17 @@ relatedImages:
   name: odh_llm_d_batch_gateway_operator_image
 - image: quay.io/opendatahub/odh-built-in-detector@sha256:8541cf4c8c2568c25810913e5c8613845dbd3473b3c253c1b117797575a5db81
   name: odh_built_in_detector_image
-- image: quay.io/opendatahub/odh-core-bff@sha256:250143423e4243bc8b2339d017d993c69a1fe6379ea9a421628fd1e86458479c
+- image: quay.io/opendatahub/odh-core-bff@sha256:cf1845df3cb7c934d47c1600b1a34f704b1c1acd04160ec85c79dfff80339b15
   name: odh_core_bff_image
 - image: quay.io/opendatahub/odh-dashboard-operator@sha256:79d33e27247d8934e5842893612aa433a7913f3407ba0ef7ad4fa0c29b17d56a
   name: odh_dashboard_operator_image
-- image: quay.io/opendatahub/odh-dashboard@sha256:b9e83e6ee09b7ae631f630e2c3e5783ede64a1ecd1ee01ad52630010fc628aac
+- image: quay.io/opendatahub/odh-dashboard@sha256:642e19d150b517d7b94130b06fae0b486a8b7783e609ab3d0fa4992c6e6d7f14
   name: odh_dashboard_image
-- image: quay.io/opendatahub/odh-data-connect-hub-controller@sha256:19d36587aa99b8a742f794cda634a9bbef5c0140f0c25c285fe078b81b3a1de8
+- image: quay.io/opendatahub/odh-data-connect-hub-controller@sha256:84fb1b0226f19f1b26673422c7607a21dcf0367542f53353a300d375cf681d25
   name: odh_data_connect_hub_controller_image
-- image: quay.io/opendatahub/odh-data-connect-hub-flight@sha256:76322933c2c67623deb8d350efbdfec311e3ed1d5ce77fa308a7885606445b4d
+- image: quay.io/opendatahub/odh-data-connect-hub-flight@sha256:8c3d21f4b529fb66aae69351cf54125dd36ff5ca29759ce772b06e579740fb8a
   name: odh_data_connect_hub_flight_image
-- image: quay.io/opendatahub/odh-data-connect-hub-rest@sha256:25ac5a107d1400c95b3922e8e1c5f0c66dda051807af3a4740b47f2c533ac8a5
+- image: quay.io/opendatahub/odh-data-connect-hub-rest@sha256:023b63b84676df30892348a36434f21ae9a430fefac980dc587ab42123cfdbc2
   name: odh_data_connect_hub_rest_image
 - image: quay.io/opendatahub/odh-eval-hub@sha256:ddde78297f604a1e71796b42cc36d80c0444f220c334499ce93cbd11d92b30ba
   name: odh_eval_hub_image
@@ -680,9 +689,9 @@ relatedImages:
   name: odh_mlserver_cuda_image
 - image: quay.io/opendatahub/odh-mod-arch-agent-ops@sha256:3606033ad5f85dafa7a7f65fd4532055d75702926d88aca89c263420b89f5a43
   name: odh_mod_arch_agent_ops_image
-- image: quay.io/opendatahub/odh-mod-arch-automl@sha256:0f24214fbb34bb6b6a501bcbfcf1f05f90f52146b91c1aba18a92ffc6b63dbe1
+- image: quay.io/opendatahub/odh-mod-arch-automl@sha256:379d7636c9b8056ff2e0cbd3398fdc9f37dec4e192f5ff6c4c03450c7d7aa751
   name: odh_mod_arch_automl_image
-- image: quay.io/opendatahub/odh-mod-arch-autorag@sha256:d223290688f5de8192bbf9d9e385555e4fa8b2faa69fdc3e258b7d25b15c1303
+- image: quay.io/opendatahub/odh-mod-arch-autorag@sha256:4026b18c185762dc609c4f017f9cfdb7786350f6ac6c57fec410b42d81cd5cd1
   name: odh_mod_arch_autorag_image
 - image: quay.io/opendatahub/odh-mod-arch-eval-hub@sha256:4e423733fecb9c61b6fd21c6f6f93bb4ec01297b51d8cd382bc9601ce973f6a4
   name: odh_mod_arch_eval_hub_image
@@ -692,7 +701,7 @@ relatedImages:
   name: odh_mod_arch_mlflow_image
 - image: quay.io/opendatahub/odh-mod-arch-modular-architecture@sha256:b8fc7629cf114d6eebca135615db56d7b90754dcb4a99f9de1dbd758dac21ab2
   name: odh_mod_arch_model_registry_image
-- image: quay.io/opendatahub/odh-mod-arch-notebooks@sha256:f2e7234597fce7223abe42a353c2974145376cb5427560305c902ebb5c23968e
+- image: quay.io/opendatahub/odh-mod-arch-notebooks@sha256:f620ee666cb0f34ef63e909fcaba87d9aadf6b2f5a282346e260fe916b6f3f1b
   name: odh_mod_arch_notebooks_image
 - image: quay.io/opendatahub/odh-model-controller@sha256:b056afa7739b1932b9743d268d23e8d2c7f305c1871a8d602f5527cbeebcf4bd
   name: odh_model_controller_image
@@ -808,10 +817,10 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:a16b2688b710e9ebaf8d24806dcc4d9c51397cf64cdcaff219ff5a22061f23b6
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:89f2150426836ab430d4f5c0861a67ac5027b46edd7e35c42554f0f31c873c02
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:6c3cf7bd4c4ab3d08555d600936a9a8885b75d822fae063d8a4f9f155aa63638
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:a08e48c9346b9f93988da135a0c62c72807fc4c786422dc1707be04860f2e57a
-  name: opendatahub-operator-a08e48c9346b9f93988da135a0c62c72807fc4c786422dc1707be04860f2e57a-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:f974914abb7e6e5020984de553f87eab8d6111e20384f37e4b36597d3a94ec74
+  name: opendatahub-operator-f974914abb7e6e5020984de553f87eab8d6111e20384f37e4b36597d3a94ec74-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
 - image: quay.io/opendatahub/spark-operator@sha256:c1cf879cc817b7d49f48dd9dafd3f2bc21a15aaa0e5189e9112ee99bb6d02c1f
