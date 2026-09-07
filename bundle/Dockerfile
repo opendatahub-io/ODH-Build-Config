@@ -58,6 +58,8 @@ ARG ODH_MODELEXPRESS_GIT_URL=
 ARG ODH_MODELEXPRESS_GIT_COMMIT=
 ARG ODH_AI_GATEWAY_CONTROLLER_GIT_URL=
 ARG ODH_AI_GATEWAY_CONTROLLER_GIT_COMMIT=
+ARG ODH_EVAL_HUB_INSPECTAI_GIT_URL=
+ARG ODH_EVAL_HUB_INSPECTAI_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -130,7 +132,9 @@ LABEL \
       odh-modelexpress.git.url="${ODH_MODELEXPRESS_GIT_URL}" \
       odh-modelexpress.git.commit="${ODH_MODELEXPRESS_GIT_COMMIT}" \
       odh-ai-gateway-controller.git.url="${ODH_AI_GATEWAY_CONTROLLER_GIT_URL}" \
-      odh-ai-gateway-controller.git.commit="${ODH_AI_GATEWAY_CONTROLLER_GIT_COMMIT}"
+      odh-ai-gateway-controller.git.commit="${ODH_AI_GATEWAY_CONTROLLER_GIT_COMMIT}" \
+      odh-eval-hub-inspectai.git.url="${ODH_EVAL_HUB_INSPECTAI_GIT_URL}" \
+      odh-eval-hub-inspectai.git.commit="${ODH_EVAL_HUB_INSPECTAI_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
