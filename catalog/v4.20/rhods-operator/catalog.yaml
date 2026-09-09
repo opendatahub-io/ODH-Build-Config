@@ -11,7 +11,7 @@ name: odh-stable
 package: rhods-operator
 schema: olm.channel
 ---
-image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8692e706365742a050dde428f86e8427e5bfa006af7c44cdc2619ca8079db767
+image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:0cfb040c05a13873cd51f4dcf866ac74af1f38bc3325d7a073132c83a119802d
 name: rhods-operator.3.6.0-ea.2
 package: rhods-operator
 properties:
@@ -283,8 +283,8 @@ properties:
       capabilities: Full Lifecycle
       categories: AI/Machine Learning, Big Data
       certified: "False"
-      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:2e7408c8007b54d12a36b99da2380c50fa9e2d3cd9e50b97808d52648c5165b9
-      createdAt: "2026-09-09T16:34:25Z"
+      containerImage: quay.io/opendatahub/opendatahub-operator@sha256:a646cd6329d3410bce920c4a4a471ecf1b17e67113f109e6cdfb740ad9facee7
+      createdAt: "2026-09-09T16:43:02Z"
       description: Operator for deployment and management of Red Hat OpenShift AI
       feast-cronjob-image: registry.redhat.io/openshift4/ose-cli@sha256:bc35a9fc663baf0d6493cc57e89e77a240a36c43cf38fb78d8e61d3b87cf5cc5
       features.operators.openshift.io/cnf: "false"
@@ -629,13 +629,13 @@ relatedImages:
   name: odh_llm_d_batch_gateway_operator_image
 - image: quay.io/opendatahub/odh-built-in-detector@sha256:8541cf4c8c2568c25810913e5c8613845dbd3473b3c253c1b117797575a5db81
   name: odh_built_in_detector_image
-- image: quay.io/opendatahub/odh-core-bff@sha256:e2f6a584cc4d38bb1e776a141488a545d270aa976add267b9f81d7d69f0dc907
+- image: quay.io/opendatahub/odh-core-bff@sha256:d0fdb9e2d896325a0b9011faf566852e32ac2b6ebe742a1517712f9c0847a3de
   name: odh_core_bff_image
 - image: quay.io/opendatahub/odh-dashboard-operator@sha256:e7a92e143f7bb5a18dd48bc8882494eb3c69c92ddcaabd1c9dad3cf5b3e5fc4e
   name: odh_dashboard_operator_image
 - image: quay.io/opendatahub/odh-dashboard@sha256:ed966bbca946043f164eae805d10bd66eb78b2abd0098915b3adfdded845bc63
   name: odh_dashboard_image
-- image: quay.io/opendatahub/odh-data-connect-hub-controller@sha256:5b6dc51b97e2c2ede2ee7fceea706da35a5469571544880033fc896171a727b5
+- image: quay.io/opendatahub/odh-data-connect-hub-controller@sha256:25f305b844e8e325a9bce2d1b914721ffba5cf34539a8695466dbff14719c0f0
   name: odh_data_connect_hub_controller_image
 - image: quay.io/opendatahub/odh-data-connect-hub-flight@sha256:a7345e4b8968af85e3429e2f20089135df992e695a716901e0fb73c7369bf471
   name: odh_data_connect_hub_flight_image
@@ -671,7 +671,7 @@ relatedImages:
   name: odh_latency_predictor_training_image
 - image: quay.io/opendatahub/odh-llm-d-async@sha256:7b132aac6e9f5ef043bb29f61d27087ee895040e93c96c2832e76935cd40272a
   name: odh_llm_d_async_image
-- image: quay.io/opendatahub/odh-llm-d-batch-gateway-apiserver@sha256:546a1d9d6be8adccaed5faab60c7cf74eda0a7e35c4e28dc496c879b6feb2fc2
+- image: quay.io/opendatahub/odh-llm-d-batch-gateway-apiserver@sha256:b1e9dea4f74159586d03ab5ecd240eee335cf5faee57a6e99100bf8bc87acf6b
   name: odh_llm_d_batch_gateway_apiserver_image
 - image: quay.io/opendatahub/odh-llm-d-batch-gateway-gc@sha256:0c51688a4ae8ff245943d1f6acdb09e606ff268de2c01dc129201018d3192681
   name: odh_llm_d_batch_gateway_gc_image
@@ -821,10 +821,10 @@ relatedImages:
   name: odh_workbenches_controller_image
 - image: quay.io/opendatahub/odh-workbenches-operator@sha256:5c7698e702c642ec260bc3e66dd7f739e94740f7de1f2123e9c6ad7760942e3e
   name: odh_workbenches_operator_image
-- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:8692e706365742a050dde428f86e8427e5bfa006af7c44cdc2619ca8079db767
+- image: quay.io/opendatahub/opendatahub-operator-bundle@sha256:0cfb040c05a13873cd51f4dcf866ac74af1f38bc3325d7a073132c83a119802d
   name: ""
-- image: quay.io/opendatahub/opendatahub-operator@sha256:2e7408c8007b54d12a36b99da2380c50fa9e2d3cd9e50b97808d52648c5165b9
-  name: opendatahub-operator-2e7408c8007b54d12a36b99da2380c50fa9e2d3cd9e50b97808d52648c5165b9-annotation
+- image: quay.io/opendatahub/opendatahub-operator@sha256:a646cd6329d3410bce920c4a4a471ecf1b17e67113f109e6cdfb740ad9facee7
+  name: opendatahub-operator-a646cd6329d3410bce920c4a4a471ecf1b17e67113f109e6cdfb740ad9facee7-annotation
 - image: quay.io/opendatahub/openvino_model_server@sha256:aea6779e5fa366a33e02cf5f8c1937cb4ad5feeb18dae12b0619b2e775168da2
   name: odh_openvino_model_server_image
 - image: quay.io/opendatahub/spark-operator@sha256:d00f5383aaf641bd6d58dd9e3347399b1490125e219d054360ebc378a9e2058d
