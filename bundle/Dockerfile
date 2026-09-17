@@ -66,6 +66,8 @@ ARG ODH_EVAL_HUB_LIGHTEVAL_GIT_URL=
 ARG ODH_EVAL_HUB_LIGHTEVAL_GIT_COMMIT=
 ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_URL=
 ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT=
+ARG ODH_OPENSHELL_SANDBOX_GIT_URL=
+ARG ODH_OPENSHELL_SANDBOX_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -146,7 +148,9 @@ LABEL \
       odh-eval-hub-lighteval.git.url="${ODH_EVAL_HUB_LIGHTEVAL_GIT_URL}" \
       odh-eval-hub-lighteval.git.commit="${ODH_EVAL_HUB_LIGHTEVAL_GIT_COMMIT}" \
       odh-praxis-ai-grid-operator.git.url="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_URL}" \
-      odh-praxis-ai-grid-operator.git.commit="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT}"
+      odh-praxis-ai-grid-operator.git.commit="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT}" \
+      odh-openshell-sandbox.git.url="${ODH_OPENSHELL_SANDBOX_GIT_URL}" \
+      odh-openshell-sandbox.git.commit="${ODH_OPENSHELL_SANDBOX_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
