@@ -62,6 +62,8 @@ ARG ODH_MOD_ARCH_DATA_CONNECT_HUB_GIT_URL=
 ARG ODH_MOD_ARCH_DATA_CONNECT_HUB_GIT_COMMIT=
 ARG ODH_LLM_D_COORDINATOR_GIT_URL=
 ARG ODH_LLM_D_COORDINATOR_GIT_COMMIT=
+ARG ODH_EVAL_HUB_LIGHTEVAL_GIT_URL=
+ARG ODH_EVAL_HUB_LIGHTEVAL_GIT_COMMIT=
 ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_URL=
 ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT=
 
@@ -141,6 +143,8 @@ LABEL \
       odh-mod-arch-data-connect-hub.git.commit="${ODH_MOD_ARCH_DATA_CONNECT_HUB_GIT_COMMIT}" \
       odh-llm-d-coordinator.git.url="${ODH_LLM_D_COORDINATOR_GIT_URL}" \
       odh-llm-d-coordinator.git.commit="${ODH_LLM_D_COORDINATOR_GIT_COMMIT}" \
+      odh-eval-hub-lighteval.git.url="${ODH_EVAL_HUB_LIGHTEVAL_GIT_URL}" \
+      odh-eval-hub-lighteval.git.commit="${ODH_EVAL_HUB_LIGHTEVAL_GIT_COMMIT}" \
       odh-praxis-ai-grid-operator.git.url="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_URL}" \
       odh-praxis-ai-grid-operator.git.commit="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT}"
 
