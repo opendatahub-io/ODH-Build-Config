@@ -70,6 +70,8 @@ ARG ODH_OPENSHELL_SANDBOX_GIT_URL=
 ARG ODH_OPENSHELL_SANDBOX_GIT_COMMIT=
 ARG ODH_PRAXIS_GRID_GATEWAY_GIT_URL=
 ARG ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT=
+ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL=
+ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -155,6 +157,8 @@ LABEL \
       odh-openshell-sandbox.git.commit="${ODH_OPENSHELL_SANDBOX_GIT_COMMIT}" \
       odh-praxis-grid-gateway.git.url="${ODH_PRAXIS_GRID_GATEWAY_GIT_URL}" \
       odh-praxis-grid-gateway.git.commit="${ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT}"
+      odh-praxis-grid-enrollment.git.url="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL}" \
+      odh-praxis-grid-enrollment.git.commit="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
