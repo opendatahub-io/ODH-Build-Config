@@ -68,6 +68,8 @@ ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_URL=
 ARG ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT=
 ARG ODH_OPENSHELL_SANDBOX_GIT_URL=
 ARG ODH_OPENSHELL_SANDBOX_GIT_COMMIT=
+ARG ODH_PRAXIS_GRID_GATEWAY_GIT_URL=
+ARG ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT=
 ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL=
 ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT=
 
@@ -153,6 +155,8 @@ LABEL \
       odh-praxis-ai-grid-operator.git.commit="${ODH_PRAXIS_AI_GRID_OPERATOR_GIT_COMMIT}" \
       odh-openshell-sandbox.git.url="${ODH_OPENSHELL_SANDBOX_GIT_URL}" \
       odh-openshell-sandbox.git.commit="${ODH_OPENSHELL_SANDBOX_GIT_COMMIT}" \
+      odh-praxis-grid-gateway.git.url="${ODH_PRAXIS_GRID_GATEWAY_GIT_URL}" \
+      odh-praxis-grid-gateway.git.commit="${ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT}"
       odh-praxis-grid-enrollment.git.url="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL}" \
       odh-praxis-grid-enrollment.git.commit="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT}"
 
