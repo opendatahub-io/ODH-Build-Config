@@ -72,6 +72,8 @@ ARG ODH_PRAXIS_GRID_GATEWAY_GIT_URL=
 ARG ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT=
 ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL=
 ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT=
+ARG ODH_MAAS_DISCOVERY_GIT_URL=
+ARG ODH_MAAS_DISCOVERY_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -158,7 +160,9 @@ LABEL \
       odh-praxis-grid-gateway.git.url="${ODH_PRAXIS_GRID_GATEWAY_GIT_URL}" \
       odh-praxis-grid-gateway.git.commit="${ODH_PRAXIS_GRID_GATEWAY_GIT_COMMIT}" \
       odh-praxis-grid-enrollment.git.url="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL}" \
-      odh-praxis-grid-enrollment.git.commit="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT}"
+      odh-praxis-grid-enrollment.git.commit="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT}" \
+      odh-maas-discovery.git.url="${ODH_MAAS_DISCOVERY_GIT_URL}" \
+      odh-maas-discovery.git.commit="${ODH_MAAS_DISCOVERY_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
