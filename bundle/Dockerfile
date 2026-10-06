@@ -84,6 +84,8 @@ ARG ODH_WORKBENCH_JUPYTER_UNIVERSAL_CPU_PY312_C9S_GIT_URL=
 ARG ODH_WORKBENCH_JUPYTER_UNIVERSAL_CPU_PY312_C9S_GIT_COMMIT=
 ARG ODH_DB_OPERATOR_GIT_URL=
 ARG ODH_DB_OPERATOR_GIT_COMMIT=
+ARG ODH_OPENSHELL_E2E_GIT_URL=
+ARG ODH_OPENSHELL_E2E_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -182,7 +184,9 @@ LABEL \
       odh-workbench-jupyter-universal-cpu-py312-c9s.git.url="${ODH_WORKBENCH_JUPYTER_UNIVERSAL_CPU_PY312_C9S_GIT_URL}" \
       odh-workbench-jupyter-universal-cpu-py312-c9s.git.commit="${ODH_WORKBENCH_JUPYTER_UNIVERSAL_CPU_PY312_C9S_GIT_COMMIT}" \
       odh-db-operator.git.url="${ODH_DB_OPERATOR_GIT_URL}" \
-      odh-db-operator.git.commit="${ODH_DB_OPERATOR_GIT_COMMIT}"
+      odh-db-operator.git.commit="${ODH_DB_OPERATOR_GIT_COMMIT}" \
+      odh-openshell-e2e.git.url="${ODH_OPENSHELL_E2E_GIT_URL}" \
+      odh-openshell-e2e.git.commit="${ODH_OPENSHELL_E2E_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
