@@ -28,7 +28,7 @@ jobs:
           private-key: ${{ secrets[format('{0}_DEVOPS_APP_PRIVATE_KEY', vars.ORG_PREFIX)] }}
 
       - name: Checkout source repo
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ env.GITHUB_ORG }}/opendatahub-operator
           path: source_repo
@@ -36,7 +36,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
 
       - name: Checkout target repo
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ env.GITHUB_ORG }}/ODH-Build-Config
           path: target_repo
