@@ -83,7 +83,7 @@ jobs:
           app_id: ${{ secrets.ODH_DEVOPS_APP_ID }}
           private_key: ${{ secrets.ODH_DEVOPS_APP_PRIVATE_KEY }}
 
-      - uses: Wandalen/wretry.action@v3.5.0
+      - uses: Wandalen/wretry.action@v3.8.0
         if: ${{ steps.merge-feasibility-check.outputs.FEASIBLE == 'Yes' }}
         with:
           action: red-hat-data-services/insta-merge@main
