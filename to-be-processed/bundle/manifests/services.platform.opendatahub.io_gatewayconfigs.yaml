@@ -50,52 +50,115 @@ spec:
             properties:
               additionalIngresses:
                 description: |-
-                  AdditionalIngresses defines additional listeners on the managed Gateway.
-                  Authentication and scaling fields are defined by the per-ingress auth contract.
+                  AdditionalIngresses defines additional Gateways managed by GatewayConfig.
+                  Component controllers manage the HTTPRoutes attached to these Gateways.
                 items:
-                  description: AdditionalIngress defines topology for an additional
-                    Gateway listener.
+                  description: AdditionalIngress defines an additional Gateway.
                   properties:
+                    auth:
+                      default: {}
+                      description: |-
+                        Auth configures this ingress's client credentials and auth proxy capacity.
+                        Authentication mode and provider settings are inherited from the default gateway.
+                      properties:
+                        maxReplicas:
+                          default: 10
+                          description: |-
+                            MaxReplicas is the maximum number of replicas for this ingress's auth proxy.
+                            The minimum remains fixed at 2. This does not configure the default proxy.
+                            A value of 2 requests two fixed replicas without an HPA; larger values enable autoscaling.
+                          format: int32
+                          maximum: 10
+                          minimum: 2
+                          type: integer
+                        oidc:
+                          description: |-
+                            OIDC supplies this ingress's distinct client identity in OIDC mode.
+                            Required in OIDC mode; omit in integrated OpenShift OAuth mode, where the
+                            operator generates a distinct OAuthClient. The issuer comes from spec.oidc.
+                          properties:
+                            clientID:
+                              description: ClientID is distinct from the default ingress
+                                and sibling ingress client IDs.
+                              minLength: 1
+                              type: string
+                            clientSecretRef:
+                              description: |-
+                                ClientSecretRef references an administrator-managed Secret containing the client secret.
+                                Each ingress must reference a distinct Secret, including from the default ingress.
+                                The operator must not own or delete this source Secret.
+                                Name and key must be nonempty; optional must be omitted or false.
+                              properties:
+                                key:
+                                  description: The key of the secret to select from.  Must
+                                    be a valid secret key.
+                                  type: string
+                                name:
+                                  default: ""
+                                  description: |-
+                                    Name of the referent.
+                                    This field is effectively required, but due to backwards compatibility is
+                                    allowed to be empty. Instances of this type with an empty value here are
+                                    almost certainly wrong.
+                                    More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                                  type: string
+                                optional:
+                                  description: Specify whether the Secret or its key
+                                    must be defined
+                                  type: boolean
+                              required:
+                              - key
+                              type: object
+                              x-kubernetes-map-type: atomic
+                              x-kubernetes-validations:
+                              - message: clientSecretRef.name must be non-empty
+                                rule: has(self.name) && size(self.name) > 0
+                              - message: clientSecretRef.key must be non-empty
+                                rule: size(self.key) > 0
+                              - message: clientSecretRef.optional must be false
+                                rule: '!has(self.optional) || !self.optional'
+                            secretNamespace:
+                              description: SecretNamespace is the source Secret's
+                                namespace; defaults to the gateway namespace.
+                              type: string
+                          required:
+                          - clientID
+                          - clientSecretRef
+                          type: object
+                      type: object
                     hostname:
                       description: Hostname is the externally visible hostname for
                         this ingress.
                       maxLength: 253
                       type: string
                     ingressControllerName:
-                      description: IngressControllerName identifies the OpenShift
-                        IngressController that admits the bridge Route.
+                      description: IngressControllerName is the IngressController
+                        whose Route admission is used for readiness.
                       maxLength: 63
                       pattern: ^[a-z]([-a-z0-9]*[a-z0-9])?$
                       type: string
-                    listenerPort:
-                      description: |-
-                        ListenerPort is the stable internal port used by this Gateway listener.
-                        It is immutable after the ingress is created.
-                      format: int32
-                      maximum: 65535
-                      minimum: 1
-                      type: integer
-                      x-kubernetes-validations:
-                      - message: ListenerPort is immutable
-                        rule: self == oldSelf
                     name:
-                      description: Name is the stable identity of this ingress and
-                        the Gateway listener name.
-                      maxLength: 63
-                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                      description: |-
+                        Name is the Gateway name and stable identity of this ingress.
+                        The 36-character limit keeps Istio's <Gateway>-<GatewayClass> Service name within 63 characters.
+                      maxLength: 36
+                      pattern: ^[a-z]([-a-z0-9]*[a-z0-9])?$
                       type: string
+                      x-kubernetes-validations:
+                      - message: name conflicts with a default Gateway
+                        rule: self != 'data-science-gateway' && self != 'rh-ai-gateway'
                     routeLabels:
                       additionalProperties:
                         type: string
                       description: |-
-                        RouteLabels are applied to the bridge Route and matched against the target
-                        IngressController route selector.
+                        RouteLabels are applied to the bridge Route and can match the target
+                        IngressController route selector. They do not prevent other matching
+                        IngressControllers from admitting the Route.
                       minProperties: 1
                       type: object
                   required:
                   - hostname
                   - ingressControllerName
-                  - listenerPort
                   - name
                   - routeLabels
                   type: object
@@ -103,6 +166,16 @@ spec:
                 x-kubernetes-list-map-keys:
                 - name
                 x-kubernetes-list-type: map
+              authProxyMaxReplicas:
+                default: 10
+                description: |-
+                  AuthProxyMaxReplicas is the maximum number of replicas for the default gateway's auth proxy.
+                  The HPA minimum is fixed at 2; setting the maximum to 2 fixes the replica count.
+                  Additional ingress proxies are configured independently through their auth.maxReplicas.
+                format: int32
+                maximum: 10
+                minimum: 2
+                type: integer
               authProxyTimeout:
                 description: |-
                   AuthProxyTimeout defines the timeout for external authorization service calls (e.g., "5s", "10s")
@@ -334,15 +407,16 @@ spec:
             description: GatewayConfigStatus defines the observed state of GatewayConfig
             properties:
               additionalIngresses:
-                description: AdditionalIngresses contains configured additional ingresses,
-                  including entries that are not ready.
+                description: |-
+                  AdditionalIngresses contains configured additional ingresses, including entries that are not ready.
+                  Their GatewayReady conditions feed the top-level AdditionalGatewaysReady condition.
                 items:
                   description: AdditionalIngressStatus reports readiness for one additional
                     ingress.
                   properties:
                     conditions:
-                      description: Conditions report independent listener, Route,
-                        authentication, and aggregate readiness.
+                      description: Conditions report Gateway, Route, authentication,
+                        and aggregate readiness.
                       items:
                         properties:
                           lastHeartbeatTime:
@@ -401,6 +475,21 @@ spec:
                       x-kubernetes-list-map-keys:
                       - type
                       x-kubernetes-list-type: map
+                    gatewayRef:
+                      description: |-
+                        GatewayRef identifies the operator-managed Gateway for component HTTPRoute parentRefs.
+                        The reference remains published while the ingress is configured, regardless of readiness.
+                      properties:
+                        name:
+                          description: Name is the Gateway name.
+                          type: string
+                        namespace:
+                          description: Namespace is the namespace containing the Gateway.
+                          type: string
+                      required:
+                      - name
+                      - namespace
+                      type: object
                     hostname:
                       description: Hostname is the configured externally visible hostname.
                       type: string

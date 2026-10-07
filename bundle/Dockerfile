@@ -74,6 +74,12 @@ ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL=
 ARG ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT=
 ARG ODH_MAAS_DISCOVERY_GIT_URL=
 ARG ODH_MAAS_DISCOVERY_GIT_COMMIT=
+ARG ODH_WORKBENCH_JUPYTER_BASELINE_CPU_PY312_C9S_GIT_URL=
+ARG ODH_WORKBENCH_JUPYTER_BASELINE_CPU_PY312_C9S_GIT_COMMIT=
+ARG ODH_WORKBENCH_CODESERVER_BASELINE_CPU_PY312_C9S_GIT_URL=
+ARG ODH_WORKBENCH_CODESERVER_BASELINE_CPU_PY312_C9S_GIT_COMMIT=
+ARG ODH_OPENSHELL_SANDBOX_OPENCLAW_GIT_URL=
+ARG ODH_OPENSHELL_SANDBOX_OPENCLAW_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -162,7 +168,13 @@ LABEL \
       odh-praxis-grid-enrollment.git.url="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_URL}" \
       odh-praxis-grid-enrollment.git.commit="${ODH_PRAXIS_GRID_ENROLLMENT_GIT_COMMIT}" \
       odh-maas-discovery.git.url="${ODH_MAAS_DISCOVERY_GIT_URL}" \
-      odh-maas-discovery.git.commit="${ODH_MAAS_DISCOVERY_GIT_COMMIT}"
+      odh-maas-discovery.git.commit="${ODH_MAAS_DISCOVERY_GIT_COMMIT}" \
+      odh-workbench-jupyter-baseline-cpu-py312-c9s.git.url="${ODH_WORKBENCH_JUPYTER_BASELINE_CPU_PY312_C9S_GIT_URL}" \
+      odh-workbench-jupyter-baseline-cpu-py312-c9s.git.commit="${ODH_WORKBENCH_JUPYTER_BASELINE_CPU_PY312_C9S_GIT_COMMIT}" \
+      odh-workbench-codeserver-baseline-cpu-py312-c9s.git.url="${ODH_WORKBENCH_CODESERVER_BASELINE_CPU_PY312_C9S_GIT_URL}" \
+      odh-workbench-codeserver-baseline-cpu-py312-c9s.git.commit="${ODH_WORKBENCH_CODESERVER_BASELINE_CPU_PY312_C9S_GIT_COMMIT}" \
+      odh-openshell-sandbox-openclaw.git.url="${ODH_OPENSHELL_SANDBOX_OPENCLAW_GIT_URL}" \
+      odh-openshell-sandbox-openclaw.git.commit="${ODH_OPENSHELL_SANDBOX_OPENCLAW_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
