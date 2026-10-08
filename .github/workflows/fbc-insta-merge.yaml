@@ -78,7 +78,7 @@ jobs:
 
       - name: Generate github-app token
         id: app-token
-        uses: getsentry/action-github-app-token@v2
+        uses: getsentry/action-github-app-token@v4.0.0
         with:
           app_id: ${{ secrets.ODH_DEVOPS_APP_ID }}
           private_key: ${{ secrets.ODH_DEVOPS_APP_PRIVATE_KEY }}
