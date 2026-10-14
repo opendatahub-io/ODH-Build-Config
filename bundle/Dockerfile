@@ -88,6 +88,8 @@ ARG ODH_OPENSHELL_E2E_GIT_URL=
 ARG ODH_OPENSHELL_E2E_GIT_COMMIT=
 ARG ODH_OPENSHELL_DASHBOARD_GIT_URL=
 ARG ODH_OPENSHELL_DASHBOARD_GIT_COMMIT=
+ARG ODH_LLM_D_KV_PVC_EVICTOR_GIT_URL=
+ARG ODH_LLM_D_KV_PVC_EVICTOR_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -190,7 +192,9 @@ LABEL \
       odh-openshell-e2e.git.url="${ODH_OPENSHELL_E2E_GIT_URL}" \
       odh-openshell-e2e.git.commit="${ODH_OPENSHELL_E2E_GIT_COMMIT}" \
       odh-openshell-dashboard.git.url="${ODH_OPENSHELL_DASHBOARD_GIT_URL}" \
-      odh-openshell-dashboard.git.commit="${ODH_OPENSHELL_DASHBOARD_GIT_COMMIT}"
+      odh-openshell-dashboard.git.commit="${ODH_OPENSHELL_DASHBOARD_GIT_COMMIT}" \
+      odh-llm-d-kv-pvc-evictor.git.url="${ODH_LLM_D_KV_PVC_EVICTOR_GIT_URL}" \
+      odh-llm-d-kv-pvc-evictor.git.commit="${ODH_LLM_D_KV_PVC_EVICTOR_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
