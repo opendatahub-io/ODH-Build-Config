@@ -44,13 +44,13 @@ metadata:
                   "managementState": "Managed"
                 }
               },
+              "databaseservice": {
+                "managementState": "Removed"
+              },
               "kserve": {
                 "managementState": "Managed",
                 "nim": {
                   "managementState": "Managed"
-                },
-                "wva": {
-                  "managementState": "Removed"
                 }
               },
               "kueue": {
@@ -113,7 +113,7 @@ metadata:
     categories: AI/Machine Learning, Big Data
     certified: "False"
     containerImage: REPLACE_IMAGE:v0.0.0-placeholder
-    createdAt: "2026-10-07T16:05:36Z"
+    createdAt: "2026-10-14T12:06:09Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -162,9 +162,6 @@ metadata:
               "managementState": "Managed",
               "nim": {
                 "managementState": "Managed"
-              },
-              "wva": {
-                "managementState": "Removed"
               }
             },
             "kueue": {
@@ -205,6 +202,9 @@ metadata:
             },
             "mcplifecycleoperator": {
               "managementState": "Managed"
+            },
+            "databaseservice": {
+              "managementState": "Removed"
             }
           }
         }
@@ -1275,6 +1275,7 @@ spec:
           - services.platform.opendatahub.io
           resources:
           - auths
+          - databaseservices
           - gatewayconfigs
           - monitorings
           verbs:
@@ -1289,6 +1290,7 @@ spec:
           - services.platform.opendatahub.io
           resources:
           - auths/finalizers
+          - databaseservices/finalizers
           - gatewayconfigs/finalizers
           - monitorings/finalizers
           verbs:
@@ -1297,6 +1299,7 @@ spec:
           - services.platform.opendatahub.io
           resources:
           - auths/status
+          - databaseservices/status
           - gatewayconfigs/status
           - monitorings/status
           verbs:
@@ -1553,6 +1556,7 @@ spec:
   - ogx
   - mlflow
   - sparkoperator
+  - databaseservice
   links:
   - name: Red Hat OpenShift AI
     url: https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/3.0
@@ -1567,6 +1571,7 @@ spec:
   webhookdefinitions:
   - admissionReviewVersions:
     - v1
+    - v2
     containerPort: 443
     conversionCRDs:
     - datascienceclusters.datasciencecluster.opendatahub.io
@@ -1746,6 +1751,27 @@ spec:
     targetPort: 9443
     type: ValidatingAdmissionWebhook
     webhookPath: /validate-dscinitialization-v2
+  - admissionReviewVersions:
+    - v1
+    containerPort: 443
+    deploymentName: rhods-operator
+    failurePolicy: Fail
+    generateName: gatewayconfig-validator.opendatahub.io
+    matchPolicy: Exact
+    rules:
+    - apiGroups:
+      - services.platform.opendatahub.io
+      apiVersions:
+      - v1alpha1
+      operations:
+      - CREATE
+      - UPDATE
+      resources:
+      - gatewayconfigs
+    sideEffects: None
+    targetPort: 9443
+    type: ValidatingAdmissionWebhook
+    webhookPath: /validate-gatewayconfig
   - admissionReviewVersions:
     - v1
     containerPort: 443

@@ -114,6 +114,24 @@ spec:
                           pattern: ^(Managed|Unmanaged|Force|Removed)$
                           type: string
                       type: object
+                    databaseservice:
+                      description: DatabaseService controls the shared database module operator lifecycle.
+                      properties:
+                        managementState:
+                          description: |-
+                            Set to one of the following values:
+
+                            - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                          It will only upgrade the component if it is safe to do so
+
+                            - "Removed" : the operator is actively managing the component and will not install it,
+                                          or if it is installed, the operator will try to remove it
+                          enum:
+                            - Managed
+                            - Removed
+                          pattern: ^(Managed|Unmanaged|Force|Removed)$
+                          type: string
+                      type: object
                     feastoperator:
                       description: FeastOperator controls the Feast module operator lifecycle.
                       properties:
@@ -449,8 +467,8 @@ spec:
                     the same Managed/Removed/empty convention as DSC components: Managed
                     deploys the module, Removed tears it down, empty means not managed.
                   properties:
-                    aiHub:
-                      description: AIHub controls the AI Hub module operator lifecycle.
+                    aigateway:
+                      description: AIGateway controls the ai-gateway-operator module lifecycle.
                       properties:
                         managementState:
                           description: |-
@@ -467,8 +485,8 @@ spec:
                           pattern: ^(Managed|Unmanaged|Force|Removed)$
                           type: string
                       type: object
-                    aigateway:
-                      description: AIGateway controls the ai-gateway-operator module lifecycle.
+                    aihub:
+                      description: AIHub controls the AI Hub module operator lifecycle.
                       properties:
                         managementState:
                           description: |-
@@ -523,6 +541,24 @@ spec:
                       type: object
                     data:
                       description: Data controls the Data module operator lifecycle.
+                      properties:
+                        managementState:
+                          description: |-
+                            Set to one of the following values:
+
+                            - "Managed" : the operator is actively managing the component and trying to keep it active.
+                                          It will only upgrade the component if it is safe to do so
+
+                            - "Removed" : the operator is actively managing the component and will not install it,
+                                          or if it is installed, the operator will try to remove it
+                          enum:
+                            - Managed
+                            - Removed
+                          pattern: ^(Managed|Unmanaged|Force|Removed)$
+                          type: string
+                      type: object
+                    databaseservice:
+                      description: DatabaseService controls the shared database module operator lifecycle.
                       properties:
                         managementState:
                           description: |-
