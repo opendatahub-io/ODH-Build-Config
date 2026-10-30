@@ -116,7 +116,7 @@ metadata:
     categories: AI/Machine Learning, Big Data
     certified: "False"
     containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:990cf2e72b3815de47157e861af9a5022075214252077621501fc4b4a7d52561"
-    createdAt: "2026-10-30T19:59:49Z"
+    createdAt: "2026-10-30T20:03:17Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -479,6 +479,30 @@ spec:
           - patch
           - update
           - watch
+        - apiGroups:
+          - apiextensions.k8s.io
+          resourceNames:
+          - datascienceclusters.datasciencecluster.opendatahub.io
+          resources:
+          - customresourcedefinitions/status
+          verbs:
+          - patch
+        - apiGroups:
+          - apiextensions.k8s.io
+          resourceNames:
+          - dscinitializations.dscinitialization.opendatahub.io
+          resources:
+          - customresourcedefinitions/status
+          verbs:
+          - patch
+        - apiGroups:
+          - apiextensions.k8s.io
+          resourceNames:
+          - platforms.config.opendatahub.io
+          resources:
+          - customresourcedefinitions/status
+          verbs:
+          - patch
         - apiGroups:
           - apiregistration.k8s.io
           resources:
@@ -977,6 +1001,15 @@ spec:
           - get
           - list
           - watch
+        - apiGroups:
+          - migration.k8s.io
+          - storagemigration.k8s.io
+          resources:
+          - storageversionmigrations
+          verbs:
+          - create
+          - delete
+          - get
         - apiGroups:
           - monitoring.coreos.com
           resources:
