@@ -115,8 +115,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:80efc3c41388744aa199f031276fdc17ae179fb8db2574a284991ff4517f716d"
-    createdAt: "2026-10-30T02:20:16Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:d21478432c524d30436d842181a364df8b90489ddb5baecc4e684b772295d6c3"
+    createdAt: "2026-10-30T02:33:26Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1523,7 +1523,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_PIPELINE_RUNTIME_TENSORFLOW_ROCM_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-pipeline-runtime-tensorflow-rocm-py312-ubi9@sha256:9c4a07d96e29808f2ce0f81364278ec8925f9affa3e0c334cb90025abe541a14"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_CODESERVER_DATASCIENCE_CPU_PY312_IMAGE
-                  value: "quay.io/opendatahub/odh-workbench-codeserver-datascience-cpu-py312-ubi9@sha256:b477db79794d8048a7057df4a5ee4b1df59bf638e81b28d993e704c696ac846d"
+                  value: "quay.io/opendatahub/odh-workbench-codeserver-datascience-cpu-py312-ubi9@sha256:552353f1b0bdde8fdc6500a03babc11b48dbd9e239ae2a443f747567d7285f4f"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_DATASCIENCE_CPU_PY312_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-jupyter-datascience-cpu-py312-ubi9@sha256:50bb484fb87dd0c73fc20011a347885625b5a598adbe998081b33a00f7f83e61"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_MINIMAL_CPU_PY312_IMAGE
@@ -1846,7 +1846,7 @@ spec:
                   value: registry.redhat.io/rhaii-fast/model-opt-cuda-rhel9@sha256:ea56805029a7e2c2d8fea46fbdc05c8a2dddf0f1d7afb4c49fb5c739a3a7be46
                 - name: RELATED_IMAGE_OSC_STORAGE_HELPER_IMAGE
                   value: registry.redhat.io/openshift-sandboxed-containers/osc-storage-helper@sha256:c65fb8f12888705d4989d6b8f0e4e3f144224b43f72b609d5f496e77b3b73917
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:80efc3c41388744aa199f031276fdc17ae179fb8db2574a284991ff4517f716d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:d21478432c524d30436d842181a364df8b90489ddb5baecc4e684b772295d6c3"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1898,7 +1898,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:80efc3c41388744aa199f031276fdc17ae179fb8db2574a284991ff4517f716d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:d21478432c524d30436d842181a364df8b90489ddb5baecc4e684b772295d6c3"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2235,8 +2235,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-80efc3c41388744aa199f031276fdc17ae179fb8db2574a284991ff4517f716d-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:80efc3c41388744aa199f031276fdc17ae179fb8db2574a284991ff4517f716d"
+  - name: opendatahub-operator-d21478432c524d30436d842181a364df8b90489ddb5baecc4e684b772295d6c3-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:d21478432c524d30436d842181a364df8b90489ddb5baecc4e684b772295d6c3"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:6b4695354fd0a2ebbb94a51abd23241fe1e8b7a736e193ffd3ff206a4bef6a74"
   - name: odh_dashboard_image
@@ -2310,7 +2310,7 @@ spec:
   - name: odh_pipeline_runtime_tensorflow_rocm_py312_image
     image: "quay.io/opendatahub/odh-pipeline-runtime-tensorflow-rocm-py312-ubi9@sha256:9c4a07d96e29808f2ce0f81364278ec8925f9affa3e0c334cb90025abe541a14"
   - name: odh_workbench_codeserver_datascience_cpu_py312_image
-    image: "quay.io/opendatahub/odh-workbench-codeserver-datascience-cpu-py312-ubi9@sha256:b477db79794d8048a7057df4a5ee4b1df59bf638e81b28d993e704c696ac846d"
+    image: "quay.io/opendatahub/odh-workbench-codeserver-datascience-cpu-py312-ubi9@sha256:552353f1b0bdde8fdc6500a03babc11b48dbd9e239ae2a443f747567d7285f4f"
   - name: odh_workbench_jupyter_datascience_cpu_py312_image
     image: "quay.io/opendatahub/odh-workbench-jupyter-datascience-cpu-py312-ubi9@sha256:50bb484fb87dd0c73fc20011a347885625b5a598adbe998081b33a00f7f83e61"
   - name: odh_workbench_jupyter_minimal_cpu_py312_image
