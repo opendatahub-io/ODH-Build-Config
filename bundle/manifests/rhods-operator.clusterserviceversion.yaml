@@ -115,8 +115,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:8eba1bae92c357045519e2ff1e9f4be27a61e24e2f15e4f4740be5ac82ca5c8f"
-    createdAt: "2026-11-02T16:10:31Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:f98c3068dd30d64bf649da79e1908b5fe2565d256692d3ce18af2a5175361d55"
+    createdAt: "2026-11-02T16:34:59Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1774,7 +1774,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_PRAXIS_AI_GRID_OPERATOR_IMAGE
                   value: "quay.io/opendatahub/odh-praxis-ai-grid-operator@sha256:a4404e73ca97351d1a92fdd4c30a9f869c6adaed924ed96c732aa0161de18909"
                 - name: RELATED_IMAGE_ODH_OPENSHELL_SANDBOX_IMAGE
-                  value: "quay.io/opendatahub/odh-openshell-sandbox@sha256:ba3becb09e0fdec87f1851bbd60627bf9b2a61df6e0842db9e0c64a3beb1b0f4"
+                  value: "quay.io/opendatahub/odh-openshell-sandbox@sha256:ba1ea8d8f570dcea4633d04cdeda36dea2fdfaa867b846b42e52752baf7c6692"
                 - name: RELATED_IMAGE_ODH_PRAXIS_GRID_GATEWAY_IMAGE
                   value: "quay.io/opendatahub/odh-praxis-grid-gateway@sha256:bf20483a7ff8a12f60f49ef1d2c7954952e833805335c67a893a01a74e9fb64b"
                 - name: RELATED_IMAGE_ODH_PRAXIS_GRID_ENROLLMENT_IMAGE
@@ -1786,7 +1786,7 @@ spec:
                 - name: RELATED_IMAGE_ODH_WORKBENCH_CODESERVER_BASELINE_CPU_PY312_C9S_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-codeserver-baseline-cpu-py312-c9s@sha256:f054c967e40e56a64061f30c078b3c2c296555112fd9960c2d9ecf9d65924944"
                 - name: RELATED_IMAGE_ODH_OPENSHELL_SANDBOX_OPENCLAW_IMAGE
-                  value: "quay.io/opendatahub/odh-openshell-sandbox-openclaw@sha256:4685c4046b178b875c73bc9f5a4c9d92d139901624cf34081942d4752038130b"
+                  value: "quay.io/opendatahub/odh-openshell-sandbox-openclaw@sha256:646ab2c3da3bff88ec900e22ad70778580783617b782d2c21dbd16884494a042"
                 - name: RELATED_IMAGE_ODH_WORKBENCH_JUPYTER_UNIVERSAL_CPU_PY312_C9S_IMAGE
                   value: "quay.io/opendatahub/odh-workbench-jupyter-universal-cpu-py312-c9s@sha256:1eac81255461246a5fb5e798dbf73e25afbe300ce3c59f9adfb622e4e00d0c76"
                 - name: RELATED_IMAGE_ODH_DB_OPERATOR_IMAGE
@@ -1879,7 +1879,7 @@ spec:
                   value: registry.redhat.io/rhaii-fast/model-opt-cuda-rhel9@sha256:ea56805029a7e2c2d8fea46fbdc05c8a2dddf0f1d7afb4c49fb5c739a3a7be46
                 - name: RELATED_IMAGE_OSC_STORAGE_HELPER_IMAGE
                   value: registry.redhat.io/openshift-sandboxed-containers/osc-storage-helper@sha256:c65fb8f12888705d4989d6b8f0e4e3f144224b43f72b609d5f496e77b3b73917
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:8eba1bae92c357045519e2ff1e9f4be27a61e24e2f15e4f4740be5ac82ca5c8f"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:f98c3068dd30d64bf649da79e1908b5fe2565d256692d3ce18af2a5175361d55"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1931,7 +1931,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:8eba1bae92c357045519e2ff1e9f4be27a61e24e2f15e4f4740be5ac82ca5c8f"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:f98c3068dd30d64bf649da79e1908b5fe2565d256692d3ce18af2a5175361d55"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2268,8 +2268,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-8eba1bae92c357045519e2ff1e9f4be27a61e24e2f15e4f4740be5ac82ca5c8f-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:8eba1bae92c357045519e2ff1e9f4be27a61e24e2f15e4f4740be5ac82ca5c8f"
+  - name: opendatahub-operator-f98c3068dd30d64bf649da79e1908b5fe2565d256692d3ce18af2a5175361d55-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:f98c3068dd30d64bf649da79e1908b5fe2565d256692d3ce18af2a5175361d55"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:6b4695354fd0a2ebbb94a51abd23241fe1e8b7a736e193ffd3ff206a4bef6a74"
   - name: odh_dashboard_image
@@ -2561,7 +2561,7 @@ spec:
   - name: odh_praxis_ai_grid_operator_image
     image: "quay.io/opendatahub/odh-praxis-ai-grid-operator@sha256:a4404e73ca97351d1a92fdd4c30a9f869c6adaed924ed96c732aa0161de18909"
   - name: odh_openshell_sandbox_image
-    image: "quay.io/opendatahub/odh-openshell-sandbox@sha256:ba3becb09e0fdec87f1851bbd60627bf9b2a61df6e0842db9e0c64a3beb1b0f4"
+    image: "quay.io/opendatahub/odh-openshell-sandbox@sha256:ba1ea8d8f570dcea4633d04cdeda36dea2fdfaa867b846b42e52752baf7c6692"
   - name: odh_praxis_grid_gateway_image
     image: "quay.io/opendatahub/odh-praxis-grid-gateway@sha256:bf20483a7ff8a12f60f49ef1d2c7954952e833805335c67a893a01a74e9fb64b"
   - name: odh_praxis_grid_enrollment_image
@@ -2573,7 +2573,7 @@ spec:
   - name: odh_workbench_codeserver_baseline_cpu_py312_c9s_image
     image: "quay.io/opendatahub/odh-workbench-codeserver-baseline-cpu-py312-c9s@sha256:f054c967e40e56a64061f30c078b3c2c296555112fd9960c2d9ecf9d65924944"
   - name: odh_openshell_sandbox_openclaw_image
-    image: "quay.io/opendatahub/odh-openshell-sandbox-openclaw@sha256:4685c4046b178b875c73bc9f5a4c9d92d139901624cf34081942d4752038130b"
+    image: "quay.io/opendatahub/odh-openshell-sandbox-openclaw@sha256:646ab2c3da3bff88ec900e22ad70778580783617b782d2c21dbd16884494a042"
   - name: odh_workbench_jupyter_universal_cpu_py312_c9s_image
     image: "quay.io/opendatahub/odh-workbench-jupyter-universal-cpu-py312-c9s@sha256:1eac81255461246a5fb5e798dbf73e25afbe300ce3c59f9adfb622e4e00d0c76"
   - name: odh_db_operator_image
