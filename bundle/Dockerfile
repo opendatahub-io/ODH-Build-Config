@@ -10,8 +10,6 @@ ARG ODH_MCP_LIFECYCLE_MODULE_OPERATOR_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_MODULE_OPERATOR_GIT_COMMIT=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_OPERATOR_GIT_COMMIT=
-ARG ODH_TRAINER_OPERATOR_GIT_URL=
-ARG ODH_TRAINER_OPERATOR_GIT_COMMIT=
 ARG ODH_RHOAI_MCP_GIT_URL=
 ARG ODH_RHOAI_MCP_GIT_COMMIT=
 ARG ODH_CORE_BFF_GIT_URL=
@@ -121,8 +119,6 @@ LABEL \
       odh-mcp-lifecycle-module-operator.git.commit="${ODH_MCP_LIFECYCLE_MODULE_OPERATOR_GIT_COMMIT}" \
       odh-mcp-lifecycle-operator.git.url="${ODH_MCP_LIFECYCLE_OPERATOR_GIT_URL}" \
       odh-mcp-lifecycle-operator.git.commit="${ODH_MCP_LIFECYCLE_OPERATOR_GIT_COMMIT}" \
-      odh-trainer-operator.git.url="${ODH_TRAINER_OPERATOR_GIT_URL}" \
-      odh-trainer-operator.git.commit="${ODH_TRAINER_OPERATOR_GIT_COMMIT}" \
       odh-rhoai-mcp.git.url="${ODH_RHOAI_MCP_GIT_URL}" \
       odh-rhoai-mcp.git.commit="${ODH_RHOAI_MCP_GIT_COMMIT}" \
       odh-core-bff.git.url="${ODH_CORE_BFF_GIT_URL}" \
