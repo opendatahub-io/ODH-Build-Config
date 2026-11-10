@@ -115,8 +115,8 @@ metadata:
     capabilities: Full Lifecycle
     categories: AI/Machine Learning, Big Data
     certified: "False"
-    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:d4242b2701fbfc435baec861ae44362f63a78e3ecad341c1a06a25501bf9518d"
-    createdAt: "2026-11-10T12:59:47Z"
+    containerImage: "quay.io/opendatahub/opendatahub-operator@sha256:a58b8ace4ef566783dc435f64a1ceca9cae7524509d92c94139239d71c483358"
+    createdAt: "2026-11-10T13:03:47Z"
     description: Operator for deployment and management of Red Hat OpenShift AI
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
@@ -1890,7 +1890,7 @@ spec:
                   value: registry.redhat.io/rhaii-fast/model-opt-cuda-rhel9@sha256:ea56805029a7e2c2d8fea46fbdc05c8a2dddf0f1d7afb4c49fb5c739a3a7be46
                 - name: RELATED_IMAGE_OSC_STORAGE_HELPER_IMAGE
                   value: registry.redhat.io/openshift-sandboxed-containers/osc-storage-helper@sha256:c65fb8f12888705d4989d6b8f0e4e3f144224b43f72b609d5f496e77b3b73917
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:d4242b2701fbfc435baec861ae44362f63a78e3ecad341c1a06a25501bf9518d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:a58b8ace4ef566783dc435f64a1ceca9cae7524509d92c94139239d71c483358"
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1942,7 +1942,7 @@ spec:
                 - -r
                 - /opt/manifests-template/.
                 - /opt/manifests/
-                image: "quay.io/opendatahub/opendatahub-operator@sha256:d4242b2701fbfc435baec861ae44362f63a78e3ecad341c1a06a25501bf9518d"
+                image: "quay.io/opendatahub/opendatahub-operator@sha256:a58b8ace4ef566783dc435f64a1ceca9cae7524509d92c94139239d71c483358"
                 imagePullPolicy: Always
                 name: copy-manifests
                 resources:
@@ -2279,8 +2279,8 @@ spec:
     type: MutatingAdmissionWebhook
     webhookPath: /mutate-prometheus-monitors
   relatedImages:
-  - name: opendatahub-operator-d4242b2701fbfc435baec861ae44362f63a78e3ecad341c1a06a25501bf9518d-annotation
-    image: "quay.io/opendatahub/opendatahub-operator@sha256:d4242b2701fbfc435baec861ae44362f63a78e3ecad341c1a06a25501bf9518d"
+  - name: opendatahub-operator-a58b8ace4ef566783dc435f64a1ceca9cae7524509d92c94139239d71c483358-annotation
+    image: "quay.io/opendatahub/opendatahub-operator@sha256:a58b8ace4ef566783dc435f64a1ceca9cae7524509d92c94139239d71c483358"
   - name: odh_kf_notebook_controller_image
     image: "quay.io/opendatahub/kubeflow-notebook-controller@sha256:e65a6d34faf1d1ac182247719820fb575fd1bbd2552cb75f8343795ea8d393f4"
   - name: odh_dashboard_image
