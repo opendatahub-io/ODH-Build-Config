@@ -96,6 +96,8 @@ ARG ODH_MCP_LIFECYCLE_MODULE_OPERATOR_E2E_GIT_URL=
 ARG ODH_MCP_LIFECYCLE_MODULE_OPERATOR_E2E_GIT_COMMIT=
 ARG ODH_OBSERVABILITY_E2E_GIT_URL=
 ARG ODH_OBSERVABILITY_E2E_GIT_COMMIT=
+ARG ODH_TRAINER_OPERATOR_GIT_URL=
+ARG ODH_TRAINER_OPERATOR_GIT_COMMIT=
 
 # Core bundle labels.
 LABEL operators.operatorframework.io.bundle.mediatype.v1=registry+v1
@@ -206,7 +208,9 @@ LABEL \
       odh-mcp-lifecycle-module-operator-e2e.git.url="${ODH_MCP_LIFECYCLE_MODULE_OPERATOR_E2E_GIT_URL}" \
       odh-mcp-lifecycle-module-operator-e2e.git.commit="${ODH_MCP_LIFECYCLE_MODULE_OPERATOR_E2E_GIT_COMMIT}" \
       odh-observability-e2e.git.url="${ODH_OBSERVABILITY_E2E_GIT_URL}" \
-      odh-observability-e2e.git.commit="${ODH_OBSERVABILITY_E2E_GIT_COMMIT}"
+      odh-observability-e2e.git.commit="${ODH_OBSERVABILITY_E2E_GIT_COMMIT}" \
+      odh-trainer-operator.git.url="${ODH_TRAINER_OPERATOR_GIT_URL}" \
+      odh-trainer-operator.git.commit="${ODH_TRAINER_OPERATOR_GIT_COMMIT}"
 
 LABEL com.redhat.component="odh-operator-bundle" \
       description="odh-operator-bundle" \
